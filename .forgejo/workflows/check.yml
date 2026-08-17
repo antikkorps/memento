@@ -1,0 +1,17 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    # Depend des labels declares par le runner Forgejo (config.yml, runner.labels).
+    # Si le job ne demarre jamais, c'est presque toujours ce champ.
+    runs-on: docker
+    container:
+      image: node:22-alpine
+    steps:
+      - uses: actions/checkout@v4
+      # Aucune dependance : pas de npm ci, pas de cache a gerer.
+      - run: npm run check
