@@ -1,0 +1,14 @@
+{
+  "name": "memento",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Base de connaissance personnelle : fiches markdown indexées",
+  "scripts": {
+    "index": "node scripts/index.js",
+    "check": "node scripts/index.js --check"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
