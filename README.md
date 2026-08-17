@@ -13,6 +13,12 @@ Régénérer l'index après avoir ajouté ou modifié une fiche :
 npm run index
 ```
 
+Chercher les fiches portant un tag (`--tag` seul liste le vocabulaire) :
+
+```sh
+node scripts/index.js --tag reseau
+```
+
 Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la main.
 
 <!-- INDEX:START -->

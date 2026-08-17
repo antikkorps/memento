@@ -1,0 +1,101 @@
+#!/bin/sh
+# Raccourci pour les operations courantes du memento.
+# Fonctionne depuis n'importe quel repertoire : la racine est deduite du
+# chemin du script, pas du repertoire courant.
+set -eu
+
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+INDEX="$ROOT/scripts/index.js"
+
+usage() {
+	cat <<'EOF'
+usage : m <commande> [arguments]
+
+  m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
+  m new <domaine> <nom>  cree une fiche depuis le modele, dates pre-remplies
+  m inbox <nom>          cree une note brute dans inbox/, sans frontmatter
+  m check                verifie la conformite (identique a la CI)
+  m index                regenere le README
+EOF
+}
+
+is_kebab() {
+	printf '%s' "$1" | grep -qE '^[a-z0-9]+(-[a-z0-9]+)*$'
+}
+
+# Ouvre dans $EDITOR s'il est defini, sinon se contente d'afficher le chemin.
+open_or_print() {
+	printf '%s\n' "$1"
+	if [ -n "${EDITOR:-}" ]; then
+		"$EDITOR" "$1"
+	fi
+}
+
+cmd=${1:-}
+if [ $# -gt 0 ]; then
+	shift
+fi
+
+case "$cmd" in
+tag)
+	exec node "$INDEX" --tag "$@"
+	;;
+check)
+	exec node "$INDEX" --check
+	;;
+index)
+	exec node "$INDEX"
+	;;
+new)
+	if [ $# -ne 2 ]; then
+		echo "usage : m new <domaine> <nom>" >&2
+		exit 2
+	fi
+	domaine=$1
+	nom=$2
+	is_kebab "$domaine" || {
+		echo "domaine \"$domaine\" hors convention : kebab-case, minuscules, sans accent" >&2
+		exit 1
+	}
+	is_kebab "$nom" || {
+		echo "nom \"$nom\" hors convention : kebab-case, minuscules, sans accent" >&2
+		exit 1
+	}
+	cible="$ROOT/fiches/$domaine/$nom.md"
+	if [ -e "$cible" ]; then
+		echo "$cible existe deja" >&2
+		exit 1
+	fi
+	today=$(date +%F)
+	mkdir -p "$ROOT/fiches/$domaine"
+	sed -e "s/^created:.*/created: $today/" -e "s/^updated:.*/updated: $today/" \
+		"$ROOT/templates/fiche.md" >"$cible"
+	open_or_print "$cible"
+	;;
+inbox)
+	if [ $# -ne 1 ]; then
+		echo "usage : m inbox <nom>" >&2
+		exit 2
+	fi
+	is_kebab "$1" || {
+		echo "nom \"$1\" hors convention : kebab-case, minuscules, sans accent" >&2
+		exit 1
+	}
+	cible="$ROOT/inbox/$1.md"
+	if [ -e "$cible" ]; then
+		echo "$cible existe deja" >&2
+		exit 1
+	fi
+	mkdir -p "$ROOT/inbox"
+	: >"$cible"
+	open_or_print "$cible"
+	;;
+'' | -h | --help | help)
+	usage
+	;;
+*)
+	echo "commande inconnue : $cmd" >&2
+	usage >&2
+	exit 2
+	;;
+esac

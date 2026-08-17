@@ -191,9 +191,35 @@ Trier une fiche = lui écrire un frontmatter valide, la déplacer dans
 ## Indexeur
 
 ```sh
-npm run index     # régénère README.md
-npm run check     # ne réécrit rien, sort en 1 si non conforme (utilisé par la CI)
+npm run index                        # régénère README.md
+npm run check                        # ne réécrit rien, sort en 1 si non conforme (CI)
+node scripts/index.js --tag reseau   # fiches portant ce tag
+node scripts/index.js --tag          # vocabulaire avec le nombre de fiches par tag
 ```
+
+### Recherche par tag
+
+`--tag` passe par le parseur de frontmatter, pas par une expression régulière.
+C'est ce qui le distingue d'un `git grep` :
+
+- la forme bloc (`tags:` puis `- reseau` en dessous) est trouvée ;
+- `reseau` ne matche pas un futur `reseau-local` ;
+- le mot présent dans le corps du texte n'est pas un faux positif ;
+- les fiches non conformes, absentes du résultat, sont signalées sur `stderr`
+  plutôt que silencieusement oubliées.
+
+Sortie : `chemin  titre`, un par ligne. Les chemins étant en kebab-case, ils ne
+contiennent jamais d'espace — `| awk '{print $1}'` est donc sûr :
+
+```sh
+node scripts/index.js --tag reseau | awk '{print $1}' | xargs $EDITOR
+```
+
+Codes de sortie façon `grep` : `0` si au moins une fiche correspond, `1` si
+aucune ou si le tag est absent de `TAGS.md` (avec suggestion des tags proches).
+
+L'équivalent `npm run tag -- reseau` fonctionne, mais le `--` supplémentaire le
+rend peu pratique : préférer l'appel direct, ou un alias shell.
 
 `npm run index` régénère **la zone entre les marqueurs** `<!-- INDEX:START -->`
 et `<!-- INDEX:END -->` du README. Ce qui est au-dessus est à toi et survit aux
@@ -243,13 +269,71 @@ git remote add origin ssh://git@git.fvienot.link/fvienot/memento.git
 git push -u origin main
 ```
 
+## Raccourcis : `make` et `scripts/m`
+
+Deux façades, complémentaires plutôt que redondantes — le partage se fait sur
+un critère simple : **make pour ce qui ne prend pas d'argument, `m` pour le
+reste.**
+
+`make tag reseau` ne peut pas fonctionner : make interprète `reseau` comme une
+seconde cible à construire et répond `No rule to make target`. Il faut
+`make tag TAG=reseau`, ce qui reste acceptable pour un tag, mais devient absurde
+pour `m new <domaine> <nom>` et ses deux arguments positionnels. Make impose
+aussi d'être à la racine du dépôt, là où `m` marche de partout.
+
+### make
+
+```sh
+make            # aide
+make check      # conformité (identique à la CI)
+make index      # régénère le README
+make tag TAG=reseau
+```
+
+### scripts/m
+
+Dispatcher POSIX. Il déduit la racine du dépôt de son propre chemin, donc il
+marche depuis n'importe quel répertoire.
+
+```sh
+alias m=~/documents/memento/scripts/m
+```
+
+```
+m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
+m new <domaine> <nom>  crée une fiche depuis le modèle, dates pré-remplies
+m inbox <nom>          crée une note brute dans inbox/, sans frontmatter
+m check                vérifie la conformité (identique à la CI)
+m index                régénère le README
+```
+
+`m new` fait les trois choses qu'on rate à la main : il remplit `created` et
+`updated` à la date du jour, il refuse un nom ou un domaine hors kebab-case
+*avant* que le fichier existe, et il refuse d'écraser une fiche existante. Puis
+il ouvre `$EDITOR` — ou affiche simplement le chemin si `$EDITOR` n'est pas
+défini.
+
+Ni `m` ni le `Makefile` ne sont indispensables : tout ce qu'ils font reste
+faisable avec `cp`, `sed` et `node scripts/index.js`. C'est du confort, pas une
+dépendance — les supprimer ne casse rien, et la CI n'appelle ni l'un ni l'autre
+(elle lance `npm run check` directement, pour ne pas dépendre de `make` dans
+l'image du runner).
+
 ## Ajouter une fiche, la procédure complète
 
 ```sh
+m new reseau nmap        # crée, pré-remplit les dates, ouvre l'éditeur
+                         # → titre, tags, puis supprimer le bloc de rappel
+m check                  # conformité
+m index                  # README
+git add fiches/reseau/nmap.md README.md
+git commit -m "docs(fiches): ajoute une fiche sur nmap"
+```
+
+Sans le raccourci, la version longue :
+
+```sh
 cp templates/fiche.md fiches/<domaine>/<fiche>.md
-$EDITOR fiches/<domaine>/<fiche>.md      # frontmatter + supprimer le bloc de rappel
-npm run check                            # conformité
-npm run index                            # index
-git add fiches/<domaine>/<fiche>.md README.md
-git commit -m "docs(fiches): ajoute une fiche sur <sujet>"
+$EDITOR fiches/<domaine>/<fiche>.md
+npm run check && npm run index
 ```

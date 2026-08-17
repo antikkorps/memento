@@ -6,7 +6,8 @@
   "description": "Base de connaissance personnelle : fiches markdown indexées",
   "scripts": {
     "index": "node scripts/index.js",
-    "check": "node scripts/index.js --check"
+    "check": "node scripts/index.js --check",
+    "tag": "node scripts/index.js --tag"
   },
   "engines": {
     "node": ">=18"

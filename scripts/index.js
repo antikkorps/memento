@@ -434,8 +434,69 @@ function report(model, { checkMode }) {
   return blocking;
 }
 
+// -------------------------------------------------------------- mode --tag
+
+/**
+ * Recherche par tag. Passe par le parseur plutot que par une regex : la forme
+ * bloc est geree, et "reseau" ne matche pas "reseau-local".
+ * Sans argument, liste le vocabulaire avec le nombre de fiches par tag.
+ */
+function queryTag(model, wanted) {
+  const { notes, problems, vocabulary } = model;
+
+  const counts = new Map();
+  for (const tag of vocabulary.tags) counts.set(tag, 0);
+  for (const n of notes) {
+    for (const tag of n.tags) counts.set(tag, (counts.get(tag) || 0) + 1);
+  }
+
+  // Les fiches en erreur ne sont pas dans notes : le dire, plutot que de
+  // renvoyer un resultat silencieusement incomplet.
+  const skipped = problems.filter((p) => p.errors.length).length;
+  if (skipped > 0) {
+    console.error(`note      ${skipped} fiche(s) non conforme(s) exclue(s) — lancer \`npm run check\``);
+  }
+
+  if (!wanted) {
+    for (const tag of [...counts.keys()].sort(byString)) {
+      console.log(`${String(counts.get(tag)).padStart(4)}  ${tag}`);
+    }
+    return 0;
+  }
+
+  if (!vocabulary.tags.has(wanted)) {
+    console.error(`erreur    tag "${wanted}" absent de ${TAGS_FILE}`);
+    const near = [...vocabulary.tags].filter((t) => t.includes(wanted) || wanted.includes(t));
+    if (near.length) console.error(`          peut-etre : ${near.sort(byString).join(', ')}`);
+    return 1;
+  }
+
+  const hits = notes.filter((n) => n.tags.includes(wanted));
+  if (hits.length === 0) {
+    console.error(`aucune fiche avec le tag "${wanted}"`);
+    return 1;
+  }
+
+  // Les chemins n'ont jamais d'espace (kebab-case impose), donc `awk '{print $1}'`
+  // sur cette sortie est sur.
+  const width = Math.max(...hits.map((n) => n.file.length));
+  for (const n of hits) {
+    const flag = n.status === 'brouillon' ? '  [brouillon]' : '';
+    console.log(`${n.file.padEnd(width)}  ${n.title}${flag}`);
+  }
+  return 0;
+}
+
 function main() {
-  const checkMode = process.argv.includes('--check');
+  const argv = process.argv.slice(2);
+  const tagIndex = argv.indexOf('--tag');
+  if (tagIndex !== -1) {
+    const wanted = argv[tagIndex + 1];
+    process.exitCode = queryTag(collect(), wanted && !wanted.startsWith('--') ? wanted : null);
+    return;
+  }
+
+  const checkMode = argv.includes('--check');
   const model = collect();
   const blocking = report(model, { checkMode });
 
