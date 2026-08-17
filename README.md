@@ -49,9 +49,9 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 
-### web
+### wordpress
 
-- [WordPress : custom post types et requêtes](fiches/web/wordpress-post-types.md) — _brouillon_
+- [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md) — _brouillon_
 
 ## Inbox
 
@@ -84,7 +84,7 @@ _Vide._
 
 ### php
 
-- [WordPress : custom post types et requêtes](fiches/web/wordpress-post-types.md)
+- [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
 ### procedure
 
@@ -110,7 +110,7 @@ _Vide._
 
 ### web
 
-- [WordPress : custom post types et requêtes](fiches/web/wordpress-post-types.md)
+- [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
 ## Compteurs
 

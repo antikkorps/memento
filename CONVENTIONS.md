@@ -40,10 +40,24 @@ L'indexeur tolère leur absence sans broncher.
 
 ### Créer un domaine
 
-Un domaine est un dossier sous `fiches/`, nommé en kebab-case. Le créer quand
-une **troisième** fiche du même sujet arrive — avant, elles vivent très bien
-dans un domaine plus large. Il n'y a pas de liste fermée de domaines : ce sont
-les tags qui sont contraints, pas les dossiers.
+Un domaine est un dossier sous `fiches/`, nommé en kebab-case. Il n'y a pas de
+liste fermée : ce sont les tags qui sont contraints, pas les dossiers.
+
+Règle par défaut : le créer quand une **troisième** fiche du même sujet arrive.
+Avant, elles vivent très bien ailleurs. Le but est d'empêcher la création
+*spéculative* — pas d'ouvrir `fiches/jq/` pour une fiche isolée.
+
+**Exception** : quand tu sais déjà que le sujet portera dix fiches, crée-le tout
+de suite. `wordpress` a été créé à la première fiche pour cette raison.
+
+**Un domaine nomme un sujet, jamais une nature.** `wordpress`, `docker`,
+`reseau` répondent instantanément à « où je le pose ». `outils`, `web`, `divers`
+n'y répondent pas : tout peut y tomber, donc tout y tombe. C'est le test à
+appliquer avant de créer un dossier.
+
+Le corollaire tient en une phrase : **large = tag, précis = domaine.** `web` est
+un excellent tag — il croise une fiche WordPress et une fiche HTTP — et un
+mauvais dossier.
 
 ## Nommage des fichiers
 
