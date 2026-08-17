@@ -29,9 +29,18 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 - [Remotes git et miroirs](fiches/git/remotes.md)
 
+### linux
+
+- [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
+- [Libérer un volume ou un dossier occupé](fiches/linux/volume-occupe.md) — _brouillon_
+
 ### reseau
 
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md) — _brouillon_
+
+### securite
+
+- [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 
 ## Inbox
 
@@ -39,13 +48,23 @@ _Vide._
 
 ## Index par tag
 
+### depannage
+
+- [Libérer un volume ou un dossier occupé](fiches/linux/volume-occupe.md)
+
 ### git
 
 - [Remotes git et miroirs](fiches/git/remotes.md)
 
+### linux
+
+- [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
+- [Libérer un volume ou un dossier occupé](fiches/linux/volume-occupe.md)
+
 ### procedure
 
 - [Remotes git et miroirs](fiches/git/remotes.md)
+- [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 
 ### reseau
 
@@ -54,15 +73,16 @@ _Vide._
 ### securite
 
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 
 ## Compteurs
 
 | | |
 | --- | --: |
-| Fiches classées | 2 |
+| Fiches classées | 5 |
 | Fiches en inbox | 0 |
-| Brouillons | 1 |
-| Tags utilisés | 4 |
+| Brouillons | 2 |
+| Tags utilisés | 6 |
 | Tags déclarés | 11 |
 
 <!-- INDEX:END -->
