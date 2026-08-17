@@ -23,6 +23,10 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 - [Remotes git et miroirs](fiches/git/remotes.md)
 
+### reseau
+
+- [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md) — _brouillon_
+
 ## Inbox
 
 _Vide._
@@ -37,14 +41,22 @@ _Vide._
 
 - [Remotes git et miroirs](fiches/git/remotes.md)
 
+### reseau
+
+- [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+
+### securite
+
+- [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+
 ## Compteurs
 
 | | |
 | --- | --: |
-| Fiches classées | 1 |
+| Fiches classées | 2 |
 | Fiches en inbox | 0 |
-| Brouillons | 0 |
-| Tags utilisés | 2 |
+| Brouillons | 1 |
+| Tags utilisés | 4 |
 | Tags déclarés | 11 |
 
 <!-- INDEX:END -->

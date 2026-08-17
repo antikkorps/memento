@@ -144,7 +144,16 @@ function parseFrontmatter(raw) {
     }
 
     const pair = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (!pair) return { error: `ligne de frontmatter illisible : "${line}"` };
+    if (!pair) {
+      // Cas de loin le plus frequent : la cle est indentee. En YAML les cles de
+      // premier niveau commencent colonne 1 ; autant le dire explicitement.
+      if (/^\s+[A-Za-z0-9_-]+\s*:/.test(line)) {
+        return {
+          error: `cle indentee : "${line.trim()}" doit commencer en colonne 1, sans espace avant`,
+        };
+      }
+      return { error: `ligne de frontmatter illisible : "${line}"` };
+    }
 
     const key = pair[1];
     const value = pair[2].trim();
