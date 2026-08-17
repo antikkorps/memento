@@ -137,6 +137,21 @@ outils qui les implémentent — c'est exactement le lock-in qu'on évite ici.
 Images : `assets/<domaine>/`, mêmes domaines que `fiches/`, référencées en
 relatif — `![schéma](../../assets/reseau/handshake.png)`.
 
+## Liens externes et fiches `ressource`
+
+Un lien vers une lecture externe n'est pas une fiche. Il va dans la section
+**« Voir aussi »** de la fiche qu'il sert.
+
+Quand il n'existe pas encore de fiche sur le sujet, et seulement dans ce cas :
+une fiche `ressources.md` **scopée au domaine** — `fiches/git/ressources.md` —
+taguée `ressource`. Jamais de fichier de marque-pages global : c'est le même
+piège qu'un `lexique.md` global ou qu'un domaine `outils`, tout y tombe et plus
+rien ne s'y retrouve.
+
+Une fiche `ressource` doit dire **pourquoi** chaque lien mérite d'être ouvert et
+dans quel ordre les aborder. Une liste d'URL nues ne vaut pas mieux que les
+favoris du navigateur — que tu n'ouvres jamais non plus.
+
 ## Pièces jointes (PDF, cheat sheets, archives)
 
 **Un PDF n'est pas une fiche.** Il n'a pas de frontmatter, n'apparaît pas dans

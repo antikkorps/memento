@@ -41,9 +41,13 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 ## Développement
 
 - `node` — Node.js, npm, écosystème JavaScript
+- `php` — PHP, WordPress, écosystème serveur
+- `web` — HTTP, front, CMS, API web
 - `ci` — intégration continue, Forgejo Actions, pipelines
 
 ## Méthode
 
 - `procedure` — suite d'étapes à rejouer telle quelle
 - `depannage` — symptôme observé et sa résolution
+- `ressource` — fiche qui pointe vers des lectures externes plutôt que de
+  contenir la réponse
