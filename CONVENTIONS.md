@@ -148,6 +148,26 @@ Ils restent cliquables dans Forgejo, sur le miroir GitHub, dans n'importe quel
 éditeur, et `git grep` les retrouve. Les `[[wikilink]]` ne marchent que dans les
 outils qui les implémentent — c'est exactement le lock-in qu'on évite ici.
 
+**L'indexeur vérifie que chaque lien relatif pointe sur un fichier existant**, et
+un lien mort fait échouer la CI. C'est le pendant indispensable du choix
+ci-dessus : puisque tout repose sur des chemins relatifs, renommer une fiche
+casse silencieusement les liens qui la visaient — Forgejo affiche un lien mort
+sans rien signaler, et `git grep` ne sait pas qu'il devrait chercher.
+
+Le détail de ce qui est contrôlé :
+
+- les cibles relatives et celles commençant par `/` (racine du dépôt, comme dans
+  le rendu Forgejo), qu'il s'agisse d'un lien ou d'une image ;
+- les liens externes (`https:`, `mailto:`, `//…`) et les ancres seules
+  (`[voir](#pieges)`) sont ignorés : rien à vérifier sur le disque ;
+- **les blocs de code sont ignorés**, pour qu'une fiche qui montre la syntaxe
+  markdown ne casse pas la CI avec son propre exemple ;
+- un lien qui sort du dépôt (`../../../etc/passwd`) est signalé comme tel.
+
+Un lien cassé **n'exclut pas** la fiche de l'index, contrairement à un
+frontmatter invalide : elle reste listée et trouvable par tag. Elle est
+incomplète, pas illisible — la sanction doit être proportionnée.
+
 Images : `assets/<domaine>/`, mêmes domaines que `fiches/`, référencées en
 relatif — `![schéma](../../assets/reseau/handshake.png)`.
 
@@ -265,12 +285,37 @@ Niveaux de sortie :
 | --- | --- | --- |
 | `erreur` | fiche de `fiches/` non conforme | oui |
 | `attention` | fiche de `inbox/` non conforme | non |
-| `note` | clé inconnue, tag inutilisé, README périmé | non |
+| `note` | clé inconnue, tag inutilisé, README périmé, `updated` en retard | non |
 
 Le README périmé est signalé mais ne bloque pas : il n'y a pas de hook
 pre-commit (choix assumé, voir plus bas), donc l'oubli est probable et ne
 justifie pas un échec de build. Pour le rendre bloquant, transformer cette note
 en erreur dans `main()`.
+
+### `updated` confronté à git
+
+`updated` est saisi à la main, donc il dérive : on modifie une fiche et on
+oublie la date. L'indexeur compare cette date à ce que git sait du fichier et
+émet une `note` quand elle est en retard :
+
+```
+note      fiches/git/remotes.md: updated = 2026-08-17, modifiee le 2026-09-02
+```
+
+La date de référence est celle du dernier commit touchant le fichier, **ou la
+date du jour si le fichier est modifié dans le répertoire de travail** — ce
+second cas est le plus utile : il prévient avant le commit, au moment où la
+correction coûte une seconde.
+
+C'est une `note`, jamais une erreur : une date en retard n'invalide pas le
+contenu, elle signale un oubli. La bloquer rendrait impossible un commit qui ne
+touche qu'à la mise en forme.
+
+Si git est absent, si le dépôt n'a pas encore de commit, ou si l'on travaille
+sur une copie non versionnée, la vérification se tait — le memento doit rester
+utilisable sans git. Sur un clone superficiel (`--depth 1`), seuls les fichiers
+du dernier commit ont une date connue : la couverture est partielle, mais il n'y
+a jamais de faux positif.
 
 ## Pas de hook pre-commit
 
