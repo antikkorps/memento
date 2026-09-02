@@ -35,7 +35,7 @@ resolve_editor() {
 		printf '%s' "$EDITOR"
 		return 0
 	fi
-	for candidat in nvim vim vi nano micro; do
+	for candidat in nk nvim vim vi nano micro; do
 		if command -v "$candidat" >/dev/null 2>&1; then
 			printf '%s' "$candidat"
 			return 0
@@ -57,7 +57,7 @@ open_at_line() {
 	printf '%s:%s\n' "$1" "$2"
 	editeur=$(resolve_editor) || return 0
 	case "${editeur##*/}" in
-	vi | vim | nvim | view | nano | micro)
+	nk | vi | vim | nvim | view | nano | micro)
 		"$editeur" "+$2" "$1"
 		;;
 	hx | helix)

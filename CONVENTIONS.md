@@ -346,8 +346,9 @@ Le comportement dépend d'où va la sortie :
 
 - **dans un terminal**, les résultats passent dans `fzf`, avec le fichier en
   aperçu positionné sur la ligne trouvée ; la sélection s'ouvre dans l'éditeur,
-  à la bonne ligne (`vi`, `vim`, `nvim`, `view`, `nano`, `micro` reçoivent
-  `+ligne`, `helix` reçoit `fichier:ligne`, les autres le fichier seul) ;
+  à la bonne ligne (`nk`, `vi`, `vim`, `nvim`, `view`, `nano`, `micro`
+  reçoivent `+ligne`, `helix` reçoit `fichier:ligne`, les autres le fichier
+  seul) ;
 - **dans un pipe ou une redirection**, c'est une sortie `grep` classique
   (`chemin:ligne:texte`), donc `awk`-able. Idem si `fzf` n'est pas installé :
   il est un confort, pas une dépendance.
@@ -359,14 +360,28 @@ même sortie dans les deux cas.
 ### Quel éditeur
 
 `m find`, `m new` et `m inbox` ouvrent tous le même : `$VISUAL`, sinon
-`$EDITOR`, sinon le premier de `nvim`, `vim`, `vi`, `nano`, `micro` trouvé dans
-le `PATH`. Le chemin du fichier est affiché **avant** l'ouverture, ce qui laisse
+`$EDITOR`, sinon le premier de `nk`, `nvim`, `vim`, `vi`, `nano`, `micro`
+trouvé dans le `PATH` (`nk` = nvim sur la configuration kickstart, via
+`NVIM_APPNAME`). Le chemin du fichier est affiché **avant** l'ouverture, ce qui laisse
 une trace exploitable dans le terminal ; si vraiment aucun éditeur n'est
 disponible, il n'y a que cette ligne et la sortie reste `0`.
 
 Le repli sur le `PATH` évite de dépendre d'une variable que le shell ne définit
 pas toujours — mais définir `EDITOR` dans `~/.zshrc` reste préférable : tout le
 reste du système en dépend aussi (`git commit`, `crontab -e`, `sudoedit`).
+
+Attention au piège : **un alias de shell n'est pas un exécutable.** Un
+`alias nk='NVIM_APPNAME=... nvim'` dans `~/.zshrc` n'existe que dans le zsh
+interactif — aucun script, aucun `$EDITOR`, aucun `command -v` ne le voit. Pour
+qu'un éditeur soit utilisable partout, il lui faut un vrai fichier exécutable
+dans le `PATH` :
+
+```sh
+# ~/.local/bin/nk
+#!/bin/sh
+exec env NVIM_APPNAME=nvim-kickstart nvim "$@"
+```
+
 
 `m new` fait les trois choses qu'on rate à la main : il remplit `created` et
 `updated` à la date du jour, il refuse un nom ou un domaine hors kebab-case
