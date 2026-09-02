@@ -345,9 +345,9 @@ regex à échapper. Pour une vraie expression régulière, `git grep -i` reste l
 Le comportement dépend d'où va la sortie :
 
 - **dans un terminal**, les résultats passent dans `fzf`, avec le fichier en
-  aperçu positionné sur la ligne trouvée ; la sélection s'ouvre dans `$EDITOR`
-  à la bonne ligne (`vi`, `vim`, `nvim`, `nano`, `micro` reçoivent `+ligne`),
-  ou son chemin est affiché en `fichier:ligne` si `$EDITOR` n'est pas défini ;
+  aperçu positionné sur la ligne trouvée ; la sélection s'ouvre dans l'éditeur,
+  à la bonne ligne (`vi`, `vim`, `nvim`, `view`, `nano`, `micro` reçoivent
+  `+ligne`, `helix` reçoit `fichier:ligne`, les autres le fichier seul) ;
 - **dans un pipe ou une redirection**, c'est une sortie `grep` classique
   (`chemin:ligne:texte`), donc `awk`-able. Idem si `fzf` n'est pas installé :
   il est un confort, pas une dépendance.
@@ -355,6 +355,18 @@ Le comportement dépend d'où va la sortie :
 Codes de sortie façon `grep`, comme `--tag` : `0` si au moins une ligne
 correspond, `1` sinon. `rg` est utilisé s'il est présent, `grep -R` sinon —
 même sortie dans les deux cas.
+
+### Quel éditeur
+
+`m find`, `m new` et `m inbox` ouvrent tous le même : `$VISUAL`, sinon
+`$EDITOR`, sinon le premier de `nvim`, `vim`, `vi`, `nano`, `micro` trouvé dans
+le `PATH`. Le chemin du fichier est affiché **avant** l'ouverture, ce qui laisse
+une trace exploitable dans le terminal ; si vraiment aucun éditeur n'est
+disponible, il n'y a que cette ligne et la sortie reste `0`.
+
+Le repli sur le `PATH` évite de dépendre d'une variable que le shell ne définit
+pas toujours — mais définir `EDITOR` dans `~/.zshrc` reste préférable : tout le
+reste du système en dépend aussi (`git commit`, `crontab -e`, `sudoedit`).
 
 `m new` fait les trois choses qu'on rate à la main : il remplit `created` et
 `updated` à la date du jour, il refuse un nom ou un domaine hors kebab-case

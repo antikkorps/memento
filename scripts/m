@@ -24,26 +24,47 @@ is_kebab() {
 	printf '%s' "$1" | grep -qE '^[a-z0-9]+(-[a-z0-9]+)*$'
 }
 
-# Ouvre dans $EDITOR s'il est defini, sinon se contente d'afficher le chemin.
+# Editeur a utiliser : $VISUAL, puis $EDITOR, puis le premier trouve dans le
+# PATH. Sort en 1 si aucun editeur n'est disponible.
+resolve_editor() {
+	if [ -n "${VISUAL:-}" ]; then
+		printf '%s' "$VISUAL"
+		return 0
+	fi
+	if [ -n "${EDITOR:-}" ]; then
+		printf '%s' "$EDITOR"
+		return 0
+	fi
+	for candidat in nvim vim vi nano micro; do
+		if command -v "$candidat" >/dev/null 2>&1; then
+			printf '%s' "$candidat"
+			return 0
+		fi
+	done
+	return 1
+}
+
+# Ouvre le fichier, ou se contente d'afficher le chemin s'il n'y a pas
+# d'editeur.
 open_or_print() {
 	printf '%s\n' "$1"
-	if [ -n "${EDITOR:-}" ]; then
-		"$EDITOR" "$1"
-	fi
+	editeur=$(resolve_editor) || return 0
+	"$editeur" "$1"
 }
 
 # Ouvre le fichier a la ligne demandee quand l'editeur sait le faire.
 open_at_line() {
 	printf '%s:%s\n' "$1" "$2"
-	if [ -z "${EDITOR:-}" ]; then
-		return 0
-	fi
-	case "${EDITOR##*/}" in
+	editeur=$(resolve_editor) || return 0
+	case "${editeur##*/}" in
 	vi | vim | nvim | view | nano | micro)
-		"$EDITOR" "+$2" "$1"
+		"$editeur" "+$2" "$1"
+		;;
+	hx | helix)
+		"$editeur" "$1:$2"
 		;;
 	*)
-		"$EDITOR" "$1"
+		"$editeur" "$1"
 		;;
 	esac
 }
