@@ -32,6 +32,11 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 - `conteneur` — Docker, Podman, images, compose
 - `securite` — chiffrement, authentification, durcissement
 
+## Données
+
+- `base-de-donnees` — SGBD, SQL, schémas, requêtes, administration
+- `sauvegarde` — dumps, exports, restauration, archivage
+
 ## Outillage
 
 - `git` — versionnement, remotes, workflows

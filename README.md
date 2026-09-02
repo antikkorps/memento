@@ -25,6 +25,13 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ## Fiches
 
+### base-de-donnees
+
+- [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md) — _brouillon_
+- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md) — _brouillon_
+- [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md) — _brouillon_
+- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md) — _brouillon_
+
 ### docker
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
@@ -59,6 +66,13 @@ _Vide._
 
 ## Index par tag
 
+### base-de-donnees
+
+- [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md)
+- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
+- [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
+- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+
 ### conteneur
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
@@ -74,6 +88,8 @@ _Vide._
 
 ### ligne-de-commande
 
+- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
+- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 
 ### linux
@@ -88,6 +104,10 @@ _Vide._
 
 ### procedure
 
+- [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md)
+- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
+- [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
+- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
@@ -101,6 +121,11 @@ _Vide._
 
 - [Ressources pour apprendre git](fiches/git/ressources.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+
+### sauvegarde
+
+- [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md)
+- [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 
 ### securite
 
@@ -116,10 +141,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 10 |
+| Fiches classées | 14 |
 | Fiches en inbox | 0 |
-| Brouillons | 3 |
-| Tags utilisés | 11 |
-| Tags déclarés | 14 |
+| Brouillons | 7 |
+| Tags utilisés | 13 |
+| Tags déclarés | 16 |
 
 <!-- INDEX:END -->
