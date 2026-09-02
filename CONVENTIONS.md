@@ -330,11 +330,31 @@ alias m=~/documents/memento/scripts/m
 
 ```
 m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
+m find <mot>           cherche dans le corps des fiches, ouvre le résultat
 m new <domaine> <nom>  crée une fiche depuis le modèle, dates pré-remplies
 m inbox <nom>          crée une note brute dans inbox/, sans frontmatter
 m check                vérifie la conformité (identique à la CI)
 m index                régénère le README
 ```
+
+`m find` complète `m tag` : le tag dit *par quoi je retrouve une fiche*, `find`
+fouille ce qu'il y a **dedans** — une option, un message d'erreur, un nom de
+commande. Le motif est une **chaîne littérale**, insensible à la casse : pas de
+regex à échapper. Pour une vraie expression régulière, `git grep -i` reste là.
+
+Le comportement dépend d'où va la sortie :
+
+- **dans un terminal**, les résultats passent dans `fzf`, avec le fichier en
+  aperçu positionné sur la ligne trouvée ; la sélection s'ouvre dans `$EDITOR`
+  à la bonne ligne (`vi`, `vim`, `nvim`, `nano`, `micro` reçoivent `+ligne`),
+  ou son chemin est affiché en `fichier:ligne` si `$EDITOR` n'est pas défini ;
+- **dans un pipe ou une redirection**, c'est une sortie `grep` classique
+  (`chemin:ligne:texte`), donc `awk`-able. Idem si `fzf` n'est pas installé :
+  il est un confort, pas une dépendance.
+
+Codes de sortie façon `grep`, comme `--tag` : `0` si au moins une ligne
+correspond, `1` sinon. `rg` est utilisé s'il est présent, `grep -R` sinon —
+même sortie dans les deux cas.
 
 `m new` fait les trois choses qu'on rate à la main : il remplit `created` et
 `updated` à la date du jour, il refuse un nom ou un domaine hors kebab-case

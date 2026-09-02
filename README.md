@@ -19,6 +19,13 @@ Chercher les fiches portant un tag (`--tag` seul liste le vocabulaire) :
 node scripts/index.js --tag reseau
 ```
 
+Chercher un mot **dans** les fiches (`fzf` si le terminal est interactif, sortie
+`grep` sinon) :
+
+```sh
+scripts/m find definer
+```
+
 Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la main.
 
 <!-- INDEX:START -->

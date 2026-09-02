@@ -12,6 +12,7 @@ usage() {
 usage : m <commande> [arguments]
 
   m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
+  m find <mot>           cherche dans le corps des fiches, ouvre le resultat
   m new <domaine> <nom>  cree une fiche depuis le modele, dates pre-remplies
   m inbox <nom>          cree une note brute dans inbox/, sans frontmatter
   m check                verifie la conformite (identique a la CI)
@@ -31,6 +32,22 @@ open_or_print() {
 	fi
 }
 
+# Ouvre le fichier a la ligne demandee quand l'editeur sait le faire.
+open_at_line() {
+	printf '%s:%s\n' "$1" "$2"
+	if [ -z "${EDITOR:-}" ]; then
+		return 0
+	fi
+	case "${EDITOR##*/}" in
+	vi | vim | nvim | view | nano | micro)
+		"$EDITOR" "+$2" "$1"
+		;;
+	*)
+		"$EDITOR" "$1"
+		;;
+	esac
+}
+
 cmd=${1:-}
 if [ $# -gt 0 ]; then
 	shift
@@ -39,6 +56,51 @@ fi
 case "$cmd" in
 tag)
 	exec node "$INDEX" --tag "$@"
+	;;
+find)
+	if [ $# -eq 0 ]; then
+		echo "usage : m find <mot>" >&2
+		exit 2
+	fi
+	motif=$*
+	cd "$ROOT"
+	cibles=""
+	if [ -d fiches ]; then
+		cibles="fiches"
+	fi
+	if [ -d inbox ]; then
+		cibles="$cibles inbox"
+	fi
+	if [ -z "$cibles" ]; then
+		echo "ni fiches/ ni inbox/ : rien a chercher" >&2
+		exit 1
+	fi
+	# -F : le motif est une chaine litterale, pas une expression reguliere.
+	# Pour du regex, git grep reste la.
+	if command -v rg >/dev/null 2>&1; then
+		# shellcheck disable=SC2086
+		resultats=$(rg --line-number --no-heading --color never -i -F \
+			--glob '*.md' -- "$motif" $cibles) || resultats=""
+	else
+		# shellcheck disable=SC2086
+		resultats=$(grep -RIn -i -F --include='*.md' -- "$motif" $cibles) || resultats=""
+	fi
+	if [ -z "$resultats" ]; then
+		echo "aucune fiche ne contient \"$motif\"" >&2
+		exit 1
+	fi
+	# Hors terminal (pipe, redirection) ou sans fzf : sortie grep classique.
+	if [ ! -t 1 ] || ! command -v fzf >/dev/null 2>&1; then
+		printf '%s\n' "$resultats"
+		exit 0
+	fi
+	choix=$(printf '%s\n' "$resultats" | fzf \
+		--delimiter=: --with-nth=1,3.. --select-1 \
+		--prompt="$motif > " \
+		--preview='nl -ba {1}' --preview-window='+{2}-10') || exit 1
+	fichier=${choix%%:*}
+	reste=${choix#*:}
+	open_at_line "$fichier" "${reste%%:*}"
 	;;
 check)
 	exec node "$INDEX" --check
