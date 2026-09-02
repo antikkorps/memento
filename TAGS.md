@@ -41,6 +41,7 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 
 - `git` — versionnement, remotes, workflows
 - `ligne-de-commande` — shell, utilitaires POSIX, one-liners
+- `texte` — recherche, filtrage et transformation de texte (grep, sed, awk, jq)
 - `editeur` — Vim, configuration d'éditeurs
 
 ## Développement

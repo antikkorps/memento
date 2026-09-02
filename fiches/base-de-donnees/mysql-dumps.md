@@ -139,4 +139,5 @@ depuis MySQL 8.0.34, mais toujours livré ; `mysqldump` n'a pas d'équivalent).
 
 - [MySQL / MariaDB : commandes courantes](mysql.md)
 - [PostgreSQL : dumps et restaurations](postgres-dumps.md)
+- [sed : substituer et éditer des lignes](../shell/sed.md)
 - <https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html>

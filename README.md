@@ -63,6 +63,13 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 
+### shell
+
+- [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
+- [grep : chercher dans les fichiers](fiches/shell/grep.md)
+- [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
+- [sed : substituer et éditer des lignes](fiches/shell/sed.md)
+
 ### wordpress
 
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md) — _brouillon_
@@ -98,6 +105,10 @@ _Vide._
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
+- [grep : chercher dans les fichiers](fiches/shell/grep.md)
+- [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
+- [sed : substituer et éditer des lignes](fiches/shell/sed.md)
 
 ### linux
 
@@ -140,6 +151,13 @@ _Vide._
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 
+### texte
+
+- [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
+- [grep : chercher dans les fichiers](fiches/shell/grep.md)
+- [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
+- [sed : substituer et éditer des lignes](fiches/shell/sed.md)
+
 ### web
 
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
@@ -148,10 +166,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 14 |
+| Fiches classées | 18 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
-| Tags utilisés | 13 |
-| Tags déclarés | 16 |
+| Tags utilisés | 14 |
+| Tags déclarés | 17 |
 
 <!-- INDEX:END -->
