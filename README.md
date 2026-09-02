@@ -27,10 +27,10 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### base-de-donnees
 
-- [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md) — _brouillon_
-- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md) — _brouillon_
-- [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md) — _brouillon_
-- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md) — _brouillon_
+- [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md)
+- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
+- [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
+- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 
 ### docker
 
@@ -143,7 +143,7 @@ _Vide._
 | --- | --: |
 | Fiches classées | 14 |
 | Fiches en inbox | 0 |
-| Brouillons | 7 |
+| Brouillons | 3 |
 | Tags utilisés | 13 |
 | Tags déclarés | 16 |
 

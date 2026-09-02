@@ -3,7 +3,7 @@ title: "MySQL / MariaDB : commandes courantes"
 tags: [base-de-donnees, ligne-de-commande, procedure]
 created: 2026-09-02
 updated: 2026-09-02
-status: brouillon
+status: stable
 ---
 
 ## En bref
