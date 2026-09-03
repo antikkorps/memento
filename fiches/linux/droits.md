@@ -15,7 +15,7 @@ Changer les droits d'un fichier, savoir lire un `ls -l`, et comprendre pourquoi
 ## Lire un `ls -l`
 
 ```
--rwxr-xr--  1 franck www-data  4096 sep  3 14:22 script.sh
+-rwxr-xr--  1 johndoe www-data  4096 sep  3 14:22 script.sh
 │└┬┘└┬┘└┬┘    └──┬─┘ └───┬──┘
 │ │  │  │        │       └── groupe
 │ │  │  │        └────────── proprietaire
@@ -42,9 +42,9 @@ chmod -R a+rX dossier/        # voir les pieges : X majuscule
 Octal : `r` = 4, `w` = 2, `x` = 1, additionnés par triplet.
 
 ```sh
-chown franck fichier          # changer le proprietaire (root uniquement)
-chown franck:www-data fichier  # proprietaire et groupe
-chown -R franck: dossier/     # le groupe par defaut de franck
+chown johndoe fichier         # changer le proprietaire (root uniquement)
+chown johndoe:www-data fichier  # proprietaire et groupe
+chown -R johndoe: dossier/    # le groupe par defaut de johndoe
 chgrp www-data fichier
 ```
 

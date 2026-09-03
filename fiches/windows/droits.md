@@ -32,7 +32,7 @@ Une sortie `icacls` se lit ainsi :
 ```
 C:\app BUILTIN\Administrateurs:(I)(OI)(CI)(F)
        AUTORITE NT\Systeme:(I)(OI)(CI)(F)
-       BUREAU\franck:(OI)(CI)(M)
+       BUREAU\johndoe:(OI)(CI)(M)
 ```
 
 | Code | Sens |
@@ -51,14 +51,14 @@ C:\app BUILTIN\Administrateurs:(I)(OI)(CI)(F)
 ## Modifier les droits (*permissions*)
 
 ```bat
-icacls C:\app /grant franck:(OI)(CI)M    & rem donner, avec heritage
-icacls C:\app /grant:r franck:(OI)(CI)F  & rem REMPLACE au lieu de cumuler
-icacls C:\app /remove franck             & rem retirer les entrees de ce compte
-icacls C:\app /deny franck:(OI)(CI)W     & rem interdire explicitement
+icacls C:\app /grant johndoe:(OI)(CI)M   & rem donner, avec heritage
+icacls C:\app /grant:r johndoe:(OI)(CI)F  & rem REMPLACE au lieu de cumuler
+icacls C:\app /remove johndoe            & rem retirer les entrees de ce compte
+icacls C:\app /deny johndoe:(OI)(CI)W    & rem interdire explicitement
 icacls C:\app /inheritance:r             & rem couper l'heritage, en copiant les regles
 icacls C:\app /inheritance:d             & rem couper l'heritage, en supprimant tout
 icacls C:\app /reset /T /C               & rem reappliquer l'heritage du parent, recursivement
-icacls C:\app /setowner franck /T
+icacls C:\app /setowner johndoe /T
 icacls C:\app /save droits.txt /T        & rem sauvegarder les ACL
 icacls C:\ /restore droits.txt           & rem les restaurer
 ```
@@ -66,7 +66,7 @@ icacls C:\ /restore droits.txt           & rem les restaurer
 ```powershell
 $acl = Get-Acl C:\app
 $regle = New-Object System.Security.AccessControl.FileSystemAccessRule(
-  'BUREAU\franck', 'Modify', 'ContainerInherit,ObjectInherit', 'None', 'Allow')
+  'BUREAU\johndoe', 'Modify', 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $acl.SetAccessRule($regle)
 Set-Acl C:\app $acl
 ```

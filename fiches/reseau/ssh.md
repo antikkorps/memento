@@ -15,19 +15,19 @@ transforment SSH en outil réseau à part entière.
 ## Se connecter
 
 ```sh
-ssh franck@serveur.tld
-ssh -p 2222 franck@serveur.tld        # port non standard
-ssh -i ~/.ssh/cle_projet franck@serveur.tld
-ssh franck@serveur.tld 'uptime; df -h'  # executer et repartir
-ssh -v franck@serveur.tld             # diagnostiquer (-vv, -vvv pour plus)
+ssh johndoe@serveur.tld
+ssh -p 2222 johndoe@serveur.tld       # port non standard
+ssh -i ~/.ssh/cle_projet johndoe@serveur.tld
+ssh johndoe@serveur.tld 'uptime; df -h'  # executer et repartir
+ssh -v johndoe@serveur.tld            # diagnostiquer (-vv, -vvv pour plus)
 ```
 
 ## Les clés
 
 ```sh
-ssh-keygen -t ed25519 -C 'franck@portable'    # generer une paire
-ssh-copy-id franck@serveur.tld                # installer la publique la-bas
-ssh-copy-id -i ~/.ssh/cle_projet.pub franck@serveur.tld
+ssh-keygen -t ed25519 -C 'johndoe@portable'   # generer une paire
+ssh-copy-id johndoe@serveur.tld               # installer la publique la-bas
+ssh-copy-id -i ~/.ssh/cle_projet.pub johndoe@serveur.tld
 ```
 
 La clé **publique** (`.pub`) part sur le serveur, dans
@@ -62,7 +62,7 @@ Host prod
 
 Host interne
     HostName 10.0.0.42
-    User franck
+    User johndoe
     ProxyJump prod          # rebond automatique par la machine « prod »
 
 Host *
@@ -108,7 +108,7 @@ Dans `/etc/ssh/sshd_config`, puis `sudo systemctl reload sshd` :
 PermitRootLogin no
 PasswordAuthentication no
 PubkeyAuthentication yes
-AllowUsers franck deploy
+AllowUsers johndoe deploy
 MaxAuthTries 3
 ```
 

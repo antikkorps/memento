@@ -218,6 +218,26 @@ Le marqueur dépend du langage du bloc :
 Rogner le blanc d'alignement de la largeur du marqueur garde la colonne du
 commentaire au même endroit.
 
+### Des valeurs d'exemple, jamais les vraies
+
+Corollaire direct : puisque chaque ligne est faite pour être collée, **une
+commande d'exemple ne doit jamais porter un identifiant réel**. Un
+`sudo usermod -G docker franck` dans une section « Pièges » est une commande qui
+détruit les groupes du compte `franck` le jour où quelqu'un la colle pour voir.
+
+Les valeurs à utiliser, toutes réservées ou manifestement fictives :
+
+| Pour | Valeur |
+| --- | --- |
+| un compte | `johndoe`, `appsvc` pour un service |
+| un domaine | `exemple.tld` (RFC 2606) |
+| une adresse publique | `203.0.113.x` (RFC 5737, plage de documentation) |
+| une adresse privée | `192.168.1.x`, `10.0.0.x` |
+
+L'exception est la documentation d'installation de ce dépôt : l'URL du remote
+dans « Remotes » est faite pour être copiée telle quelle, donc elle porte les
+vraies valeurs. La règle vise les fiches, pas ces conventions.
+
 ## Liens
 
 Markdown relatif standard, et rien d'autre :

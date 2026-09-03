@@ -79,7 +79,7 @@ graphique en teste des milliards par seconde. Il faut un algorithme
   garantie, sans clé partagée — et non répudiable.
 
 ```sh
-ssh-keygen -t ed25519 -C 'franck@machine'    # generer une paire
+ssh-keygen -t ed25519 -C 'johndoe@machine'   # generer une paire
 gpg --detach-sign --armor fichier            # signer
 gpg --verify fichier.asc fichier             # verifier
 age -p fichier > fichier.age                 # chiffrer simplement, avec un mot de passe

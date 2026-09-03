@@ -19,7 +19,7 @@ ps aux                        # tous les processus, format BSD
 ps -ef                        # idem, format System V
 ps aux | grep -i nginx        # la methode qui marche partout
 pgrep -a nginx                # mieux : le PID et la ligne de commande
-pgrep -u franck -a node       # filtre par utilisateur
+pgrep -u johndoe -a node      # filtre par utilisateur
 pstree -p                     # l'arbre, avec les PID
 top                           # en direct ; `htop` si installe, bien plus lisible
 

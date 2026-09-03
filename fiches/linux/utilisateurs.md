@@ -15,9 +15,9 @@ tous les groupes secondaires**.
 ## Créer un utilisateur
 
 ```sh
-sudo adduser franck                             # Debian/Ubuntu : interactif, fait tout
-sudo useradd -m -s /bin/bash franck             # portable : -m cree le home, -s le shell
-sudo useradd -m -s /bin/bash -G sudo,docker franck
+sudo adduser johndoe                            # Debian/Ubuntu : interactif, fait tout
+sudo useradd -m -s /bin/bash johndoe            # portable : -m cree le home, -s le shell
+sudo useradd -m -s /bin/bash -G sudo,docker johndoe
 sudo useradd -r -s /usr/sbin/nologin appsvc     # compte de service : aucune connexion possible
 ```
 
@@ -29,27 +29,27 @@ présente partout, qui ne fait **que** ce qu'on lui demande.
 
 ```sh
 passwd                          # changer le sien
-sudo passwd franck              # changer celui de franck
-sudo passwd -e franck           # forcer le changement a la prochaine connexion
-sudo passwd -l franck           # verrouiller le mot de passe
-sudo passwd -u franck           # deverrouiller
-sudo chage -l franck            # voir la politique d'expiration
-sudo chage -M 90 -W 7 franck    # expire a 90 jours, previent 7 jours avant
+sudo passwd johndoe             # changer celui de johndoe
+sudo passwd -e johndoe          # forcer le changement a la prochaine connexion
+sudo passwd -l johndoe          # verrouiller le mot de passe
+sudo passwd -u johndoe          # deverrouiller
+sudo chage -l johndoe           # voir la politique d'expiration
+sudo chage -M 90 -W 7 johndoe   # expire a 90 jours, previent 7 jours avant
 ```
 
 ## Groupes
 
 ```sh
 sudo groupadd equipe
-sudo usermod -aG equipe franck  # AJOUTER a un groupe -- le -a n'est pas optionnel
-sudo gpasswd -a franck equipe   # equivalent, plus explicite
-sudo gpasswd -d franck equipe   # RETIRER d'un groupe
+sudo usermod -aG equipe johndoe  # AJOUTER a un groupe -- le -a n'est pas optionnel
+sudo gpasswd -a johndoe equipe  # equivalent, plus explicite
+sudo gpasswd -d johndoe equipe  # RETIRER d'un groupe
 sudo groupdel equipe
 
-id franck                       # UID, GID, tous les groupes
-groups franck                   # juste les groupes
+id johndoe                      # UID, GID, tous les groupes
+groups johndoe                  # juste les groupes
 getent group equipe             # les membres d'un groupe
-getent passwd franck            # la ligne du compte, LDAP compris
+getent passwd johndoe           # la ligne du compte, LDAP compris
 ```
 
 Le groupe qui donne `sudo` s'appelle `sudo` sur Debian et Ubuntu, `wheel` sur
@@ -58,9 +58,9 @@ RHEL, Fedora et Arch.
 ## Supprimer
 
 ```sh
-sudo deluser franck                     # Debian : garde le repertoire personnel
-sudo deluser --remove-home franck
-sudo userdel -r franck                  # portable, -r supprime le home et le courrier
+sudo deluser johndoe                    # Debian : garde le repertoire personnel
+sudo deluser --remove-home johndoe
+sudo userdel -r johndoe                 # portable, -r supprime le home et le courrier
 find / -xdev -uid 1001 2>/dev/null      # les fichiers restes orphelins, AVANT de supprimer
 ```
 
@@ -76,14 +76,14 @@ find / -xdev -uid 1001 2>/dev/null      # les fichiers restes orphelins, AVANT d
 | `/etc/sudoers.d/` | droits `sudo`, un fichier par règle | root seul |
 
 Toujours éditer les droits `sudo` avec `sudo visudo` (ou
-`sudo visudo -f /etc/sudoers.d/franck`) : la commande vérifie la syntaxe avant
+`sudo visudo -f /etc/sudoers.d/johndoe`) : la commande vérifie la syntaxe avant
 d'enregistrer. Un `/etc/sudoers` invalide rend `sudo` inutilisable, donc la
 machine irrécupérable sans accès physique.
 
 ## Pièges
 
 - **`usermod -G` sans `-a` remplace TOUS les groupes secondaires.** Un
-  `sudo usermod -G docker franck` retire franck de `sudo`, `adm`, `dialout` et
+  `sudo usermod -G docker johndoe` retire johndoe de `sudo`, `adm`, `dialout` et
   tout le reste — et l'on découvre en se reconnectant qu'on n'a plus les droits
   d'administration. C'est **toujours** `-aG`.
 - **Un changement de groupe ne s'applique qu'à la session suivante.** Ajouter
@@ -105,8 +105,8 @@ machine irrécupérable sans accès physique.
   l'ancien restés sur le disque. D'où le `find -uid` **avant** la suppression.
 - Un compte de service n'a pas à pouvoir se connecter : `-r` et
   `/usr/sbin/nologin`. Un shell sur un compte applicatif est un rebond offert.
-- `su franck` garde l'environnement courant, `su - franck` charge celui de
-  franck. La différence explique la moitié des « pourtant ça marche en root ».
+- `su johndoe` garde l'environnement courant, `su - johndoe` charge celui de
+  johndoe. La différence explique la moitié des « pourtant ça marche en root ».
 
 ## Voir aussi
 
