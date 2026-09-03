@@ -70,6 +70,15 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
 - [sed : substituer et éditer des lignes](fiches/shell/sed.md)
 
+### windows
+
+- [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
+- [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
+- [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
+- [findstr : le grep de cmd](fiches/windows/findstr.md)
+- [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
+- [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md) — _brouillon_
+
 ### wordpress
 
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md) — _brouillon_
@@ -109,6 +118,12 @@ _Vide._
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
 - [sed : substituer et éditer des lignes](fiches/shell/sed.md)
+- [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
+- [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
+- [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
+- [findstr : le grep de cmd](fiches/windows/findstr.md)
+- [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
+- [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
 ### linux
 
@@ -150,6 +165,7 @@ _Vide._
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
 ### texte
 
@@ -157,19 +173,29 @@ _Vide._
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
 - [sed : substituer et éditer des lignes](fiches/shell/sed.md)
+- [findstr : le grep de cmd](fiches/windows/findstr.md)
 
 ### web
 
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
+### windows
+
+- [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
+- [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
+- [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
+- [findstr : le grep de cmd](fiches/windows/findstr.md)
+- [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
+- [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
+
 ## Compteurs
 
 | | |
 | --- | --: |
-| Fiches classées | 18 |
+| Fiches classées | 24 |
 | Fiches en inbox | 0 |
-| Brouillons | 3 |
-| Tags utilisés | 14 |
-| Tags déclarés | 17 |
+| Brouillons | 4 |
+| Tags utilisés | 15 |
+| Tags déclarés | 18 |
 
 <!-- INDEX:END -->

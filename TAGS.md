@@ -28,6 +28,7 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 ## Systèmes et infrastructure
 
 - `linux` — distribution, systemd, filesystem, gestion de paquets
+- `windows` — cmd, PowerShell, services, registre
 - `reseau` — TCP/IP, DNS, routage, pare-feu
 - `conteneur` — Docker, Podman, images, compose
 - `securite` — chiffrement, authentification, durcissement
@@ -40,7 +41,7 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 ## Outillage
 
 - `git` — versionnement, remotes, workflows
-- `ligne-de-commande` — shell, utilitaires POSIX, one-liners
+- `ligne-de-commande` — shell, utilitaires en ligne de commande, one-liners
 - `texte` — recherche, filtrage et transformation de texte (grep, sed, awk, jq)
 - `editeur` — Vim, configuration d'éditeurs
 
