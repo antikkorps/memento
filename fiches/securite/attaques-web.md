@@ -81,7 +81,7 @@ la requête est parfaitement valide.
 | Téléversement non filtré | envoyer un `.php` au lieu d'une image | vérifier le type réel, stocker hors racine web |
 | Injection de commande | `; rm -rf` dans un paramètre | ne pas passer par un shell |
 | Désérialisation | objet forgé exécuté au chargement | formats de données, pas d'objets |
-| Redirection ouverte | `?next=https://site-malveillant` | liste d'autorisation |
+| Redirection ouverte | `?next=https://site-malveillant.tld` | liste d'autorisation |
 
 ## Pièges
 
