@@ -70,6 +70,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
+- [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 
 ### nvim
 
@@ -173,6 +174,7 @@ _Vide._
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
+- [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 
 ### php
 
@@ -244,6 +246,7 @@ _Vide._
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
+- [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
@@ -282,6 +285,7 @@ _Vide._
 
 ### windows
 
+- [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
@@ -296,7 +300,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 48 |
+| Fiches classées | 49 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 18 |
