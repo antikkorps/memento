@@ -54,6 +54,14 @@ ajouter **un seul à la fois**, jusqu'à ne plus y penser :
 Trois gestes couvrent tout le flux. Le reste de cette fiche se lit le jour où
 l'un des trois ne suffit pas.
 
+Pour découvrir le reste sans l'apprendre par cœur, deux entrées complémentaires
+de which-key, qui affiche l'aide dès la première touche :
+
+```text
+:WhichKey            toutes les combinaisons, par prefixe
+:Telescope keymaps   la meme chose, mais cherchable au clavier
+```
+
 ## Ça marche sans rien configurer
 
 La configuration kickstart pose `vim.o.clipboard = 'unnamedplus'`
@@ -117,8 +125,10 @@ Ctrl-O           revenir ou on etait
   La configuration kickstart pose `delay = 0` (`init.lua`), donc l'aide
   surgit instantanément sur tous les opérateurs — `y`, `d`, `c`, `g`, `z`.
   Les enchaînements restent valides : taper le second `y` sans marquer de pause
-  exécute bien `yy`. Pour que l'aide ne surgisse qu'en cas d'hésitation réelle,
-  passer `delay = 0` à `delay = 400`.
+  exécute bien `yy`. **Ce `delay = 0` est un choix, pas un défaut à corriger** :
+  tant qu'on apprend, l'aide instantanée est la façon la plus rapide de
+  découvrir les options d'un opérateur. Ne pas le passer à `400` par réflexe de
+  confort — on y perd l'apprentissage.
 - `y` copie sans sortir du mode normal : inutile d'entrer en visuel pour une
   ligne entière, `yy` suffit.
 - **Sans provider, `unnamedplus` échoue en silence** : la copie reste interne à
