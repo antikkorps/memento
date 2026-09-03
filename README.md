@@ -74,6 +74,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### reseau
 
+- [Adressage IP, masques et sous-réseaux](fiches/reseau/adressage-ip.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
@@ -83,8 +84,11 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### securite
 
+- [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 
 ### shell
 
@@ -178,6 +182,7 @@ _Vide._
 ### reseau
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
+- [Adressage IP, masques et sous-réseaux](fiches/reseau/adressage-ip.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
@@ -198,14 +203,18 @@ _Vide._
 ### securite
 
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
+- [Adressage IP, masques et sous-réseaux](fiches/reseau/adressage-ip.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
+- [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
@@ -220,6 +229,7 @@ _Vide._
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
+- [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
@@ -247,6 +257,7 @@ _Vide._
 - [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
+- [Les attaques web courantes](fiches/securite/attaques-web.md)
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
 ### windows
@@ -265,7 +276,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 39 |
+| Fiches classées | 43 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 18 |
