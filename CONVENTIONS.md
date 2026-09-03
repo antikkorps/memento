@@ -439,6 +439,20 @@ fouille ce qu'il y a **dedans** — une option, un message d'erreur, un nom de
 commande. Le motif est une **chaîne littérale**, insensible à la casse : pas de
 regex à échapper. Pour une vraie expression régulière, `git grep -i` reste là.
 
+Ce motif n'est pas limité à un mot : tous les arguments sont recollés en une
+seule phrase, donc les guillemets sont facultatifs.
+
+```sh
+m find "supprimer un fichier"     # les trois formes sont equivalentes
+m find supprimer un fichier
+m find 'supprimer un fichier'
+```
+
+La contrepartie de la recherche littérale : la phrase doit apparaître telle
+quelle, espaces compris. Un double espace dans le motif ne trouve rien, et deux
+mots séparés dans le texte par un retour à la ligne non plus — c'est le moment
+de revenir à `m tag`, ou à `git grep -i` pour une vraie expression régulière.
+
 Le comportement dépend d'où va la sortie :
 
 - **dans un terminal**, les résultats passent dans `fzf`, avec le fichier en

@@ -12,7 +12,8 @@ usage() {
 usage : m <commande> [arguments]
 
   m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
-  m find <mot>           cherche dans le corps des fiches, ouvre le resultat
+  m find <motif>         cherche dans le corps des fiches, ouvre le resultat
+                         plusieurs mots = une phrase, guillemets optionnels
   m new <domaine> <nom>  cree une fiche depuis le modele, dates pre-remplies
   m inbox <nom>          cree une note brute dans inbox/, sans frontmatter
   m check                verifie la conformite (identique a la CI)
@@ -80,7 +81,7 @@ tag)
 	;;
 find)
 	if [ $# -eq 0 ]; then
-		echo "usage : m find <mot>" >&2
+		echo "usage : m find <motif>   (plusieurs mots = une phrase)" >&2
 		exit 2
 	fi
 	motif=$*

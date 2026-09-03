@@ -19,11 +19,13 @@ Chercher les fiches portant un tag (`--tag` seul liste le vocabulaire) :
 node scripts/index.js --tag reseau
 ```
 
-Chercher un mot **dans** les fiches (`fzf` si le terminal est interactif, sortie
-`grep` sinon) :
+Chercher **dans** le corps des fiches (`fzf` si le terminal est interactif,
+sortie `grep` sinon). Le motif est littéral et peut tenir en plusieurs mots, les
+guillemets étant facultatifs :
 
 ```sh
 scripts/m find definer
+scripts/m find supprimer un fichier
 ```
 
 Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la main.
