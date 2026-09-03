@@ -55,6 +55,10 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Ressources pour apprendre git](fiches/git/ressources.md)
 
+### javascript
+
+- [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
+
 ### linux
 
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
@@ -64,9 +68,16 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 
+### nvim
+
+- [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
+
 ### reseau
 
+- [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
+- [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 
 ### securite
@@ -125,12 +136,20 @@ _Vide._
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 
+### editeur
+
+- [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
+
 ### git
 
 - [Plusieurs jobs dans un seul workflow](fiches/ci/jobs.md)
 - [Forgejo Actions : anatomie d'un workflow](fiches/ci/workflow.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Ressources pour apprendre git](fiches/git/ressources.md)
+
+### javascript
+
+- [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
 
 ### linux
 
@@ -158,7 +177,10 @@ _Vide._
 ### reseau
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
+- [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
+- [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 
 ### ressource
@@ -174,7 +196,10 @@ _Vide._
 ### securite
 
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
+- [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
+- [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
@@ -189,6 +214,7 @@ _Vide._
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
@@ -215,6 +241,8 @@ _Vide._
 
 ### web
 
+- [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
+- [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
 ### windows
@@ -233,10 +261,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 33 |
+| Fiches classées | 38 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
-| Tags utilisés | 16 |
-| Tags déclarés | 18 |
+| Tags utilisés | 18 |
+| Tags déclarés | 19 |
 
 <!-- INDEX:END -->

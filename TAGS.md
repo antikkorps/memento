@@ -47,6 +47,7 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 
 ## Développement
 
+- `javascript` — le langage : syntaxe, tableaux, objets, asynchrone
 - `node` — Node.js, npm, écosystème JavaScript
 - `php` — PHP, WordPress, écosystème serveur
 - `web` — HTTP, front, CMS, API web
