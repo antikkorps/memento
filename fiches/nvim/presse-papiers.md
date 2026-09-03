@@ -22,7 +22,8 @@ Puis, dans nvim :
 
 | Touche | Effet |
 | --- | --- |
-| `yy` | copie **la ligne entière** — le cas courant |
+| `0y$` | copie la ligne **sans le retour à la ligne** — le cas courant ici |
+| `yy` | copie la ligne entière, **retour à la ligne compris** |
 | `yiw` | copie le mot sous le curseur (`taskkill`) |
 | `yi"` | copie ce qu'il y a entre guillemets |
 | `yi(` | idem entre parenthèses |
@@ -42,9 +43,10 @@ pas automatique, **la souris est effectivement plus rapide** — et le rester
 quelques jours est normal, pas un échec. Le seul moyen d'y arriver est d'en
 ajouter **un seul à la fois**, jusqu'à ne plus y penser :
 
-1. **`yy` d'abord, et rien d'autre.** `m find` ouvre déjà sur la bonne ligne :
-   dans neuf cas sur dix, il n'y a rien à viser, juste à copier. Une touche
-   doublée remplace tout le geste sélectionner-glisser.
+1. **`0y$` d'abord, et rien d'autre.** `m find` ouvre déjà sur la bonne
+   ligne : dans neuf cas sur dix, il n'y a rien à viser, juste à copier. Le `0`
+   ramène en début de ligne, le `y$` copie jusqu'au bout — et sans le retour à
+   la ligne, donc la commande se colle dans le terminal **sans s'exécuter**.
 2. **Puis `yip`**, quand `yy` ne demande plus de réflexion. Le curseur est
    dans un bloc de code, `yip` prend le bloc entier.
 3. **Puis `/motif` et `n`**, pour arriver sur la ligne sans les flèches.
@@ -103,10 +105,20 @@ Ctrl-O           revenir ou on etait
   `"_d` supprime dans le trou noir sans rien écraser.
 - **Coller dans le terminal, ce n'est pas `Ctrl+V`.** Dans un terminal,
   `Ctrl+V` est une séquence de contrôle : il faut `Ctrl+Shift+V`.
-- **Ne jamais coller une commande directement dans un shell root.** Une ligne
-  copiée depuis une page web peut contenir un retour à la ligne invisible qui
-  l'exécute avant relecture. Coller d'abord dans l'éditeur, relire, puis
-  exécuter.
+- **`yy` copie aussi le retour à la ligne.** Collée dans un terminal, la
+  commande **s'exécute immédiatement**, sans laisser le temps de la relire.
+  `0y$` copie le même texte sans ce retour à la ligne : la commande s'affiche à
+  l'invite et attend un `Entrée`. C'est la raison de le préférer ici, et elle
+  vaut aussi pour tout ce qu'on copie depuis une page web.
+- **`y$` seul part du curseur, pas du début de la ligne.** Après un `/motif` ou
+  un déplacement, la colonne n'est plus 0 et la commande est tronquée par la
+  gauche — sans que rien ne le signale. D'où le `0` devant.
+- **which-key s'affiche dès `y`, ce n'est pas un menu qui attend un choix.**
+  La configuration kickstart pose `delay = 0` (`init.lua`), donc l'aide
+  surgit instantanément sur tous les opérateurs — `y`, `d`, `c`, `g`, `z`.
+  Les enchaînements restent valides : taper le second `y` sans marquer de pause
+  exécute bien `yy`. Pour que l'aide ne surgisse qu'en cas d'hésitation réelle,
+  passer `delay = 0` à `delay = 400`.
 - `y` copie sans sortir du mode normal : inutile d'entrer en visuel pour une
   ligne entière, `yy` suffit.
 - **Sans provider, `unnamedplus` échoue en silence** : la copie reste interne à
