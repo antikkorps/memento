@@ -60,7 +60,7 @@ Il n'y a **pas** de `>` ni de `<` : ce sont des redirections.
 | --- | --- |
 | `-eq` `-ne` | égal / différent |
 | `-gt` `-ge` `-lt` `-le` | comparaisons numériques |
-| `-like` `-notlike` | joker `*` et `?` |
+| `-like` `-notlike` | joker (*wildcard*) `*` et `?` |
 | `-match` `-notmatch` | regex .NET, remplit `$Matches` |
 | `-contains` `-in` | appartenance à une collection |
 | `-not` `!` `-and` `-or` | logique |

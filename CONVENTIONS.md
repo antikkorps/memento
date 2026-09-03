@@ -136,6 +136,35 @@ dépôt : sans lui, la moitié des fiches finit sous `réseaux` et l'autre sous
 Viser 2 à 4 tags par fiche. Un seul tag et c'est probablement le domaine
 redit ; plus de cinq et aucun ne discrimine.
 
+## Vocabulaire : donner le terme anglais
+
+Les fiches sont en français, la recherche est littérale, et une partie du
+vocabulaire technique se pense en anglais. Résultat : une fiche qui écrit
+« joker » est invisible à `m find wildcard`, alors même qu'elle contient
+exactement la réponse.
+
+La règle : **quand un terme a un équivalent anglais courant, l'écrire une fois
+dans la fiche**, en italique et entre parenthèses, à la première occurrence
+utile.
+
+```md
+- **Rien ne va à la corbeille** (*recycle bin*)**.**
+| `-like` | joker (*wildcard*) `*` et `?` |
+## Changer les droits (*permissions*)
+```
+
+Une seule fois par fiche suffit — `m find` cherche dans le fichier entier, pas
+par section. Le répéter à chaque paragraphe alourdit la lecture sans rien
+ajouter à la recherche.
+
+Les paires déjà posées, à réutiliser telles quelles plutôt que d'en inventer
+des variantes : joker / *wildcard*, corbeille / *recycle bin*, pare-feu /
+*firewall*, lien symbolique / *symlink*, droits / *permissions*, sous-réseau /
+*subnet*, tâche planifiée / *scheduled task*, chaîne littérale / *literal*.
+
+Le test, au moment d'écrire : **quel mot taperais-je à 8 h du matin en cherchant
+cette fiche ?** S'il y a deux réponses, les deux doivent être dans le fichier.
+
 ## Liens
 
 Markdown relatif standard, et rien d'autre :

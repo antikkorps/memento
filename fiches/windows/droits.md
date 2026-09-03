@@ -48,7 +48,7 @@ C:\app BUILTIN\Administrateurs:(I)(OI)(CI)(F)
 | `(CI)` | s'applique aux sous-dossiers |
 | `(IO)` | ne s'applique pas au dossier lui-même, seulement à ce qu'il contient |
 
-## Modifier
+## Modifier les droits (*permissions*)
 
 ```bat
 icacls C:\app /grant franck:(OI)(CI)M          donner, avec heritage

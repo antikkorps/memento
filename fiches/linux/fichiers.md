@@ -87,7 +87,7 @@ qu'une fois, et seulement quand c'est massif ou récursif.
 ## Liens
 
 ```sh
-ln -s /chemin/reel lien         lien symbolique
+ln -s /chemin/reel lien         lien symbolique (symlink)
 ln -sf /nouveau/reel lien       le refaire pointer ailleurs
 ln fichier copie                lien physique : le meme inode, pas une copie
 readlink -f lien                ou pointe-t-il vraiment
@@ -96,7 +96,7 @@ rm lien                         supprime le LIEN, jamais la cible
 
 ## Pièges
 
-- **Il n'y a pas de corbeille.** `rm` ne demande rien et ne garde rien. Le
+- **Il n'y a pas de corbeille** (*recycle bin*)**.** `rm` ne demande rien et ne garde rien. Le
   réflexe qui sauve : lancer d'abord la même sélection avec `ls` ou `find` sans
   `-delete`, et n'ajouter la suppression qu'une fois la liste vérifiée.
 - **La variable vide qui efface tout.** `rm -rf "$DIR"/*` avec `DIR` non défini

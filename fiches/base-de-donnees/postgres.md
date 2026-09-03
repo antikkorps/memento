@@ -29,7 +29,7 @@ Pour ne plus taper le mot de passe, `~/.pgpass` (obligatoirement en `chmod 600`,
 sinon il est ignoré sans un mot) :
 
 ```
-# hôte:port:base:utilisateur:motdepasse   — le joker * est accepté
+# hôte:port:base:utilisateur:motdepasse   — le joker (wildcard) * est accepté
 127.0.0.1:5432:*:app:secret
 ```
 

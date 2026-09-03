@@ -37,7 +37,7 @@ nmap -p- 10.10.10.5                # les 65535 ports, plus lent
 | ----------------------- | ----------------------- |
 | `10.10.10.5`            | une IP                  |
 | `10.10.10.5 10.10.10.7` | plusieurs IP            |
-| `10.10.10.0/24`         | tout un sous-réseau     |
+| `10.10.10.0/24`         | tout un sous-réseau (*subnet*) |
 | `10.10.10.1-50`         | une plage               |
 | `-iL cibles.txt`        | liste depuis un fichier |
 | `--exclude 10.10.10.1`  | exclure une IP          |
@@ -149,7 +149,7 @@ sudo nmap --script vuln -p 80,443 10.10.10.5
 
 - **open** — un service écoute
 - **closed** — l'hôte répond mais rien n'écoute
-- **filtered** — un pare-feu bloque, nmap ne sait pas
+- **filtered** — un pare-feu (*firewall*) bloque, nmap ne sait pas
 - **open|filtered** — indécidable (typique en UDP)
 - **unfiltered** — accessible mais état inconnu (ACK scan)
 

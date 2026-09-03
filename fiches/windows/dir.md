@@ -51,7 +51,7 @@ dir /A:HD         caches ET dossiers (les lettres se cumulent)
 | `R` | lecture seule |
 | `A` | archive (bit « à sauvegarder ») |
 | `I` | non indexé par la recherche |
-| `L` | point d'analyse — lien symbolique, jonction, OneDrive à la demande |
+| `L` | point d'analyse — lien symbolique (*symlink*), jonction, OneDrive à la demande |
 
 ## Les autres options utiles
 

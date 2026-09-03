@@ -31,7 +31,7 @@ ipconfig /all | findstr /I "adresse dns"   filtrer la sortie d'une commande
 | `/N` | numéro de ligne |
 | `/M` | n'affiche que le nom des fichiers qui matchent |
 | `/V` | inverse : les lignes qui **ne** matchent pas |
-| `/C:"..."` | traite l'argument comme **une seule chaîne littérale** |
+| `/C:"..."` | traite l'argument comme **une seule chaîne littérale** (*literal*) |
 | `/L` | toutes les chaînes en littéral |
 | `/R` | toutes les chaînes en regex (comportement par défaut) |
 | `/B` `/E` | le motif doit être en début / fin de ligne |

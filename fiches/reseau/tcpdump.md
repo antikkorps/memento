@@ -132,7 +132,7 @@ questions.
   des paquets de 30 000 octets qui n'ont jamais circulé tels quels. Pour tout ce
   qui touche à la MTU ou à la fragmentation :
   `sudo ethtool -K eth0 gro off tso off lro off`.
-- **tcpdump voit avant le pare-feu en entrée, après en sortie.** Un paquet
+- **tcpdump voit avant le pare-feu (*firewall*) en entrée, après en sortie.** Un paquet
   rejeté par `iptables INPUT` apparaît quand même dans la capture : le voir ne
   prouve pas que l'application l'a reçu.
 - Capturer demande root ou `CAP_NET_RAW`. Quand on écrit un fichier en tant que

@@ -25,7 +25,7 @@ Changer les droits d'un fichier, savoir lire un `ls -l`, et comprendre pourquoi
 └────────── type : - fichier, d dossier, l lien, c/b peripherique
 ```
 
-## Changer les droits
+## Changer les droits (*permissions*)
 
 ```sh
 chmod u+x script.sh             ajouter x au proprietaire

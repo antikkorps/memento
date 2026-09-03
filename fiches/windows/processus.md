@@ -74,7 +74,7 @@ Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess
 Stop-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess -Force
 ```
 
-## Services
+## Services et tâches planifiées (*scheduled tasks*)
 
 ```bat
 sc query nom                      etat d'un service

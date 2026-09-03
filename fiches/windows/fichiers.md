@@ -80,7 +80,7 @@ C'est la section qu'on vient chercher — *delete*, effacer, vider.
 
 ```bat
 del fichier.txt                 supprimer un fichier
-del *.tmp                       par joker
+del *.tmp                       par joker (wildcard)
 del /s *.tmp                    recursivement, dans tous les sous-dossiers
 del /f fichier.txt              forcer, meme en lecture seule
 del /q *.tmp                    sans demander confirmation
@@ -126,7 +126,7 @@ C'est la séquence pour un dossier qui refuse de disparaître : `takeown`, puis
 
 ## Pièges
 
-- **Rien ne va à la corbeille.** Ni `del`, ni `rd`, ni `Remove-Item` : la
+- **Rien ne va à la corbeille** (*recycle bin*)**.** Ni `del`, ni `rd`, ni `Remove-Item` : la
   suppression est définitive et immédiate. La corbeille est une fonction de
   l'explorateur, pas du système de fichiers.
 - **`del dossier` ne supprime pas le dossier**, il supprime son *contenu* après
