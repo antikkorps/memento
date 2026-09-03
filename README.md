@@ -74,6 +74,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### reseau
 
+- [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
@@ -177,6 +178,7 @@ _Vide._
 ### reseau
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
+- [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
@@ -196,6 +198,7 @@ _Vide._
 ### securite
 
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
+- [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
@@ -242,6 +245,7 @@ _Vide._
 ### web
 
 - [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
+- [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
@@ -261,7 +265,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 38 |
+| Fiches classées | 39 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 18 |
