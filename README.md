@@ -57,6 +57,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### linux
 
+- [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md) — _brouillon_
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
@@ -127,6 +128,7 @@ _Vide._
 
 ### linux
 
+- [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
@@ -173,6 +175,7 @@ _Vide._
 
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
@@ -214,7 +217,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 28 |
+| Fiches classées | 29 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 16 |

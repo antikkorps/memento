@@ -163,3 +163,4 @@ C'est la séquence pour un dossier qui refuse de disparaître : `takeown`, puis
 - [cmd : historique, redirections et raccourcis](cmd.md)
 - [PowerShell : objets, pipeline et repères](powershell.md)
 - [Équivalences bash / cmd / PowerShell](equivalences-bash.md)
+- [Linux : créer, copier, renommer, supprimer](../linux/fichiers.md)
