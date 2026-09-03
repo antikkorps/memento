@@ -76,9 +76,11 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 - [Adressage IP, masques et sous-réseaux](fiches/reseau/adressage-ip.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
+- [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 
@@ -139,6 +141,7 @@ _Vide._
 
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
+- [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 
 ### editeur
@@ -184,9 +187,11 @@ _Vide._
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
 - [Adressage IP, masques et sous-réseaux](fiches/reseau/adressage-ip.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
+- [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 
@@ -208,6 +213,7 @@ _Vide._
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Le modèle OSI en 7 couches](fiches/reseau/modele-osi.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
@@ -227,7 +233,9 @@ _Vide._
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
+- [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
@@ -276,7 +284,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 43 |
+| Fiches classées | 45 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 18 |

@@ -35,6 +35,23 @@ Puis, dans nvim :
 `yip` est le plus rentable ici : les blocs de code des fiches sont entourés de
 lignes vides, donc curseur dedans + `yip` = tout le bloc dans le presse-papiers.
 
+## Par où commencer
+
+Le tableau ci-dessus est une référence, pas un programme. Tant qu'un geste n'est
+pas automatique, **la souris est effectivement plus rapide** — et le rester
+quelques jours est normal, pas un échec. Le seul moyen d'y arriver est d'en
+ajouter **un seul à la fois**, jusqu'à ne plus y penser :
+
+1. **`yy` d'abord, et rien d'autre.** `m find` ouvre déjà sur la bonne ligne :
+   dans neuf cas sur dix, il n'y a rien à viser, juste à copier. Une touche
+   doublée remplace tout le geste sélectionner-glisser.
+2. **Puis `yip`**, quand `yy` ne demande plus de réflexion. Le curseur est
+   dans un bloc de code, `yip` prend le bloc entier.
+3. **Puis `/motif` et `n`**, pour arriver sur la ligne sans les flèches.
+
+Trois gestes couvrent tout le flux. Le reste de cette fiche se lit le jour où
+l'un des trois ne suffit pas.
+
 ## Ça marche sans rien configurer
 
 La configuration kickstart pose `vim.o.clipboard = 'unnamedplus'`
