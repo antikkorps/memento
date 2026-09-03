@@ -4,6 +4,31 @@
 n'aide, la changer — mais la changer *ici* et dans `scripts/index.js` en même
 temps, sinon la CI et la doc divergent.
 
+## Portée : tous les sujets, sans exception
+
+Ce dépôt n'est pas un memento *technique*, c'est un memento. Recettes de
+cuisine, gestion de projet, démarches administratives, notes de lecture : tout y
+a sa place au même titre qu'une fiche `tcpdump`.
+
+C'est délibéré, et ça ne demande aucune adaptation : **les règles qui suivent
+contraignent la forme, jamais le sujet.** Frontmatter, kebab-case, tags
+déclarés, liens vérifiés — rien là-dedans ne suppose que le contenu est
+technique. `fiches/cuisine/pate-a-pizza.md` avec sa photo dans
+`assets/cuisine/` passe la CI comme n'importe quelle autre fiche.
+
+Le seul risque est de l'oublier : un dépôt qui *ressemble* à un dépôt technique
+décourage d'y poser autre chose, et l'on finit avec un second système de notes
+ailleurs — c'est-à-dire avec deux endroits où ne rien retrouver. Si l'hésitation
+revient, c'est cette section qui tranche.
+
+Deux conséquences pratiques quand un sujet non technique arrive :
+
+- la section `## Commandes` du modèle n'a pas à être remplie — `lexique.md` et
+  les fiches `ressources.md` n'en ont déjà pas ;
+- `## Pièges` reste la section la plus rentable. Les pièges d'un chiffrage ou
+  d'une pâte levée sont exactement ce qu'on ne retrouve nulle part et qu'on
+  réapprend à ses dépens.
+
 ## Principe directeur
 
 **Hiérarchie peu profonde pour ranger, tags pour croiser.**
