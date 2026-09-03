@@ -2,7 +2,7 @@
 title: "sed : substituer et éditer des lignes"
 tags: [terminal, texte]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-03
 status: stable
 ---
 

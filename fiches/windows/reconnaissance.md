@@ -165,6 +165,8 @@ Get-WinEvent -FilterHashtable @{LogName='System'; StartTime=(Get-Date).AddHours(
 
 ## Voir aussi
 
+- [Windows : créer, copier, renommer, supprimer](fichiers.md)
+
 - [PowerShell : objets, pipeline et repères](powershell.md)
 - [findstr : le grep de cmd](findstr.md)
 - [Équivalences bash / cmd / PowerShell](equivalences-bash.md)

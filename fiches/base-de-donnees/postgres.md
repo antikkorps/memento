@@ -2,7 +2,7 @@
 title: "PostgreSQL : commandes courantes"
 tags: [base-de-donnees, terminal, procedure]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-03
 status: stable
 ---
 

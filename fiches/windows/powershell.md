@@ -120,6 +120,8 @@ New-Item -ItemType Directory -Path C:\nouveau
 
 ## Voir aussi
 
+- [Windows : créer, copier, renommer, supprimer](fichiers.md)
+
 - [Équivalences bash / cmd / PowerShell](equivalences-bash.md)
 - [findstr : le grep de cmd](findstr.md)
 - [dir : lister, trier et filtrer en cmd](dir.md)

@@ -81,6 +81,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
 - [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
+- [Windows : créer, copier, renommer, supprimer](fiches/windows/fichiers.md)
 - [findstr : le grep de cmd](fiches/windows/findstr.md)
 - [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md) — _brouillon_
@@ -180,6 +181,7 @@ _Vide._
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
 - [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
+- [Windows : créer, copier, renommer, supprimer](fiches/windows/fichiers.md)
 - [findstr : le grep de cmd](fiches/windows/findstr.md)
 - [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
@@ -201,6 +203,7 @@ _Vide._
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
 - [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
+- [Windows : créer, copier, renommer, supprimer](fiches/windows/fichiers.md)
 - [findstr : le grep de cmd](fiches/windows/findstr.md)
 - [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
@@ -209,7 +212,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 27 |
+| Fiches classées | 28 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 16 |

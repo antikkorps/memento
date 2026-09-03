@@ -153,6 +153,8 @@ Get-ChildItem -Recurse -File | Where-Object Length -gt 100MB
 
 ## Voir aussi
 
+- [Windows : créer, copier, renommer, supprimer](fichiers.md)
+
 - [findstr : le grep de cmd](findstr.md)
 - [cmd : historique, redirections et raccourcis](cmd.md)
 - [PowerShell : objets, pipeline et repères](powershell.md)

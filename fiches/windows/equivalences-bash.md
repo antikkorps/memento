@@ -106,6 +106,8 @@ faux amis (voir les pièges).
 
 ## Voir aussi
 
+- [Windows : créer, copier, renommer, supprimer](fichiers.md)
+
 - [PowerShell : objets, pipeline et repères](powershell.md)
 - [cmd : historique, redirections et raccourcis](cmd.md)
 - [findstr : le grep de cmd](findstr.md)

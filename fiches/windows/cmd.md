@@ -112,6 +112,8 @@ for /f "tokens=*" %i in ('dir /b *.txt') do type "%i"
 
 ## Voir aussi
 
+- [Windows : créer, copier, renommer, supprimer](fichiers.md)
+
 - [dir : lister, trier et filtrer en cmd](dir.md)
 - [findstr : le grep de cmd](findstr.md)
 - [PowerShell : objets, pipeline et repères](powershell.md)
