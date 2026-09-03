@@ -1,6 +1,6 @@
 ---
 title: "Windows : reconnaissance système en ligne de commande"
-tags: [windows, securite, ligne-de-commande]
+tags: [windows, securite, terminal]
 created: 2026-09-03
 updated: 2026-09-03
 status: brouillon

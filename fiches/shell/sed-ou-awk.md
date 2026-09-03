@@ -1,6 +1,6 @@
 ---
 title: "sed ou awk : lequel choisir"
-tags: [ligne-de-commande, texte]
+tags: [terminal, texte]
 created: 2026-09-02
 updated: 2026-09-02
 status: stable

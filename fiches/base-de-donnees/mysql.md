@@ -1,6 +1,6 @@
 ---
 title: "MySQL / MariaDB : commandes courantes"
-tags: [base-de-donnees, ligne-de-commande, procedure]
+tags: [base-de-donnees, terminal, procedure]
 created: 2026-09-02
 updated: 2026-09-02
 status: stable

@@ -9,7 +9,7 @@ de tout prévoir à l'avance.
 - minuscules uniquement ;
 - **sans accent** : `reseau`, jamais `réseau` ;
 - **au singulier** : `conteneur`, jamais `conteneurs` ;
-- mots séparés par un tiret : `ligne-de-commande` ;
+- mots séparés par un tiret : `base-de-donnees` ;
 - expression régulière appliquée par l'indexeur : `^[a-z0-9]+(-[a-z0-9]+)*$`.
 
 ## Comment ajouter un tag
@@ -41,7 +41,7 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 ## Outillage
 
 - `git` — versionnement, remotes, workflows
-- `ligne-de-commande` — shell, utilitaires en ligne de commande, one-liners
+- `terminal` — shell, utilitaires en ligne de commande, one-liners
 - `texte` — recherche, filtrage et transformation de texte (grep, sed, awk, jq)
 - `editeur` — Vim, configuration d'éditeurs
 

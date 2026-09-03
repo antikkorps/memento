@@ -1,6 +1,6 @@
 ---
 title: Ressources sur le shell et la ligne de commande
-tags: [linux, ligne-de-commande, ressource]
+tags: [linux, terminal, ressource]
 created: 2026-08-17
 updated: 2026-08-17
 status: stable

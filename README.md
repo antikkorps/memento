@@ -109,22 +109,6 @@ _Vide._
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Ressources pour apprendre git](fiches/git/ressources.md)
 
-### ligne-de-commande
-
-- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
-- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
-- [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
-- [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
-- [grep : chercher dans les fichiers](fiches/shell/grep.md)
-- [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
-- [sed : substituer et éditer des lignes](fiches/shell/sed.md)
-- [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
-- [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
-- [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
-- [findstr : le grep de cmd](fiches/windows/findstr.md)
-- [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
-- [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
-
 ### linux
 
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
@@ -165,6 +149,22 @@ _Vide._
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
+
+### terminal
+
+- [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
+- [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
+- [grep : chercher dans les fichiers](fiches/shell/grep.md)
+- [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
+- [sed : substituer et éditer des lignes](fiches/shell/sed.md)
+- [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
+- [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
+- [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
+- [findstr : le grep de cmd](fiches/windows/findstr.md)
+- [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
 ### texte

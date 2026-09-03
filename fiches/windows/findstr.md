@@ -1,6 +1,6 @@
 ---
 title: "findstr : le grep de cmd"
-tags: [windows, ligne-de-commande, texte]
+tags: [windows, terminal, texte]
 created: 2026-09-03
 updated: 2026-09-03
 status: stable

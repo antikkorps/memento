@@ -1,6 +1,6 @@
 ---
 title: "PowerShell : objets, pipeline et repères"
-tags: [windows, ligne-de-commande]
+tags: [windows, terminal]
 created: 2026-09-03
 updated: 2026-09-03
 status: stable
