@@ -15,13 +15,13 @@ ordre. Le pendant Windows est
 ## Trouver
 
 ```sh
-ps aux                          tous les processus, format BSD
-ps -ef                          idem, format System V
-ps aux | grep -i nginx          la methode qui marche partout
-pgrep -a nginx                  mieux : le PID et la ligne de commande
-pgrep -u franck -a node         filtre par utilisateur
-pstree -p                       l'arbre, avec les PID
-top                             en direct ; `htop` si installe, bien plus lisible
+ps aux                        # tous les processus, format BSD
+ps -ef                        # idem, format System V
+ps aux | grep -i nginx        # la methode qui marche partout
+pgrep -a nginx                # mieux : le PID et la ligne de commande
+pgrep -u franck -a node       # filtre par utilisateur
+pstree -p                     # l'arbre, avec les PID
+top                           # en direct ; `htop` si installe, bien plus lisible
 
 ps -eo pid,ppid,user,%cpu,%mem,etime,cmd --sort=-%cpu | head
 ```
@@ -32,27 +32,27 @@ quand » : `etime` donne le temps écoulé depuis le démarrage du processus.
 ## Inspecter avant de tuer
 
 ```sh
-ls -l /proc/1234/cwd            depuis quel repertoire il tourne
-ls -l /proc/1234/exe            quel binaire exactement
-tr '\0' ' ' < /proc/1234/cmdline    la ligne de commande complete
-lsof -p 1234                    ce qu'il a ouvert : fichiers, sockets
-ls -l /proc/1234/fd             idem, sans lsof
-cat /proc/1234/status           etat, memoire, UID reel et effectif
+ls -l /proc/1234/cwd          # depuis quel repertoire il tourne
+ls -l /proc/1234/exe          # quel binaire exactement
+tr '\0' ' ' < /proc/1234/cmdline  # la ligne de commande complete
+lsof -p 1234                  # ce qu'il a ouvert : fichiers, sockets
+ls -l /proc/1234/fd           # idem, sans lsof
+cat /proc/1234/status         # etat, memoire, UID reel et effectif
 ```
 
 ## Tuer
 
 ```sh
-kill 1234                       SIGTERM : demande poliment de s'arreter
-kill -15 1234                   strictement identique
-kill -HUP 1234                  recharge la configuration, ne tue pas
-kill -9 1234                    SIGKILL : le noyau tue, sans negociation
-kill -l                         la liste des signaux
+kill 1234                     # SIGTERM : demande poliment de s'arreter
+kill -15 1234                 # strictement identique
+kill -HUP 1234                # recharge la configuration, ne tue pas
+kill -9 1234                  # SIGKILL : le noyau tue, sans negociation
+kill -l                       # la liste des signaux
 
-pkill -f 'node.*serveur.js'     par motif sur la ligne de commande complete
-pgrep -af 'node.*serveur.js'    LE MEME motif, en simulation -- a faire d'abord
-killall nginx                   par nom exact de binaire
-kill -- -4242                   tout le groupe de processus (PGID 4242)
+pkill -f 'node.*serveur.js'   # par motif sur la ligne de commande complete
+pgrep -af 'node.*serveur.js'  # LE MEME motif, en simulation -- a faire d'abord
+killall nginx                 # par nom exact de binaire
+kill -- -4242                 # tout le groupe de processus (PGID 4242)
 ```
 
 | Signal | N° | Effet |
@@ -67,18 +67,18 @@ kill -- -4242                   tout le groupe de processus (PGID 4242)
 ## Services et tâches de fond
 
 ```sh
-systemctl status nginx          etat, PID principal, dernieres lignes de log
+systemctl status nginx        # etat, PID principal, dernieres lignes de log
 systemctl restart nginx
 systemctl stop nginx
-journalctl -u nginx -f          suivre les logs du service
+journalctl -u nginx -f        # suivre les logs du service
 
-commande &                      lancer en tache de fond
-jobs                            les taches du shell courant
-fg %1 / bg %1                   ramener au premier plan / relancer en fond
-Ctrl+Z                          suspendre la tache courante
-nohup commande &                survit a la fermeture du terminal
-disown %1                       detache une tache deja lancee
-timeout 30 commande             tue la commande au bout de 30 s
+commande &                    # lancer en tache de fond
+jobs                          # les taches du shell courant
+fg %1 / bg %1                 # ramener au premier plan / relancer en fond
+Ctrl+Z                        # suspendre la tache courante
+nohup commande &              # survit a la fermeture du terminal
+disown %1                     # detache une tache deja lancee
+timeout 30 commande           # tue la commande au bout de 30 s
 ```
 
 ## Pièges

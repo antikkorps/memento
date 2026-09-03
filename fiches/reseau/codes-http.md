@@ -78,8 +78,8 @@ Sur un `502` derrière nginx, regarder si l'application tourne encore ; sur un
 
 ```sh
 curl -o /dev/null -s -w '%{http_code}\n' https://exemple.tld
-curl -I https://exemple.tld                 les en-tetes seuls
-curl -IL https://exemple.tld                en suivant les redirections
+curl -I https://exemple.tld               # les en-tetes seuls
+curl -IL https://exemple.tld              # en suivant les redirections
 curl -X POST -d 'a=1' -i https://exemple.tld/api
 
 # Repartition des codes dans un journal d'acces

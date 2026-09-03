@@ -17,23 +17,23 @@ filet de sécurité s'appelle `-n` / `--dry-run`.
 
 ```sh
 mkdir dossier
-mkdir -p a/b/c                  cree toute l'arborescence, sans raler si elle existe
-touch fichier.txt               creer vide, ou mettre a jour la date
-install -Dm 600 src /etc/app/conf.d/x.conf   cree le dossier, copie et pose les droits
+mkdir -p a/b/c                # cree toute l'arborescence, sans raler si elle existe
+touch fichier.txt             # creer vide, ou mettre a jour la date
+install -Dm 600 src /etc/app/conf.d/x.conf  # cree le dossier, copie et pose les droits
 ```
 
 ## Copier
 
 ```sh
 cp source.txt destination.txt
-cp -r dossier/ ailleurs/        recursif
-cp -a dossier/ ailleurs/        archive : preserve dates, droits, proprietaire, liens
-cp -i source dest               demande avant d'ecraser
-cp --parents a/b/c.txt /dest/   recree l'arborescence a/b/ dans /dest/
+cp -r dossier/ ailleurs/      # recursif
+cp -a dossier/ ailleurs/      # archive : preserve dates, droits, proprietaire, liens
+cp -i source dest             # demande avant d'ecraser
+cp --parents a/b/c.txt /dest/  # recree l'arborescence a/b/ dans /dest/
 
-rsync -a source/ dest/          la meme chose, mais reprenable et incrementale
+rsync -a source/ dest/        # la meme chose, mais reprenable et incrementale
 rsync -avh --progress source/ dest/
-rsync -a --dry-run --delete source/ dest/    SIMULATION d'un miroir
+rsync -a --dry-run --delete source/ dest/  # SIMULATION d'un miroir
 ```
 
 | Option `rsync` | Effet |
@@ -49,14 +49,14 @@ rsync -a --dry-run --delete source/ dest/    SIMULATION d'un miroir
 ## Renommer et déplacer
 
 ```sh
-mv ancien.txt nouveau.txt       renommer
-mv fichier.txt /ailleurs/       deplacer
-mv -i a b                       demande avant d'ecraser
-mv -n a b                       n'ecrase jamais, en silence
-mv -- -fichier normal.txt       pour un nom qui commence par un tiret
+mv ancien.txt nouveau.txt     # renommer
+mv fichier.txt /ailleurs/     # deplacer
+mv -i a b                     # demande avant d'ecraser
+mv -n a b                     # n'ecrase jamais, en silence
+mv -- -fichier normal.txt     # pour un nom qui commence par un tiret
 
 for f in *.jpeg; do mv -- "$f" "${f%.jpeg}.jpg"; done
-rename 's/\.jpeg$/.jpg/' *.jpeg    si le rename de Perl est installe
+rename 's/\.jpeg$/.jpg/' *.jpeg  # si le rename de Perl est installe
 ```
 
 ## Supprimer
@@ -64,20 +64,20 @@ rename 's/\.jpeg$/.jpg/' *.jpeg    si le rename de Perl est installe
 Supprimer un fichier, effacer un dossier, vider un log — *delete*, en somme.
 
 ```sh
-rm fichier.txt                  supprimer un fichier
-rm -f fichier.txt               forcer, aucune erreur si absent
-rm -r dossier/                  recursif
-rm -rf dossier/                 recursif et force -- aucune confirmation
-rm -I *.tmp                     demande UNE fois si plus de 3 fichiers
-rm -- -fichier                  nom commençant par un tiret
-rmdir dossier                   seulement si le dossier est vide
+rm fichier.txt                # supprimer un fichier
+rm -f fichier.txt             # forcer, aucune erreur si absent
+rm -r dossier/                # recursif
+rm -rf dossier/               # recursif et force -- aucune confirmation
+rm -I *.tmp                   # demande UNE fois si plus de 3 fichiers
+rm -- -fichier                # nom commençant par un tiret
+rmdir dossier                 # seulement si le dossier est vide
 
-find /var/log -type f -mtime +30 -delete            plus vieux que 30 jours
-find . -name '*.tmp' -print0 | xargs -0 rm --       noms avec espaces
-find . -maxdepth 1 -type f -delete                  quand `rm *` dit « trop d'arguments »
+find /var/log -type f -mtime +30 -delete          # plus vieux que 30 jours
+find . -name '*.tmp' -print0 | xargs -0 rm --     # noms avec espaces
+find . -maxdepth 1 -type f -delete                # quand `rm *` dit « trop d'arguments »
 
-> fichier.log                   vider sans supprimer (garde le descripteur ouvert)
-truncate -s 0 fichier.log       idem, plus explicite
+> fichier.log                 # vider sans supprimer (garde le descripteur ouvert)
+truncate -s 0 fichier.log     # idem, plus explicite
 ```
 
 `rm -I` est le bon compromis : `-i` demande pour chaque fichier — donc on prend
@@ -87,11 +87,11 @@ qu'une fois, et seulement quand c'est massif ou récursif.
 ## Liens
 
 ```sh
-ln -s /chemin/reel lien         lien symbolique (symlink)
-ln -sf /nouveau/reel lien       le refaire pointer ailleurs
-ln fichier copie                lien physique : le meme inode, pas une copie
-readlink -f lien                ou pointe-t-il vraiment
-rm lien                         supprime le LIEN, jamais la cible
+ln -s /chemin/reel lien       # lien symbolique (symlink)
+ln -sf /nouveau/reel lien     # le refaire pointer ailleurs
+ln fichier copie              # lien physique : le meme inode, pas une copie
+readlink -f lien              # ou pointe-t-il vraiment
+rm lien                       # supprime le LIEN, jamais la cible
 ```
 
 ## Pièges

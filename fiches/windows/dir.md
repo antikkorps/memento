@@ -17,14 +17,14 @@ jours » ou « plus gros que 100 Mo », c'est `forfiles` ou PowerShell.
 Le `-` inverse l'ordre.
 
 ```bat
-dir /O:D          par date, ancien -> recent
-dir /O:-D         par date, recent -> ancien
-dir /O:S          par taille croissante
-dir /O:-S         par taille decroissante
-dir /O:N          par nom (alphabetique)
-dir /O:E          par extension
-dir /O:G          dossiers d'abord
-dir /O:GN         dossiers d'abord, puis tri par nom
+dir /O:D    & rem par date, ancien -> recent
+dir /O:-D   & rem par date, recent -> ancien
+dir /O:S    & rem par taille croissante
+dir /O:-S   & rem par taille decroissante
+dir /O:N    & rem par nom (alphabetique)
+dir /O:E    & rem par extension
+dir /O:G    & rem dossiers d'abord
+dir /O:GN   & rem dossiers d'abord, puis tri par nom
 ```
 
 Les lettres se cumulent dans l'ordre de priorité : `/O:G-D` = dossiers d'abord,
@@ -33,14 +33,14 @@ puis du plus récent au plus ancien.
 ## Filtrer : `/A`
 
 ```bat
-dir /A            tout, y compris caches et systeme
-dir /A:H          uniquement les fichiers caches
-dir /A:D          uniquement les dossiers
-dir /A:-D         uniquement les fichiers (pas les dossiers)
-dir /A:S          fichiers systeme
-dir /A:R          lecture seule
-dir /A:L          points d'analyse : liens symboliques et jonctions
-dir /A:HD         caches ET dossiers (les lettres se cumulent)
+dir /A      & rem tout, y compris caches et systeme
+dir /A:H    & rem uniquement les fichiers caches
+dir /A:D    & rem uniquement les dossiers
+dir /A:-D   & rem uniquement les fichiers (pas les dossiers)
+dir /A:S    & rem fichiers systeme
+dir /A:R    & rem lecture seule
+dir /A:L    & rem points d'analyse : liens symboliques et jonctions
+dir /A:HD   & rem caches ET dossiers (les lettres se cumulent)
 ```
 
 | Lettre | Attribut |
@@ -56,25 +56,25 @@ dir /A:HD         caches ET dossiers (les lettres se cumulent)
 ## Les autres options utiles
 
 ```bat
-dir /S            recursif dans les sous-dossiers
-dir /B            format brut : juste les noms, sans en-tete ni resume
-dir /B /S         chemins absolus, un par ligne -- la forme a piper
-dir /T:C          affiche la date de creation
-dir /T:A          affiche la date de dernier acces
-dir /T:W          affiche la date de modification (defaut)
-dir /Q            affiche le proprietaire de chaque fichier
-dir /R            affiche les flux de donnees alternatifs (ADS)
-dir /X            affiche les noms courts 8.3
-dir /P            pagine
-dir /W            affichage en colonnes
+dir /S      & rem recursif dans les sous-dossiers
+dir /B      & rem format brut : juste les noms, sans en-tete ni resume
+dir /B /S   & rem chemins absolus, un par ligne -- la forme a piper
+dir /T:C    & rem affiche la date de creation
+dir /T:A    & rem affiche la date de dernier acces
+dir /T:W    & rem affiche la date de modification (defaut)
+dir /Q      & rem affiche le proprietaire de chaque fichier
+dir /R      & rem affiche les flux de donnees alternatifs (ADS)
+dir /X      & rem affiche les noms courts 8.3
+dir /P      & rem pagine
+dir /W      & rem affichage en colonnes
 ```
 
 Ça se combine. Les trois formes que j'écris réellement :
 
 ```bat
-dir /A:-D /O:-S /S            tous les fichiers, du plus gros au plus petit
-dir /B /S *.log               tous les .log en chemins absolus
-dir /A:D /B                   la liste des sous-dossiers, un par ligne
+dir /A:-D /O:-S /S      & rem tous les fichiers, du plus gros au plus petit
+dir /B /S *.log         & rem tous les .log en chemins absolus
+dir /A:D /B             & rem la liste des sous-dossiers, un par ligne
 ```
 
 ## Filtrer par date : `forfiles`

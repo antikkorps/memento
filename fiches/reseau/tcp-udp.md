@@ -84,9 +84,9 @@ enregistrés, **49152-65535** éphémères, attribués aux clients.
 ## Voir l'état des connexions
 
 ```sh
-ss -tuln                        ce qui ECOUTE (t=tcp u=udp l=listen n=numerique)
-ss -tp                          les connexions etablies, avec le processus
-netstat -ano                    l'equivalent Windows
+ss -tuln                      # ce qui ECOUTE (t=tcp u=udp l=listen n=numerique)
+ss -tp                        # les connexions etablies, avec le processus
+netstat -ano                  # l'equivalent Windows
 ```
 
 | État | Sens |

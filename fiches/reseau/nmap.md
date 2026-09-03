@@ -112,7 +112,7 @@ Les scripts vivent dans `/usr/share/nmap/scripts/`.
 -oG scan.gnmap   # greppable
 -oX scan.xml     # XML
 -oA scan         # les trois d'un coup → scan.nmap / .gnmap / .xml
--v  / -vv        # verbosité
+-v  # / -vv        # verbosité
 --reason         # pourquoi nmap conclut qu'un port est ouvert
 --open           # n'affiche que les ports ouverts
 ```

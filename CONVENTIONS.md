@@ -190,6 +190,34 @@ des variantes : joker / *wildcard*, corbeille / *recycle bin*, pare-feu /
 Le test, au moment d'écrire : **quel mot taperais-je à 8 h du matin en cherchant
 cette fiche ?** S'il y a deux réponses, les deux doivent être dans le fichier.
 
+## Blocs de code : chaque ligne doit être collable
+
+Le flux de lecture est `m find` → l'éditeur s'ouvre **sur la ligne** → `yy` →
+coller dans un terminal. Une ligne de bloc de code est donc systématiquement
+copiée **en entier**, description comprise.
+
+Conséquence : **une description en fin de ligne doit être un vrai commentaire du
+langage**, jamais du texte nu aligné à la main.
+
+```sh
+chmod 644 fichier             # rw- r-- r--   fichier de donnees
+```
+
+```bat
+dir /O:D    & rem par date, ancien -> recent
+```
+
+Le marqueur dépend du langage du bloc :
+
+| Bloc | Marqueur | Pourquoi |
+| --- | --- | --- |
+| `sh`, `bash`, `powershell` | `#` | commentaire natif |
+| `bat` | `& rem` | **`::` n'est un commentaire qu'en fichier `.bat`** ; au prompt interactif il produit une erreur. `& rem` enchaîne sur la commande `rem`, qui ne fait rien — valide dans les deux cas |
+| `text` | — | à utiliser pour les **frappes clavier** (raccourcis d'éditeur), qui ne sont pas du code à coller |
+
+Rogner le blanc d'alignement de la largeur du marqueur garde la colonne du
+commentaire au même endroit.
+
 ## Liens
 
 Markdown relatif standard, et rien d'autre :

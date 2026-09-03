@@ -28,31 +28,31 @@ Changer les droits d'un fichier, savoir lire un `ls -l`, et comprendre pourquoi
 ## Changer les droits (*permissions*)
 
 ```sh
-chmod u+x script.sh             ajouter x au proprietaire
-chmod g-w fichier               retirer w au groupe
-chmod a+r fichier               a = all (u + g + o)
-chmod o= fichier                retirer tout aux autres
-chmod 644 fichier               rw- r-- r--   fichier de donnees
-chmod 755 script.sh             rwx r-x r-x   script ou dossier
-chmod 600 ~/.ssh/id_ed25519     rw- --- ---   secret
-chmod 700 ~/.ssh                dossier prive
-chmod -R a+rX dossier/          voir les pieges : X majuscule
+chmod u+x script.sh           # ajouter x au proprietaire
+chmod g-w fichier             # retirer w au groupe
+chmod a+r fichier             # a = all (u + g + o)
+chmod o= fichier              # retirer tout aux autres
+chmod 644 fichier             # rw- r-- r--   fichier de donnees
+chmod 755 script.sh           # rwx r-x r-x   script ou dossier
+chmod 600 ~/.ssh/id_ed25519   # rw- --- ---   secret
+chmod 700 ~/.ssh              # dossier prive
+chmod -R a+rX dossier/        # voir les pieges : X majuscule
 ```
 
 Octal : `r` = 4, `w` = 2, `x` = 1, additionnés par triplet.
 
 ```sh
-chown franck fichier            changer le proprietaire (root uniquement)
-chown franck:www-data fichier   proprietaire et groupe
-chown -R franck: dossier/       le groupe par defaut de franck
+chown franck fichier          # changer le proprietaire (root uniquement)
+chown franck:www-data fichier  # proprietaire et groupe
+chown -R franck: dossier/     # le groupe par defaut de franck
 chgrp www-data fichier
 ```
 
 ## umask
 
 ```sh
-umask                           afficher (souvent 022)
-umask 077                       tout ce que je cree est prive
+umask                         # afficher (souvent 022)
+umask 077                     # tout ce que je cree est prive
 ```
 
 `umask` **retire** des droits aux valeurs par défaut : 666 pour un fichier, 777
@@ -63,9 +63,9 @@ tienne.
 ## Bits spéciaux
 
 ```sh
-chmod u+s binaire               setuid  : s'execute en tant que proprietaire
-chmod g+s dossier/              setgid  : tout ce qui y est cree herite du groupe
-chmod +t /partage               sticky  : seul le proprietaire peut supprimer
+chmod u+s binaire             # setuid  : s'execute en tant que proprietaire
+chmod g+s dossier/            # setgid  : tout ce qui y est cree herite du groupe
+chmod +t /partage             # sticky  : seul le proprietaire peut supprimer
 ```
 
 `ls -l` les affiche à la place du `x` : `rws` (setuid), `rwt` (sticky). Le
@@ -82,12 +82,12 @@ find / -perm -4000 -type f 2>/dev/null
 
 ```sh
 getfacl fichier
-setfacl -m u:alice:rw fichier   donner un droit a UN utilisateur precis
+setfacl -m u:alice:rw fichier  # donner un droit a UN utilisateur precis
 setfacl -x u:alice fichier
-setfacl -b fichier              tout retirer
+setfacl -b fichier            # tout retirer
 
 lsattr fichier
-sudo chattr +i fichier          immuable : meme root ne peut plus le modifier
+sudo chattr +i fichier        # immuable : meme root ne peut plus le modifier
 sudo chattr -i fichier
 ```
 

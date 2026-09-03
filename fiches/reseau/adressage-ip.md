@@ -70,9 +70,9 @@ routeur qui les traduit vers l'adresse publique.
 ## Les commandes
 
 ```sh
-ip -br a                        les adresses, en une ligne par interface
-ip route                        la table de routage, `default via` = la passerelle
-ipcalc 192.168.1.100/26         tout le calcul, si l'outil est installe
+ip -br a                      # les adresses, en une ligne par interface
+ip route                      # la table de routage, `default via` = la passerelle
+ipcalc 192.168.1.100/26       # tout le calcul, si l'outil est installe
 ```
 
 ```powershell

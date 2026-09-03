@@ -47,16 +47,16 @@ sudo tcpdump -nn -r cap.pcap 'host 10.0.0.5'   # relire, avec un filtre a la lec
 ## Les filtres (syntaxe BPF)
 
 ```sh
-host 10.0.0.5              tout ce qui vient de ou va vers cette IP
-src host 10.0.0.5          seulement en provenance
-dst host 10.0.0.5          seulement a destination
-net 192.168.1.0/24         un sous-reseau
-port 443                   source ou destination
+host 10.0.0.5            # tout ce qui vient de ou va vers cette IP
+src host 10.0.0.5        # seulement en provenance
+dst host 10.0.0.5        # seulement a destination
+net 192.168.1.0/24       # un sous-reseau
+port 443                 # source ou destination
 dst port 53
 portrange 8000-8100
-tcp / udp / icmp / arp     par protocole
+tcp / udp / icmp / arp   # par protocole
 ether host aa:bb:cc:dd:ee:ff
-greater 1000               paquets de plus de 1000 octets
+greater 1000             # paquets de plus de 1000 octets
 ```
 
 Ils se combinent avec `and`, `or`, `not` (ou `&&`, `||`, `!`) et des

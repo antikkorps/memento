@@ -15,11 +15,11 @@ corbeille**, et PowerShell sait simuler une suppression avec `-WhatIf`.
 ## Créer
 
 ```bat
-md dossier                      creer un dossier
-md a\b\c                        cree toute l'arborescence, comme mkdir -p
-type nul > fichier.txt          creer un fichier vide
-copy nul fichier.txt            idem
-echo texte > fichier.txt        creer avec du contenu
+md dossier                & rem creer un dossier
+md a\b\c                  & rem cree toute l'arborescence, comme mkdir -p
+type nul > fichier.txt    & rem creer un fichier vide
+copy nul fichier.txt      & rem idem
+echo texte > fichier.txt  & rem creer avec du contenu
 ```
 
 ```powershell
@@ -31,12 +31,12 @@ Set-Content fichier.txt 'texte'
 ## Copier
 
 ```bat
-copy source.txt destination.txt        un fichier
-copy *.txt C:\sauvegarde\              plusieurs fichiers, pas de dossier
-xcopy /E /I source dest                une arborescence (ancien)
-robocopy source dest /E                une arborescence (le bon outil)
-robocopy source dest /MIR              miroir : supprime dans dest ce qui n'est plus dans source
-robocopy source dest /E /L             SIMULATION : n'ecrit rien, montre ce qui se passerait
+copy source.txt destination.txt  & rem un fichier
+copy *.txt C:\sauvegarde\        & rem plusieurs fichiers, pas de dossier
+xcopy /E /I source dest          & rem une arborescence (ancien)
+robocopy source dest /E          & rem une arborescence (le bon outil)
+robocopy source dest /MIR        & rem miroir : supprime dans dest ce qui n'est plus dans source
+robocopy source dest /E /L       & rem SIMULATION : n'ecrit rien, montre ce qui se passerait
 ```
 
 ```powershell
@@ -62,10 +62,10 @@ chemins de plus de 260 caractères et affiche un vrai résumé.
 ## Renommer et déplacer
 
 ```bat
-ren ancien.txt nouveau.txt      renomme sur place -- pas de chemin a droite
-move a.txt C:\ailleurs\         deplace
-move a.txt b.txt                renomme aussi
-move dossier1 dossier2          deplace un dossier entier
+ren ancien.txt nouveau.txt  & rem renomme sur place -- pas de chemin a droite
+move a.txt C:\ailleurs\   & rem deplace
+move a.txt b.txt          & rem renomme aussi
+move dossier1 dossier2    & rem deplace un dossier entier
 ```
 
 ```powershell
@@ -79,18 +79,18 @@ Get-ChildItem *.jpeg | Rename-Item -NewName { $_.Name -replace '\.jpeg$','.jpg' 
 C'est la section qu'on vient chercher — *delete*, effacer, vider.
 
 ```bat
-del fichier.txt                 supprimer un fichier
-del *.tmp                       par joker (wildcard)
-del /s *.tmp                    recursivement, dans tous les sous-dossiers
-del /f fichier.txt              forcer, meme en lecture seule
-del /q *.tmp                    sans demander confirmation
-del /a:h *.tmp                  y compris les fichiers caches
-del /f /s /q C:\temp\*          vider un dossier sans le supprimer
+del fichier.txt           & rem supprimer un fichier
+del *.tmp                 & rem par joker (wildcard)
+del /s *.tmp              & rem recursivement, dans tous les sous-dossiers
+del /f fichier.txt        & rem forcer, meme en lecture seule
+del /q *.tmp              & rem sans demander confirmation
+del /a:h *.tmp            & rem y compris les fichiers caches
+del /f /s /q C:\temp\*    & rem vider un dossier sans le supprimer
 
-rd dossier                      supprimer un dossier VIDE
-rd /s dossier                   avec tout son contenu (demande confirmation)
-rd /s /q dossier                sans confirmation -- l'equivalent de rm -rf
-rmdir                           strictement identique a rd
+rd dossier                & rem supprimer un dossier VIDE
+rd /s dossier             & rem avec tout son contenu (demande confirmation)
+rd /s /q dossier          & rem sans confirmation -- l'equivalent de rm -rf
+rmdir                     & rem strictement identique a rd
 ```
 
 ```powershell
@@ -115,9 +115,9 @@ vérifiée. En cmd, l'équivalent est de commencer par `dir` avec les mêmes jok
 ## Attributs et droits
 
 ```bat
-attrib fichier.txt              voir les attributs
-attrib -h -s -r fichier.txt     enlever cache / systeme / lecture seule
-takeown /f dossier /r           s'approprier un dossier (admin)
+attrib fichier.txt        & rem voir les attributs
+attrib -h -s -r fichier.txt  & rem enlever cache / systeme / lecture seule
+takeown /f dossier /r     & rem s'approprier un dossier (admin)
 icacls dossier /grant %USERNAME%:F /t
 ```
 

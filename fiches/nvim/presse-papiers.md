@@ -68,7 +68,7 @@ presse-papiers Windows. Pour vérifier après une mise à jour :
 
 ## Aller vite dans la fiche
 
-```vim
+```text
 /motif<Entree>   chercher ; n / N pour l'occurrence suivante / precedente
 *                chercher le mot sous le curseur
 }  {             sauter au paragraphe suivant / precedent (= bloc suivant)
@@ -79,7 +79,7 @@ Ctrl-O           revenir ou on etait
 
 ## Registres, quand le presse-papiers ne suffit plus
 
-```vim
+```text
 "ayy             copier dans le registre a
 "ap              coller le registre a
 :reg             voir tous les registres

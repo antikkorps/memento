@@ -42,16 +42,16 @@ datée.
 ## Interroger
 
 ```sh
-dig exemple.tld                        la reponse complete
-dig +short exemple.tld                 juste l'adresse
+dig exemple.tld                      # la reponse complete
+dig +short exemple.tld               # juste l'adresse
 dig MX exemple.tld +short
 dig TXT exemple.tld +short
 dig NS exemple.tld +short
-dig @1.1.1.1 exemple.tld               forcer un resolveur precis
-dig +trace exemple.tld                 tout le chemin depuis la racine
-dig -x 203.0.113.10                    resolution inverse
-host exemple.tld                       plus court, moins detaille
-resolvectl status                      quel resolveur utilise ce systeme
+dig @1.1.1.1 exemple.tld             # forcer un resolveur precis
+dig +trace exemple.tld               # tout le chemin depuis la racine
+dig -x 203.0.113.10                  # resolution inverse
+host exemple.tld                     # plus court, moins detaille
+resolvectl status                    # quel resolveur utilise ce systeme
 ```
 
 ```powershell
@@ -65,8 +65,8 @@ ipconfig /displaydns
 ## Vider les caches
 
 ```sh
-sudo resolvectl flush-caches          systemd-resolved
-sudo systemctl restart nscd           si nscd est en place
+sudo resolvectl flush-caches        # systemd-resolved
+sudo systemctl restart nscd         # si nscd est en place
 ```
 
 Et ne pas oublier le navigateur, qui a **son propre cache**, indépendant de

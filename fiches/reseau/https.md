@@ -45,15 +45,15 @@ la vérification.
 ## Les commandes
 
 ```sh
-curl -vI https://exemple.tld                 en-tetes + details TLS
+curl -vI https://exemple.tld               # en-tetes + details TLS
 curl -w '%{http_code} %{ssl_verify_result}\n' -o /dev/null -s https://exemple.tld
 
 openssl s_client -connect exemple.tld:443 -servername exemple.tld </dev/null
 openssl s_client -connect exemple.tld:443 -servername exemple.tld </dev/null 2>/dev/null \
   | openssl x509 -noout -subject -issuer -dates
 
-openssl x509 -in cert.pem -noout -text        lire un certificat local
-openssl s_client -connect exemple.tld:443 -showcerts   toute la chaine
+openssl x509 -in cert.pem -noout -text      # lire un certificat local
+openssl s_client -connect exemple.tld:443 -showcerts  # toute la chaine
 ```
 
 `-servername` n'est pas optionnel : sans lui, `openssl` n'envoie pas le SNI et

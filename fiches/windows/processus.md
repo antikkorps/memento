@@ -15,12 +15,12 @@ en PowerShell avec `Get-Process` / `Stop-Process`. Le pendant Linux est
 ## Trouver
 
 ```bat
-tasklist                                    tous les processus
-tasklist /svc                               quel service tourne dans quel processus
-tasklist /v                                 avec le compte proprietaire
-tasklist /fi "imagename eq chrome.exe"      filtrer par nom
-tasklist /fi "pid eq 1234"                  filtrer par PID
-tasklist | findstr /i node                  la methode rapide
+tasklist                              & rem tous les processus
+tasklist /svc                         & rem quel service tourne dans quel processus
+tasklist /v                           & rem avec le compte proprietaire
+tasklist /fi "imagename eq chrome.exe"  & rem filtrer par nom
+tasklist /fi "pid eq 1234"            & rem filtrer par PID
+tasklist | findstr /i node            & rem la methode rapide
 ```
 
 ```powershell
@@ -37,10 +37,10 @@ Get-CimInstance Win32_Process -Filter "Name='node.exe'" |
 ## Tuer
 
 ```bat
-taskkill /PID 1234                fermeture propre : demande a la fenetre de se fermer
-taskkill /PID 1234 /F             force
-taskkill /IM node.exe /F          par nom -- TOUTES les instances
-taskkill /PID 1234 /T /F          l'arbre : le processus et tous ses enfants
+taskkill /PID 1234          & rem fermeture propre : demande a la fenetre de se fermer
+taskkill /PID 1234 /F       & rem force
+taskkill /IM node.exe /F    & rem par nom -- TOUTES les instances
+taskkill /PID 1234 /T /F    & rem l'arbre : le processus et tous ses enfants
 ```
 
 ```powershell
@@ -77,9 +77,9 @@ Stop-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess -Force
 ## Services et tâches planifiées (*scheduled tasks*)
 
 ```bat
-sc query nom                      etat d'un service
-sc stop nom  /  sc start nom
-net stop nom /  net start nom
+sc query nom                & rem etat d'un service
+sc stop nom  & rem /  sc start nom
+net stop nom /  & rem net start nom
 ```
 
 ```powershell

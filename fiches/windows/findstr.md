@@ -16,12 +16,12 @@ regex volontairement pauvres. En PowerShell, l'équivalent moderne est
 ## Les cas de tous les jours
 
 ```bat
-findstr /S /I /N "erreur" *.log            recursif, insensible a la casse, avec numeros
-findstr /C:"connexion refusee" app.log     une phrase exacte, espaces compris
-findstr /S /I /M /C:"password" *.config    ne lister que les fichiers concernes
-findstr /V "^#" fichier.conf               exclure les lignes qui commencent par #
-findstr /B /C:"OS Name" systeminfo.txt     debut de ligne seulement
-ipconfig /all | findstr /I "adresse dns"   filtrer la sortie d'une commande
+findstr /S /I /N "erreur" *.log      & rem recursif, insensible a la casse, avec numeros
+findstr /C:"connexion refusee" app.log  & rem une phrase exacte, espaces compris
+findstr /S /I /M /C:"password" *.config  & rem ne lister que les fichiers concernes
+findstr /V "^#" fichier.conf         & rem exclure les lignes qui commencent par #
+findstr /B /C:"OS Name" systeminfo.txt  & rem debut de ligne seulement
+ipconfig /all | findstr /I "adresse dns"  & rem filtrer la sortie d'une commande
 ```
 
 | Option | Effet |
@@ -57,8 +57,8 @@ Le jeu est minuscule, et c'est la principale source de surprise :
 fait autrement : plusieurs mots séparés par des espaces valent un OU.
 
 ```bat
-findstr /I "erreur echec timeout" app.log     lignes contenant l'un des trois
-findstr /I /C:"erreur fatale" app.log         la phrase exacte
+findstr /I "erreur echec timeout" app.log  & rem lignes contenant l'un des trois
+findstr /I /C:"erreur fatale" app.log   & rem la phrase exacte
 ```
 
 ## L'équivalent PowerShell

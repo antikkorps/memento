@@ -15,15 +15,15 @@ dépannage. Les commandes marquées **(admin)** demandent un terminal élevé.
 ## Identité et privilèges
 
 ```bat
-whoami                     domaine\utilisateur
-whoami /all                SID, groupes ET privileges -- la commande la plus dense
-whoami /priv               les privileges seuls
+whoami               & rem domaine\utilisateur
+whoami /all          & rem SID, groupes ET privileges -- la commande la plus dense
+whoami /priv         & rem les privileges seuls
 whoami /groups
-net user                   les comptes locaux
-net user jdupont           details d'un compte : groupes, derniere connexion, expiration
-net localgroup             les groupes locaux
+net user             & rem les comptes locaux
+net user jdupont     & rem details d'un compte : groupes, derniere connexion, expiration
+net localgroup       & rem les groupes locaux
 net localgroup administrateurs
-net accounts               politique de mots de passe : longueur, age, verrouillage
+net accounts         & rem politique de mots de passe : longueur, age, verrouillage
 ```
 
 ```powershell
@@ -38,11 +38,11 @@ non-admin qui en possède un est un compte non-admin sur le papier seulement.
 ## Le système
 
 ```bat
-systeminfo                 OS, version, domaine, correctifs, memoire
+systeminfo           & rem OS, version, domaine, correctifs, memoire
 hostname
 systeminfo | findstr /B /C:"Nom du systeme" /C:"Version du systeme"
-wmic qfe list brief        correctifs installes (deprecie)
-driverquery                pilotes charges
+wmic qfe list brief  & rem correctifs installes (deprecie)
+driverquery          & rem pilotes charges
 ```
 
 ```powershell
@@ -53,11 +53,11 @@ Get-HotFix | Sort-Object InstalledOn -Descending | Select-Object -First 10
 ## Processus et services
 
 ```bat
-tasklist                   les processus
-tasklist /svc              quel service tourne dans quel processus
-tasklist /v                avec le compte proprietaire de chaque processus
-sc query                   les services actifs
-sc qc <service>            sa configuration : binaire lance, compte, demarrage
+tasklist             & rem les processus
+tasklist /svc        & rem quel service tourne dans quel processus
+tasklist /v          & rem avec le compte proprietaire de chaque processus
+sc query             & rem les services actifs
+sc qc <service>      & rem sa configuration : binaire lance, compte, demarrage
 ```
 
 ```powershell
@@ -73,14 +73,14 @@ d'exécuter `C:\Program.exe` avant `C:\Program Files\...`.
 ## Réseau
 
 ```bat
-ipconfig /all              adresses, DNS, suffixes, DHCP
-arp -a                     le voisinage vu par la machine
+ipconfig /all        & rem adresses, DNS, suffixes, DHCP
+arp -a               & rem le voisinage vu par la machine
 route print
-netstat -ano               connexions et ports en ecoute, avec le PID
-netstat -anob              idem, avec le nom du binaire (admin)
+netstat -ano         & rem connexions et ports en ecoute, avec le PID
+netstat -anob        & rem idem, avec le nom du binaire (admin)
 nslookup exemple.tld
-net share                  les partages exposes par la machine
-net use                    les partages montes
+net share            & rem les partages exposes par la machine
+net use              & rem les partages montes
 ```
 
 ```powershell
@@ -104,10 +104,10 @@ Get-NetTCPConnection -LocalPort 445 | ForEach-Object { Get-Process -Id $_.Owning
 ## Persistance et planification
 
 ```bat
-schtasks /query /fo LIST /v                 taches planifiees, en detail
+schtasks /query /fo LIST /v           & rem taches planifiees, en detail
 reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 reg query HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-cmdkey /list                                identifiants mis en cache
+cmdkey /list                          & rem identifiants mis en cache
 ```
 
 ```powershell
@@ -118,9 +118,9 @@ Get-CimInstance Win32_StartupCommand | Select-Object Name, Command, Location
 ## Droits sur les fichiers
 
 ```bat
-icacls C:\chemin                            qui a quoi sur ce dossier
-dir /q                                      le proprietaire de chaque fichier
-dir /r                                      les flux alternatifs (ADS) caches
+icacls C:\chemin                      & rem qui a quoi sur ce dossier
+dir /q                                & rem le proprietaire de chaque fichier
+dir /r                                & rem les flux alternatifs (ADS) caches
 ```
 
 ```powershell

@@ -16,17 +16,17 @@ transforment SSH en outil réseau à part entière.
 
 ```sh
 ssh franck@serveur.tld
-ssh -p 2222 franck@serveur.tld          port non standard
+ssh -p 2222 franck@serveur.tld        # port non standard
 ssh -i ~/.ssh/cle_projet franck@serveur.tld
-ssh franck@serveur.tld 'uptime; df -h'  executer et repartir
-ssh -v franck@serveur.tld               diagnostiquer (-vv, -vvv pour plus)
+ssh franck@serveur.tld 'uptime; df -h'  # executer et repartir
+ssh -v franck@serveur.tld             # diagnostiquer (-vv, -vvv pour plus)
 ```
 
 ## Les clés
 
 ```sh
-ssh-keygen -t ed25519 -C 'franck@portable'      generer une paire
-ssh-copy-id franck@serveur.tld                  installer la publique la-bas
+ssh-keygen -t ed25519 -C 'franck@portable'    # generer une paire
+ssh-copy-id franck@serveur.tld                # installer la publique la-bas
 ssh-copy-id -i ~/.ssh/cle_projet.pub franck@serveur.tld
 ```
 
@@ -44,10 +44,10 @@ chmod 644 ~/.ssh/id_ed25519.pub
 ## L'agent, pour ne taper la phrase de passe qu'une fois
 
 ```sh
-eval "$(ssh-agent -s)"        demarrer l'agent
-ssh-add ~/.ssh/id_ed25519     y charger la cle
-ssh-add -l                    ce qu'il contient
-ssh-add -D                    tout oublier
+eval "$(ssh-agent -s)"      # demarrer l'agent
+ssh-add ~/.ssh/id_ed25519   # y charger la cle
+ssh-add -l                  # ce qu'il contient
+ssh-add -D                  # tout oublier
 ```
 
 ## `~/.ssh/config`, le vrai gain
@@ -77,9 +77,9 @@ même fichier.
 
 ```sh
 scp fichier.txt prod:/srv/app/
-scp -r dossier/ prod:/srv/                    recursif
-scp prod:/var/log/app.log .                   dans l'autre sens
-rsync -avz --progress dossier/ prod:/srv/     mieux : reprenable, incremental
+scp -r dossier/ prod:/srv/                  # recursif
+scp prod:/var/log/app.log .                 # dans l'autre sens
+rsync -avz --progress dossier/ prod:/srv/   # mieux : reprenable, incremental
 ```
 
 ## Tunnels

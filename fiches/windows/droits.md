@@ -17,9 +17,9 @@ dossier parent. Le pendant Linux est
 ## Lire les droits
 
 ```bat
-icacls C:\app                     les droits effectifs, ligne par ligne
-dir /q                            le proprietaire de chaque fichier
-whoami /groups                    a quels groupes j'appartiens
+icacls C:\app               & rem les droits effectifs, ligne par ligne
+dir /q                      & rem le proprietaire de chaque fichier
+whoami /groups              & rem a quels groupes j'appartiens
 ```
 
 ```powershell
@@ -51,16 +51,16 @@ C:\app BUILTIN\Administrateurs:(I)(OI)(CI)(F)
 ## Modifier les droits (*permissions*)
 
 ```bat
-icacls C:\app /grant franck:(OI)(CI)M          donner, avec heritage
-icacls C:\app /grant:r franck:(OI)(CI)F        REMPLACE au lieu de cumuler
-icacls C:\app /remove franck                   retirer les entrees de ce compte
-icacls C:\app /deny franck:(OI)(CI)W           interdire explicitement
-icacls C:\app /inheritance:r                   couper l'heritage, en copiant les regles
-icacls C:\app /inheritance:d                   couper l'heritage, en supprimant tout
-icacls C:\app /reset /T /C                     reappliquer l'heritage du parent, recursivement
+icacls C:\app /grant franck:(OI)(CI)M    & rem donner, avec heritage
+icacls C:\app /grant:r franck:(OI)(CI)F  & rem REMPLACE au lieu de cumuler
+icacls C:\app /remove franck             & rem retirer les entrees de ce compte
+icacls C:\app /deny franck:(OI)(CI)W     & rem interdire explicitement
+icacls C:\app /inheritance:r             & rem couper l'heritage, en copiant les regles
+icacls C:\app /inheritance:d             & rem couper l'heritage, en supprimant tout
+icacls C:\app /reset /T /C               & rem reappliquer l'heritage du parent, recursivement
 icacls C:\app /setowner franck /T
-icacls C:\app /save droits.txt /T              sauvegarder les ACL
-icacls C:\ /restore droits.txt                 les restaurer
+icacls C:\app /save droits.txt /T        & rem sauvegarder les ACL
+icacls C:\ /restore droits.txt           & rem les restaurer
 ```
 
 ```powershell
@@ -76,7 +76,7 @@ Set-Acl C:\app $acl
 La séquence à connaître, pour un dossier dont on n'a plus l'accès :
 
 ```bat
-takeown /f C:\bloque /r /d o          devenir proprietaire, recursivement
+takeown /f C:\bloque /r /d o    & rem devenir proprietaire, recursivement
 icacls C:\bloque /grant %USERNAME%:F /t
 rd /s /q C:\bloque
 ```
@@ -84,8 +84,8 @@ rd /s /q C:\bloque
 ## Attributs (l'ancien système, distinct des droits)
 
 ```bat
-attrib fichier.txt                  voir
-attrib -h -s -r fichier.txt         enlever cache / systeme / lecture seule
+attrib fichier.txt            & rem voir
+attrib -h -s -r fichier.txt   & rem enlever cache / systeme / lecture seule
 ```
 
 Lecture seule, caché et système sont des **attributs**, pas des droits : ils ne

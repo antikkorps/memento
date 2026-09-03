@@ -25,8 +25,8 @@ rappeler ce qu'on a tapé, rediriger, enchaîner, retrouver un exécutable.
 | `Tab` | complète un nom de fichier ou de dossier |
 
 ```bat
-doskey /history                    l'historique de la session, en texte
-doskey /history > commandes.txt    le garder avant de fermer la fenetre
+doskey /history              & rem l'historique de la session, en texte
+doskey /history > commandes.txt  & rem le garder avant de fermer la fenetre
 ```
 
 **L'historique de `cmd` meurt avec la fenêtre.** Il n'y a pas de fichier
@@ -40,30 +40,30 @@ Get-Content (Get-PSReadlineOption).HistorySavePath | Select-Object -Last 40
 ## Se déplacer
 
 ```bat
-cd /d D:\projets      changer de lecteur ET de dossier -- sans /d, cd ne change pas de lecteur
-cd                    affiche le dossier courant (pas de remontee au home)
-cd ..                 dossier parent
-pushd \\serveur\part  monte un partage reseau sur une lettre temporaire
-popd                  revient, et libere la lettre
-start .               ouvre le dossier courant dans l'explorateur
-where python          ou est l'executable qui sera lance (le `which` de Windows)
+cd /d D:\projets  & rem changer de lecteur ET de dossier -- sans /d, cd ne change pas de lecteur
+cd              & rem affiche le dossier courant (pas de remontee au home)
+cd ..           & rem dossier parent
+pushd \\serveur\part  & rem monte un partage reseau sur une lettre temporaire
+popd            & rem revient, et libere la lettre
+start .         & rem ouvre le dossier courant dans l'explorateur
+where python    & rem ou est l'executable qui sera lance (le `which` de Windows)
 ```
 
 ## Rediriger et enchaîner
 
 ```bat
-commande > fichier          ecrase
-commande >> fichier         ajoute
-commande 2> erreurs.txt     seulement le flux d'erreur
-commande > sortie.txt 2>&1  tout dans un seul fichier
-commande > nul 2>&1         silence complet
-commande < entree.txt       lit l'entree depuis un fichier
-cmd1 | cmd2                 pipe
-cmd1 & cmd2                 enchaine, quoi qu'il arrive
-cmd1 && cmd2                cmd2 seulement si cmd1 reussit
-cmd1 || cmd2                cmd2 seulement si cmd1 echoue
-dir /b | clip               envoie la sortie dans le presse-papiers
-type gros.log | more        pagine
+commande > fichier    & rem ecrase
+commande >> fichier   & rem ajoute
+commande 2> erreurs.txt  & rem seulement le flux d'erreur
+commande > sortie.txt 2>&1  & rem tout dans un seul fichier
+commande > nul 2>&1   & rem silence complet
+commande < entree.txt  & rem lit l'entree depuis un fichier
+cmd1 | cmd2           & rem pipe
+cmd1 & cmd2           & rem enchaine, quoi qu'il arrive
+cmd1 && cmd2          & rem cmd2 seulement si cmd1 reussit
+cmd1 || cmd2          & rem cmd2 seulement si cmd1 echoue
+dir /b | clip         & rem envoie la sortie dans le presse-papiers
+type gros.log | more  & rem pagine
 ```
 
 `nul` est le `/dev/null` de Windows. **Un seul `l`.**
@@ -71,11 +71,11 @@ type gros.log | more        pagine
 ## Variables d'environnement
 
 ```bat
-set                        liste toutes les variables
-set PATH                   toutes celles qui commencent par PATH
-set MAVAR=valeur           definit, pour cette session seulement
-setx MAVAR valeur          definit durablement (utilisateur)
-echo %USERPROFILE%         C:\Users\<toi>
+set                  & rem liste toutes les variables
+set PATH             & rem toutes celles qui commencent par PATH
+set MAVAR=valeur     & rem definit, pour cette session seulement
+setx MAVAR valeur    & rem definit durablement (utilisateur)
+echo %USERPROFILE%   & rem C:\Users\<toi>
 echo %CD% %TEMP% %APPDATA% %COMPUTERNAME% %USERNAME%
 ```
 
