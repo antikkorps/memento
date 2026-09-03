@@ -39,6 +39,11 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 
+### ci
+
+- [Plusieurs jobs dans un seul workflow](fiches/ci/jobs.md)
+- [Forgejo Actions : anatomie d'un workflow](fiches/ci/workflow.md)
+
 ### docker
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
@@ -56,7 +61,8 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### reseau
 
-- [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md) — _brouillon_
+- [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 
 ### securite
 
@@ -96,6 +102,11 @@ _Vide._
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 
+### cicd
+
+- [Plusieurs jobs dans un seul workflow](fiches/ci/jobs.md)
+- [Forgejo Actions : anatomie d'un workflow](fiches/ci/workflow.md)
+
 ### conteneur
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
@@ -106,6 +117,8 @@ _Vide._
 
 ### git
 
+- [Plusieurs jobs dans un seul workflow](fiches/ci/jobs.md)
+- [Forgejo Actions : anatomie d'un workflow](fiches/ci/workflow.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Ressources pour apprendre git](fiches/git/ressources.md)
 
@@ -133,6 +146,7 @@ _Vide._
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 
 ### ressource
 
@@ -147,6 +161,7 @@ _Vide._
 ### securite
 
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
@@ -156,6 +171,8 @@ _Vide._
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
+- [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
@@ -192,10 +209,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 24 |
+| Fiches classées | 27 |
 | Fiches en inbox | 0 |
-| Brouillons | 4 |
-| Tags utilisés | 15 |
+| Brouillons | 3 |
+| Tags utilisés | 16 |
 | Tags déclarés | 18 |
 
 <!-- INDEX:END -->

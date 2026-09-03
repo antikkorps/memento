@@ -50,7 +50,7 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 - `node` — Node.js, npm, écosystème JavaScript
 - `php` — PHP, WordPress, écosystème serveur
 - `web` — HTTP, front, CMS, API web
-- `ci` — intégration continue, Forgejo Actions, pipelines
+- `cicd` — intégration continue et déploiement, Forgejo Actions, pipelines
 
 ## Méthode
 
