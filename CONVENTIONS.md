@@ -453,6 +453,20 @@ quelle, espaces compris. Un double espace dans le motif ne trouve rien, et deux
 mots séparés dans le texte par un retour à la ligne non plus — c'est le moment
 de revenir à `m tag`, ou à `git grep -i` pour une vraie expression régulière.
 
+**Chercher court, puis affiner dans `fzf`.** La tentation est d'écrire toute la
+question — `m find tuer un processus windows` — mais le grep est littéral et
+cette phrase n'existe nulle part. Le tri se fait en deux temps :
+
+```sh
+m find "tuer un processus"    # le grep ramene les deux fiches
+# puis, dans fzf : taper `windows`
+```
+
+fzf reçoit `chemin` **et** texte de la ligne (`--with-nth=1,3..`) et filtre sur
+les deux : taper un domaine suffit donc à ne garder que la bonne moitié des
+résultats. C'est ce que rappelle son en-tête, et ce que suggère le message
+d'échec quand un motif de plusieurs mots ne ramène rien.
+
 Le comportement dépend d'où va la sortie :
 
 - **dans un terminal**, les résultats passent dans `fzf`, avec le fichier en

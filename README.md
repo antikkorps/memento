@@ -57,9 +57,11 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### linux
 
+- [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md) — _brouillon_
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
+- [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 
 ### reseau
@@ -83,10 +85,12 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
+- [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
 - [Windows : créer, copier, renommer, supprimer](fiches/windows/fichiers.md)
 - [findstr : le grep de cmd](fiches/windows/findstr.md)
 - [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
+- [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md) — _brouillon_
 
 ### wordpress
@@ -118,6 +122,8 @@ _Vide._
 ### depannage
 
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
+- [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
+- [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 
 ### git
 
@@ -128,9 +134,11 @@ _Vide._
 
 ### linux
 
+- [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
+- [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 
 ### php
@@ -165,17 +173,21 @@ _Vide._
 
 ### securite
 
+- [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
 ### terminal
 
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
+- [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
@@ -185,10 +197,12 @@ _Vide._
 - [sed : substituer et éditer des lignes](fiches/shell/sed.md)
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
+- [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
 - [Windows : créer, copier, renommer, supprimer](fiches/windows/fichiers.md)
 - [findstr : le grep de cmd](fiches/windows/findstr.md)
 - [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
+- [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
 ### texte
@@ -207,17 +221,19 @@ _Vide._
 
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
+- [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Équivalences bash / cmd / PowerShell](fiches/windows/equivalences-bash.md)
 - [Windows : créer, copier, renommer, supprimer](fiches/windows/fichiers.md)
 - [findstr : le grep de cmd](fiches/windows/findstr.md)
 - [PowerShell : objets, pipeline et repères](fiches/windows/powershell.md)
+- [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
 ## Compteurs
 
 | | |
 | --- | --: |
-| Fiches classées | 29 |
+| Fiches classées | 33 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 16 |
