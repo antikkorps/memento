@@ -62,11 +62,14 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 ### linux
 
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
+- [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md) — _brouillon_
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [ufw : le pare-feu simple](fiches/linux/ufw.md)
+- [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 
 ### nvim
 
@@ -162,11 +165,14 @@ _Vide._
 ### linux
 
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
+- [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [ufw : le pare-feu simple](fiches/linux/ufw.md)
+- [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 
 ### php
 
@@ -185,6 +191,8 @@ _Vide._
 ### reseau
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
+- [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
+- [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Adressage IP, masques et sous-réseaux](fiches/reseau/adressage-ip.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
@@ -208,6 +216,9 @@ _Vide._
 ### securite
 
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
+- [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
+- [ufw : le pare-feu simple](fiches/linux/ufw.md)
+- [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [Adressage IP, masques et sous-réseaux](fiches/reseau/adressage-ip.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
@@ -232,6 +243,7 @@ _Vide._
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
@@ -284,7 +296,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 45 |
+| Fiches classées | 48 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 18 |
