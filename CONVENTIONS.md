@@ -333,6 +333,58 @@ Le `runs-on:` dépend des labels déclarés par ton runner Forgejo
 (`forgejo-runner`, fichier `config.yml`, section `runner.labels`). Si le
 workflow ne démarre jamais, c'est presque toujours ça.
 
+## Portabilité (Linux, WSL, macOS)
+
+Le dépôt est prévu pour être cloné sur plusieurs machines. Rien d'exotique n'est
+requis — `node` ≥ 18 et `git`, le reste est du POSIX — mais trois règles
+existantes ne sont **pas** cosmétiques : ce sont elles qui rendent le clone
+multi-plateforme sûr.
+
+**Les noms de fichiers en ASCII minuscule ne sont pas une coquetterie.**
+
+- macOS formate ses disques en **APFS insensible à la casse** par défaut.
+  `Reseau.md` et `reseau.md` y sont le même fichier : sur Linux les deux
+  coexistent, sur macOS le second écrase le premier au `git checkout`. La règle
+  « minuscules » supprime le problème à la racine, et `node scripts/index.js`
+  refuse un nom hors kebab-case avant qu'il n'entre dans le dépôt.
+- macOS stocke les noms de fichiers en **Unicode décomposé (NFD)** : `é` y est
+  `e` + accent combinant, là où Linux écrit un seul caractère. Un nom accentué
+  apparaît alors modifié dans `git status` dès qu'on change de machine. La règle
+  « sans accent » sur les **noms** l'évite ; le **contenu** des fiches, lui,
+  peut être accentué sans réserve, git ne normalise pas le contenu.
+- `.gitattributes` fixe `eol=lf`. Le jour où le dépôt est cloné sur un Windows
+  natif, `core.autocrlf` ne transformera pas silencieusement toutes les fiches.
+
+**Ce qui a été vérifié côté outillage :**
+
+- `scripts/m` est du `/bin/sh` strict — testé sous `dash`. Aucune extension GNU :
+  pas de `sed -i`, pas de `date -d`, pas de `readlink -f`, pas de `grep -P`. Les
+  options utilisées (`grep -RIn -i -F --include`, `date +%F`, `nl -ba`) existent
+  à l'identique dans les versions BSD livrées par macOS.
+- `scripts/index.js` n'appelle que `git`, via `execFileSync` — jamais un shell,
+  donc aucun problème de quoting selon la plateforme. Les chemins passent par
+  `path.sep`, et l'index est trié par **chemin ASCII** avec un comparateur
+  `<` / `>`, pas `localeCompare` : deux machines aux locales différentes
+  produisent le même README, donc pas de diff parasite.
+- `rg` et `fzf` restent facultatifs des deux côtés.
+
+**Sur un mac, à l'arrivée :**
+
+```sh
+git clone ssh://git@git.fvienot.link/fvienot/memento.git ~/Documents/memento
+cd ~/Documents/memento && npm run check
+```
+
+Le `D` majuscule de `~/Documents` est la convention macOS — l'alias documenté
+plus haut devient :
+
+```sh
+alias m=~/Documents/memento/scripts/m
+```
+
+`node` s'installe par `brew install node` (ou `nvm`), `git` vient avec les
+Command Line Tools de Xcode. `.DS_Store` est déjà dans `.gitignore`.
+
 ## Remotes
 
 `origin` pointe sur Forgejo ; le miroir GitHub est configuré **côté Forgejo**,

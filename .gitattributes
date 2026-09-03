@@ -1,0 +1,2 @@
+# Un memento se lit et se diffe partout : pas de CRLF, quelle que soit la machine.
+* text=auto eol=lf
