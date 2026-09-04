@@ -92,6 +92,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
+- [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
@@ -231,6 +232,7 @@ _Vide._
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
+- [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
@@ -253,6 +255,7 @@ _Vide._
 - [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
+- [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
@@ -300,7 +303,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 49 |
+| Fiches classées | 50 |
 | Fiches en inbox | 0 |
 | Brouillons | 3 |
 | Tags utilisés | 18 |

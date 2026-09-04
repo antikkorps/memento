@@ -2,7 +2,7 @@
 title: "Chiffrement, hachage et signature"
 tags: [securite, terminal]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-04
 status: stable
 ---
 
@@ -113,6 +113,7 @@ openssl rand -base64 32                      # une cle aleatoire
 
 ## Voir aussi
 
+- [Cryptographie : les algorithmes et leurs calculs](cryptographie-calculs.md)
 - [HTTPS et TLS : ce qui se passe avant la page](../reseau/https.md)
 - [Générer des secrets, clés et mots de passe](generer-des-secrets.md)
 - [Lexique de l'évaluation de sécurité](lexique.md)
