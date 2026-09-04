@@ -214,7 +214,8 @@ SHA-256 offre donc 128 bits de résistance aux collisions, pas 256.
 ## Pièges
 
 - **On ne dit pas « synchrone / asynchrone »** mais **symétrique / asymétrique**.
-  La confusion est fréquente et immédiatement sanctionnée à l'oral.
+  La confusion est fréquente, et un énoncé n'emploiera jamais que les termes
+  justes : il faut reconnaître le bon mot du premier coup d'œil.
 - **César, Vigenère et XOR à clé courte n'ont aucune valeur de sécurité.** Ils
   sont là pour comprendre le mécanisme, jamais pour protéger un fichier.
 - **Un grand espace de clés ne fait pas un bon chiffrement** : la substitution
