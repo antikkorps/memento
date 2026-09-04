@@ -2,7 +2,7 @@
 title: "DNS : résolution et enregistrements"
 tags: [reseau, terminal, depannage]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-04
 status: stable
 ---
 
@@ -110,3 +110,4 @@ celui du système : `chrome://net-internals/#dns`.
 - [HTTPS et TLS : ce qui se passe avant la page](https.md)
 - [Adressage IP, masques et sous-réseaux](adressage-ip.md)
 - [SSH : clés, configuration et tunnels](ssh.md)
+- [Windows : élévation (UAC) et édition d'un fichier protégé](../windows/elevation.md)

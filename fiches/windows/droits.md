@@ -2,7 +2,7 @@
 title: "Windows : droits NTFS et icacls"
 tags: [windows, terminal, securite]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-04
 status: stable
 ---
 
@@ -125,5 +125,6 @@ protègent de rien et n'importe qui peut les enlever.
 ## Voir aussi
 
 - [Linux : droits, propriétaire et umask](../linux/droits.md)
+- [Windows : élévation (UAC) et édition d'un fichier protégé](elevation.md)
 - [Windows : créer, copier, renommer, supprimer](fichiers.md)
 - [Windows : reconnaissance système en ligne de commande](reconnaissance.md)

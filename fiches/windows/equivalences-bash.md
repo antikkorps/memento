@@ -2,7 +2,7 @@
 title: "Équivalences bash / cmd / PowerShell"
 tags: [windows, terminal]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-04
 status: stable
 ---
 
@@ -106,6 +106,7 @@ faux amis (voir les pièges).
 
 ## Voir aussi
 
+- [Windows : élévation (UAC) et édition d'un fichier protégé](elevation.md)
 - [Windows : créer, copier, renommer, supprimer](fichiers.md)
 
 - [PowerShell : objets, pipeline et repères](powershell.md)
