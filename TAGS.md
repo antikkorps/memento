@@ -32,6 +32,8 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 - `reseau` — TCP/IP, DNS, routage, pare-feu
 - `conteneur` — Docker, Podman, images, compose
 - `securite` — chiffrement, authentification, durcissement
+- `bureau` — environnement graphique : gestionnaire de fenêtres, session X/Wayland,
+  raccourcis clavier
 
 ## Données
 
