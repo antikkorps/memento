@@ -2,7 +2,7 @@
 title: "Cryptographie : les algorithmes et leurs calculs"
 tags: [securite, terminal]
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-07
 status: stable
 ---
 
@@ -237,6 +237,7 @@ SHA-256 offre donc 128 bits de résistance aux collisions, pas 256.
 ## Voir aussi
 
 - [Chiffrement, hachage et signature](chiffrement.md)
+- [Outils crypto en ligne : identifier, décoder, casser](outils-crypto.md)
 - [Générer des secrets, clés et mots de passe](generer-des-secrets.md)
 - [HTTPS et TLS : ce qui se passe avant la page](../reseau/https.md)
 - [Lexique de l'évaluation de sécurité](lexique.md)
