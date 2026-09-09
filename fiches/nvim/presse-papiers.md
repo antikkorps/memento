@@ -2,7 +2,7 @@
 title: "Neovim : copier une commande vers le presse-papiers"
 tags: [editeur, terminal]
 created: 2026-09-03
-updated: 2026-09-08
+updated: 2026-09-09
 status: stable
 ---
 

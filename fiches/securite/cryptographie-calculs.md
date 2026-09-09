@@ -2,7 +2,7 @@
 title: "Cryptographie : les algorithmes et leurs calculs"
 tags: [securite, terminal]
 created: 2026-09-04
-updated: 2026-09-07
+updated: 2026-09-09
 status: stable
 ---
 
