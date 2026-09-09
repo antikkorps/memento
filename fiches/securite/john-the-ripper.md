@@ -2,7 +2,7 @@
 title: "John the Ripper : casser des hachages hors ligne"
 tags: [securite, terminal]
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-09
 status: stable
 ---
 

@@ -2,7 +2,7 @@
 title: "Metasploit : le framework d'exploitation"
 tags: [securite, reseau, terminal]
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-09
 status: stable
 ---
 

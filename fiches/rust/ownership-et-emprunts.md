@@ -2,7 +2,7 @@
 title: "Rust : propriété (*ownership*) et emprunts (*borrowing*)"
 tags: [rust, depannage]
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-09
 status: brouillon
 ---
 
