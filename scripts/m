@@ -144,8 +144,13 @@ find)
 		# lui reinjecte au tour suivant via `--query`. Sans ca, revenir de
 		# l'editeur repartait avec un filtre vide.
 		requete=''
+		# --no-hscroll : ancre chaque ligne a son debut. Sans ca, un filtre
+		# qui matche dans le TEXTE fait defiler la ligne pour montrer le mot
+		# trouve, poussant le chemin hors cadre a gauche (des `..`). Le
+		# chemin est l'identifiant : il doit rester visible, quitte a
+		# tronquer la fin de la ligne.
 		while sortie=$(printf '%s\n' "$resultats" | fzf \
-			--delimiter=: --with-nth=1,3.. \
+			--delimiter=: --with-nth=1,3.. --no-hscroll \
 			--print-query --query="$requete" \
 			--prompt="$motif > " \
 			--header='Entree ouvre et revient ici -- Echap pour sortir
