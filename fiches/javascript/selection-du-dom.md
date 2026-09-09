@@ -2,7 +2,7 @@
 title: "JavaScript : sélectionner dans le DOM (querySelector)"
 tags: [javascript, web]
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-09
 status: stable
 ---
 
