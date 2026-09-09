@@ -52,11 +52,19 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### git
 
+- [Git : bisect, trouver le commit fautif par dichotomie](fiches/git/bisect.md) — _brouillon_
+- [Git : nettoyer les branches et lire git branch -vv](fiches/git/branches.md) — _brouillon_
+- [Git : cherry-pick, rejouer un commit précis](fiches/git/cherry-pick.md) — _brouillon_
+- [Git : diff, comparer les changements](fiches/git/diff.md) — _brouillon_
+- [Git : voir l'historique et l'arbre des commits](fiches/git/historique.md) — _brouillon_
+- [Git : chercher dans le code et l'historique](fiches/git/recherche.md) — _brouillon_
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Ressources pour apprendre git](fiches/git/ressources.md)
+- [Git : revert, annuler un commit publié](fiches/git/revert.md) — _brouillon_
 
 ### javascript
 
+- [JavaScript : sélectionner dans le DOM (querySelector)](fiches/javascript/selection-du-dom.md)
 - [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
 
 ### linux
@@ -64,10 +72,12 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
+- [i3 : raccourcis par défaut et configuration](fiches/linux/i3.md) — _brouillon_
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md) — _brouillon_
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md) — _brouillon_
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
@@ -88,14 +98,22 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 
+### rust
+
+- [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md) — _brouillon_
+
 ### securite
 
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
+- [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
+- [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
 
 ### shell
 
@@ -134,6 +152,11 @@ _Vide._
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 
+### bureau
+
+- [i3 : raccourcis par défaut et configuration](fiches/linux/i3.md)
+- [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md)
+
 ### cicd
 
 - [Plusieurs jobs dans un seul workflow](fiches/ci/jobs.md)
@@ -145,9 +168,11 @@ _Vide._
 
 ### depannage
 
+- [Git : bisect, trouver le commit fautif par dichotomie](fiches/git/bisect.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
+- [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md)
 - [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 
 ### editeur
@@ -158,11 +183,19 @@ _Vide._
 
 - [Plusieurs jobs dans un seul workflow](fiches/ci/jobs.md)
 - [Forgejo Actions : anatomie d'un workflow](fiches/ci/workflow.md)
+- [Git : bisect, trouver le commit fautif par dichotomie](fiches/git/bisect.md)
+- [Git : nettoyer les branches et lire git branch -vv](fiches/git/branches.md)
+- [Git : cherry-pick, rejouer un commit précis](fiches/git/cherry-pick.md)
+- [Git : diff, comparer les changements](fiches/git/diff.md)
+- [Git : voir l'historique et l'arbre des commits](fiches/git/historique.md)
+- [Git : chercher dans le code et l'historique](fiches/git/recherche.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Ressources pour apprendre git](fiches/git/ressources.md)
+- [Git : revert, annuler un commit publié](fiches/git/revert.md)
 
 ### javascript
 
+- [JavaScript : sélectionner dans le DOM (querySelector)](fiches/javascript/selection-du-dom.md)
 - [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
 
 ### linux
@@ -170,10 +203,12 @@ _Vide._
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
+- [i3 : raccourcis par défaut et configuration](fiches/linux/i3.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md)
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
@@ -188,7 +223,10 @@ _Vide._
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [Git : nettoyer les branches et lire git branch -vv](fiches/git/branches.md)
+- [Git : cherry-pick, rejouer un commit précis](fiches/git/cherry-pick.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
+- [Git : revert, annuler un commit publié](fiches/git/revert.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Windows : élévation (UAC) et édition d'un fichier protégé](fiches/windows/elevation.md)
@@ -207,11 +245,17 @@ _Vide._
 - [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
+- [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 
 ### ressource
 
 - [Ressources pour apprendre git](fiches/git/ressources.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+
+### rust
+
+- [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md)
 
 ### sauvegarde
 
@@ -236,8 +280,12 @@ _Vide._
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
+- [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
+- [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
@@ -245,6 +293,7 @@ _Vide._
 
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [Git : voir l'historique et l'arbre des commits](fiches/git/historique.md)
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
@@ -258,6 +307,9 @@ _Vide._
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
+- [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
+- [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
@@ -275,6 +327,8 @@ _Vide._
 
 ### texte
 
+- [Git : diff, comparer les changements](fiches/git/diff.md)
+- [Git : chercher dans le code et l'historique](fiches/git/recherche.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
@@ -283,6 +337,7 @@ _Vide._
 
 ### web
 
+- [JavaScript : sélectionner dans le DOM (querySelector)](fiches/javascript/selection-du-dom.md)
 - [JavaScript : les méthodes de tableau](fiches/javascript/tableaux.md)
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
@@ -307,10 +362,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 51 |
+| Fiches classées | 66 |
 | Fiches en inbox | 0 |
-| Brouillons | 3 |
-| Tags utilisés | 18 |
-| Tags déclarés | 19 |
+| Brouillons | 13 |
+| Tags utilisés | 20 |
+| Tags déclarés | 21 |
 
 <!-- INDEX:END -->
