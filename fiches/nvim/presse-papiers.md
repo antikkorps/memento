@@ -2,7 +2,7 @@
 title: "Neovim : copier une commande vers le presse-papiers"
 tags: [editeur, terminal]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-08
 status: stable
 ---
 
@@ -18,7 +18,8 @@ m find "tuer un processus"     # fzf ; affiner en tapant `windows`
                                # Entree -> nvim s'ouvre A la ligne trouvee
 ```
 
-Puis, dans nvim :
+Puis, dans nvim. Toutes ces commandes commencent par `y`, pour copier
+(*yank*) — c'est le seul moyen de les retenir comme une famille :
 
 | Touche | Effet |
 | --- | --- |
@@ -76,7 +77,7 @@ presse-papiers Windows. Pour vérifier après une mise à jour :
 :echo has('clipboard')          " doit renvoyer 1
 ```
 
-## Aller vite dans la fiche
+## Aller vite dans la fiche ouverte (*buffer*)
 
 ```text
 /motif<Entree>   chercher ; n / N pour l'occurrence suivante / precedente
@@ -84,7 +85,7 @@ presse-papiers Windows. Pour vérifier après une mise à jour :
 }  {             sauter au paragraphe suivant / precedent (= bloc suivant)
 gg  G            debut / fin du fichier
 Ctrl-O           revenir ou on etait
-:%y+             copier TOUTE la fiche
+:%y+             copier TOUT le buffer, c.-a-d. la fiche entiere
 ```
 
 ## Registres, quand le presse-papiers ne suffit plus
