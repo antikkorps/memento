@@ -139,13 +139,25 @@ find)
 		# pur (aucune dependance ; fzf interprete l'ANSI du resultat). Les
 		# echappements \033 et \t sont du POSIX, donc gawk/mawk/BSD awk pareil.
 		apercu='{ l = sprintf("%6d\t%s", NR, $0); if (NR == cible) printf "\033[7m%s\033[0m\n", l; else print l }'
-		while choix=$(printf '%s\n' "$resultats" | fzf \
+		# On preserve l'affinage entre deux tours : `--print-query` fait
+		# ressortir a fzf la requete tapee (1re ligne de sa sortie), qu'on
+		# lui reinjecte au tour suivant via `--query`. Sans ca, revenir de
+		# l'editeur repartait avec un filtre vide.
+		requete=''
+		while sortie=$(printf '%s\n' "$resultats" | fzf \
 			--delimiter=: --with-nth=1,3.. \
+			--print-query --query="$requete" \
 			--prompt="$motif > " \
 			--header='Entree ouvre et revient ici -- Echap pour sortir
 Affiner : tape un domaine (windows, linux, reseau...)' \
 			--preview="awk -v cible={2} '$apercu' {1}" \
 			--preview-window='+{2}-10'); do
+			# --print-query : 1re ligne = requete, 2e ligne = selection.
+			requete=$(printf '%s\n' "$sortie" | sed -n '1p')
+			choix=$(printf '%s\n' "$sortie" | sed -n '2p')
+			# Entree sur une requete qui ne matche rien : pas de selection,
+			# on retourne dans fzf sans ouvrir.
+			[ -n "$choix" ] || continue
 			fichier=${choix%%:*}
 			reste=${choix#*:}
 			open_at_line "$fichier" "${reste%%:*}" || true

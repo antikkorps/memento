@@ -584,8 +584,10 @@ Le comportement dépend d'où va la sortie :
   reçoivent `+ligne`, `helix` reçoit `fichier:ligne`, les autres le fichier
   seul). **Quand il y a plusieurs résultats, on revient dans `fzf` après avoir
   fermé l'éditeur** : ouvrir la mauvaise fiche ne force plus à relancer
-  `m find`, on rouvre la bonne, et `Échap` termine. Un résultat unique s'ouvre
-  directement, sans passer par `fzf` ;
+  `m find`, on rouvre la bonne, et `Échap` termine. **L'affinage tapé est
+  conservé d'un tour à l'autre** (`--print-query` le fait ressortir, `--query`
+  le réinjecte) : revenir de l'éditeur ne remet pas le filtre à zéro. Un
+  résultat unique s'ouvre directement, sans passer par `fzf` ;
 - **dans un pipe ou une redirection**, c'est une sortie `grep` classique
   (`chemin:ligne:texte`), donc `awk`-able. Idem si `fzf` n'est pas installé :
   il est un confort, pas une dépendance.
