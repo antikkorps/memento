@@ -185,7 +185,13 @@ ajouter à la recherche.
 Les paires déjà posées, à réutiliser telles quelles plutôt que d'en inventer
 des variantes : joker / *wildcard*, corbeille / *recycle bin*, pare-feu /
 *firewall*, lien symbolique / *symlink*, droits / *permissions*, sous-réseau /
-*subnet*, tâche planifiée / *scheduled task*, chaîne littérale / *literal*.
+*subnet*, tâche planifiée / *scheduled task*, chaîne littérale / *literal*,
+fichier ouvert / *buffer*, copier / *yank*.
+
+Le test se vérifie surtout **après coup** : quand une recherche échoue alors que
+la fiche contenait la réponse, c'est presque toujours un terme anglais manquant.
+Le réflexe est alors d'ajouter le mot à la fiche, pas de retenir la formulation
+qui a marché — sinon la recherche suivante échouera pareil.
 
 Le test, au moment d'écrire : **quel mot taperais-je à 8 h du matin en cherchant
 cette fiche ?** S'il y a deux réponses, les deux doivent être dans le fichier.
@@ -572,10 +578,14 @@ d'échec quand un motif de plusieurs mots ne ramène rien.
 Le comportement dépend d'où va la sortie :
 
 - **dans un terminal**, les résultats passent dans `fzf`, avec le fichier en
-  aperçu positionné sur la ligne trouvée ; la sélection s'ouvre dans l'éditeur,
+  aperçu positionné **et surligné** sur la ligne trouvée (vidéo inverse, produite
+  en `awk` — aucune dépendance) ; la sélection s'ouvre dans l'éditeur,
   à la bonne ligne (`nk`, `vi`, `vim`, `nvim`, `view`, `nano`, `micro`
   reçoivent `+ligne`, `helix` reçoit `fichier:ligne`, les autres le fichier
-  seul) ;
+  seul). **Quand il y a plusieurs résultats, on revient dans `fzf` après avoir
+  fermé l'éditeur** : ouvrir la mauvaise fiche ne force plus à relancer
+  `m find`, on rouvre la bonne, et `Échap` termine. Un résultat unique s'ouvre
+  directement, sans passer par `fzf` ;
 - **dans un pipe ou une redirection**, c'est une sortie `grep` classique
   (`chemin:ligne:texte`), donc `awk`-able. Idem si `fzf` n'est pas installé :
   il est un confort, pas une dépendance.
