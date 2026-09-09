@@ -52,6 +52,7 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 - `javascript` — le langage : syntaxe, tableaux, objets, asynchrone
 - `node` — Node.js, npm, écosystème JavaScript
 - `php` — PHP, WordPress, écosystème serveur
+- `rust` — le langage : propriété, types, cargo, écosystème
 - `web` — HTTP, front, CMS, API web
 - `cicd` — intégration continue et déploiement, Forgejo Actions, pipelines
 
