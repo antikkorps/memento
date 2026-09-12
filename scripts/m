@@ -12,6 +12,8 @@ usage() {
 usage : m <commande> [arguments]
 
   m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
+  m find <motif>         cherche dans le corps des fiches, ouvre le resultat
+                         plusieurs mots = une phrase, guillemets optionnels
   m new <domaine> <nom>  cree une fiche depuis le modele, dates pre-remplies
   m inbox <nom>          cree une note brute dans inbox/, sans frontmatter
   m check                verifie la conformite (identique a la CI)
@@ -23,12 +25,49 @@ is_kebab() {
 	printf '%s' "$1" | grep -qE '^[a-z0-9]+(-[a-z0-9]+)*$'
 }
 
-# Ouvre dans $EDITOR s'il est defini, sinon se contente d'afficher le chemin.
+# Editeur a utiliser : $VISUAL, puis $EDITOR, puis le premier trouve dans le
+# PATH. Sort en 1 si aucun editeur n'est disponible.
+resolve_editor() {
+	if [ -n "${VISUAL:-}" ]; then
+		printf '%s' "$VISUAL"
+		return 0
+	fi
+	if [ -n "${EDITOR:-}" ]; then
+		printf '%s' "$EDITOR"
+		return 0
+	fi
+	for candidat in nk nvim vim vi nano micro; do
+		if command -v "$candidat" >/dev/null 2>&1; then
+			printf '%s' "$candidat"
+			return 0
+		fi
+	done
+	return 1
+}
+
+# Ouvre le fichier, ou se contente d'afficher le chemin s'il n'y a pas
+# d'editeur.
 open_or_print() {
 	printf '%s\n' "$1"
-	if [ -n "${EDITOR:-}" ]; then
-		"$EDITOR" "$1"
-	fi
+	editeur=$(resolve_editor) || return 0
+	"$editeur" "$1"
+}
+
+# Ouvre le fichier a la ligne demandee quand l'editeur sait le faire.
+open_at_line() {
+	printf '%s:%s\n' "$1" "$2"
+	editeur=$(resolve_editor) || return 0
+	case "${editeur##*/}" in
+	nk | vi | vim | nvim | view | nano | micro)
+		"$editeur" "+$2" "$1"
+		;;
+	hx | helix)
+		"$editeur" "$1:$2"
+		;;
+	*)
+		"$editeur" "$1"
+		;;
+	esac
 }
 
 cmd=${1:-}
@@ -39,6 +78,96 @@ fi
 case "$cmd" in
 tag)
 	exec node "$INDEX" --tag "$@"
+	;;
+find)
+	if [ $# -eq 0 ]; then
+		echo "usage : m find <motif>   (plusieurs mots = une phrase)" >&2
+		exit 2
+	fi
+	motif=$*
+	cd "$ROOT"
+	cibles=""
+	if [ -d fiches ]; then
+		cibles="fiches"
+	fi
+	if [ -d inbox ]; then
+		cibles="$cibles inbox"
+	fi
+	if [ -z "$cibles" ]; then
+		echo "ni fiches/ ni inbox/ : rien a chercher" >&2
+		exit 1
+	fi
+	# -F : le motif est une chaine litterale, pas une expression reguliere.
+	# Pour du regex, git grep reste la.
+	if command -v rg >/dev/null 2>&1; then
+		# shellcheck disable=SC2086
+		resultats=$(rg --line-number --no-heading --color never -i -F \
+			--glob '*.md' -- "$motif" $cibles) || resultats=""
+	else
+		# shellcheck disable=SC2086
+		resultats=$(grep -RIn -i -F --include='*.md' -- "$motif" $cibles) || resultats=""
+	fi
+	if [ -z "$resultats" ]; then
+		echo "aucune fiche ne contient \"$motif\"" >&2
+		# Le motif etant litteral, une phrase longue echoue vite. Le reflexe
+		# utile est de chercher court, puis d'affiner dans fzf -- qui filtre
+		# aussi sur le chemin, donc sur le domaine.
+		if [ "$(printf '%s' "$motif" | wc -w)" -gt 1 ]; then
+			echo "          chercher plus court, puis affiner dans fzf (il filtre aussi sur le chemin)" >&2
+		fi
+		exit 1
+	fi
+	# Hors terminal (pipe, redirection) ou sans fzf : sortie grep classique.
+	if [ ! -t 1 ] || ! command -v fzf >/dev/null 2>&1; then
+		printf '%s\n' "$resultats"
+		exit 0
+	fi
+	# Un seul resultat : on l'ouvre directement. C'est ce que ferait
+	# fzf --select-1, mais dans la boucle ci-dessous il se reselectionnerait
+	# sans fin, faute d'occasion d'appuyer sur Echap.
+	if [ "$(printf '%s\n' "$resultats" | wc -l)" -eq 1 ]; then
+		fichier=${resultats%%:*}
+		reste=${resultats#*:}
+		open_at_line "$fichier" "${reste%%:*}"
+	else
+		# Plusieurs resultats : on reste dans fzf. Apres avoir ferme
+		# l'editeur on y revient, ce qui evite de relancer `m find` quand
+		# on a ouvert la mauvaise fiche. Echap (fzf sort en 1) termine.
+		# `|| true` : un editeur qui sort en erreur ne doit pas tuer la
+		# boucle sous `set -e`.
+		# Apercu : `nl -ba` + la ligne trouvee ({2}) en video inverse, en awk
+		# pur (aucune dependance ; fzf interprete l'ANSI du resultat). Les
+		# echappements \033 et \t sont du POSIX, donc gawk/mawk/BSD awk pareil.
+		apercu='{ l = sprintf("%6d\t%s", NR, $0); if (NR == cible) printf "\033[7m%s\033[0m\n", l; else print l }'
+		# On preserve l'affinage entre deux tours : `--print-query` fait
+		# ressortir a fzf la requete tapee (1re ligne de sa sortie), qu'on
+		# lui reinjecte au tour suivant via `--query`. Sans ca, revenir de
+		# l'editeur repartait avec un filtre vide.
+		requete=''
+		# --no-hscroll : ancre chaque ligne a son debut. Sans ca, un filtre
+		# qui matche dans le TEXTE fait defiler la ligne pour montrer le mot
+		# trouve, poussant le chemin hors cadre a gauche (des `..`). Le
+		# chemin est l'identifiant : il doit rester visible, quitte a
+		# tronquer la fin de la ligne.
+		while sortie=$(printf '%s\n' "$resultats" | fzf \
+			--delimiter=: --with-nth=1,3.. --no-hscroll \
+			--print-query --query="$requete" \
+			--prompt="$motif > " \
+			--header='Entree ouvre et revient ici -- Echap pour sortir
+Affiner : tape un domaine (windows, linux, reseau...)' \
+			--preview="awk -v cible={2} '$apercu' {1}" \
+			--preview-window='+{2}-10'); do
+			# --print-query : 1re ligne = requete, 2e ligne = selection.
+			requete=$(printf '%s\n' "$sortie" | sed -n '1p')
+			choix=$(printf '%s\n' "$sortie" | sed -n '2p')
+			# Entree sur une requete qui ne matche rien : pas de selection,
+			# on retourne dans fzf sans ouvrir.
+			[ -n "$choix" ] || continue
+			fichier=${choix%%:*}
+			reste=${choix#*:}
+			open_at_line "$fichier" "${reste%%:*}" || true
+		done
+	fi
 	;;
 check)
 	exec node "$INDEX" --check

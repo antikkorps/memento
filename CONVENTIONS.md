@@ -4,6 +4,31 @@
 n'aide, la changer — mais la changer *ici* et dans `scripts/index.js` en même
 temps, sinon la CI et la doc divergent.
 
+## Portée : tous les sujets, sans exception
+
+Ce dépôt n'est pas un memento *technique*, c'est un memento. Recettes de
+cuisine, gestion de projet, démarches administratives, notes de lecture : tout y
+a sa place au même titre qu'une fiche `tcpdump`.
+
+C'est délibéré, et ça ne demande aucune adaptation : **les règles qui suivent
+contraignent la forme, jamais le sujet.** Frontmatter, kebab-case, tags
+déclarés, liens vérifiés — rien là-dedans ne suppose que le contenu est
+technique. `fiches/cuisine/pate-a-pizza.md` avec sa photo dans
+`assets/cuisine/` passe la CI comme n'importe quelle autre fiche.
+
+Le seul risque est de l'oublier : un dépôt qui *ressemble* à un dépôt technique
+décourage d'y poser autre chose, et l'on finit avec un second système de notes
+ailleurs — c'est-à-dire avec deux endroits où ne rien retrouver. Si l'hésitation
+revient, c'est cette section qui tranche.
+
+Deux conséquences pratiques quand un sujet non technique arrive :
+
+- la section `## Commandes` du modèle n'a pas à être remplie — `lexique.md` et
+  les fiches `ressources.md` n'en ont déjà pas ;
+- `## Pièges` reste la section la plus rentable. Les pièges d'un chiffrage ou
+  d'une pâte levée sont exactement ce qu'on ne retrouve nulle part et qu'on
+  réapprend à ses dépens.
+
 ## Principe directeur
 
 **Hiérarchie peu profonde pour ranger, tags pour croiser.**
@@ -136,6 +161,89 @@ dépôt : sans lui, la moitié des fiches finit sous `réseaux` et l'autre sous
 Viser 2 à 4 tags par fiche. Un seul tag et c'est probablement le domaine
 redit ; plus de cinq et aucun ne discrimine.
 
+## Vocabulaire : donner le terme anglais
+
+Les fiches sont en français, la recherche est littérale, et une partie du
+vocabulaire technique se pense en anglais. Résultat : une fiche qui écrit
+« joker » est invisible à `m find wildcard`, alors même qu'elle contient
+exactement la réponse.
+
+La règle : **quand un terme a un équivalent anglais courant, l'écrire une fois
+dans la fiche**, en italique et entre parenthèses, à la première occurrence
+utile.
+
+```md
+- **Rien ne va à la corbeille** (*recycle bin*)**.**
+| `-like` | joker (*wildcard*) `*` et `?` |
+## Changer les droits (*permissions*)
+```
+
+Une seule fois par fiche suffit — `m find` cherche dans le fichier entier, pas
+par section. Le répéter à chaque paragraphe alourdit la lecture sans rien
+ajouter à la recherche.
+
+Les paires déjà posées, à réutiliser telles quelles plutôt que d'en inventer
+des variantes : joker / *wildcard*, corbeille / *recycle bin*, pare-feu /
+*firewall*, lien symbolique / *symlink*, droits / *permissions*, sous-réseau /
+*subnet*, tâche planifiée / *scheduled task*, chaîne littérale / *literal*,
+fichier ouvert / *buffer*, copier / *yank*.
+
+Le test se vérifie surtout **après coup** : quand une recherche échoue alors que
+la fiche contenait la réponse, c'est presque toujours un terme anglais manquant.
+Le réflexe est alors d'ajouter le mot à la fiche, pas de retenir la formulation
+qui a marché — sinon la recherche suivante échouera pareil.
+
+Le test, au moment d'écrire : **quel mot taperais-je à 8 h du matin en cherchant
+cette fiche ?** S'il y a deux réponses, les deux doivent être dans le fichier.
+
+## Blocs de code : chaque ligne doit être collable
+
+Le flux de lecture est `m find` → l'éditeur s'ouvre **sur la ligne** → `yy` →
+coller dans un terminal. Une ligne de bloc de code est donc systématiquement
+copiée **en entier**, description comprise.
+
+Conséquence : **une description en fin de ligne doit être un vrai commentaire du
+langage**, jamais du texte nu aligné à la main.
+
+```sh
+chmod 644 fichier             # rw- r-- r--   fichier de donnees
+```
+
+```bat
+dir /O:D    & rem par date, ancien -> recent
+```
+
+Le marqueur dépend du langage du bloc :
+
+| Bloc | Marqueur | Pourquoi |
+| --- | --- | --- |
+| `sh`, `bash`, `powershell` | `#` | commentaire natif |
+| `bat` | `& rem` | **`::` n'est un commentaire qu'en fichier `.bat`** ; au prompt interactif il produit une erreur. `& rem` enchaîne sur la commande `rem`, qui ne fait rien — valide dans les deux cas |
+| `text` | — | à utiliser pour les **frappes clavier** (raccourcis d'éditeur), qui ne sont pas du code à coller |
+
+Rogner le blanc d'alignement de la largeur du marqueur garde la colonne du
+commentaire au même endroit.
+
+### Des valeurs d'exemple, jamais les vraies
+
+Corollaire direct : puisque chaque ligne est faite pour être collée, **une
+commande d'exemple ne doit jamais porter un identifiant réel**. Un
+`sudo usermod -G docker franck` dans une section « Pièges » est une commande qui
+détruit les groupes du compte `franck` le jour où quelqu'un la colle pour voir.
+
+Les valeurs à utiliser, toutes réservées ou manifestement fictives :
+
+| Pour | Valeur |
+| --- | --- |
+| un compte | `johndoe`, `appsvc` pour un service |
+| un domaine | `exemple.tld` (RFC 2606) |
+| une adresse publique | `203.0.113.x` (RFC 5737, plage de documentation) |
+| une adresse privée | `192.168.1.x`, `10.0.0.x` |
+
+L'exception est la documentation d'installation de ce dépôt : l'URL du remote
+dans « Remotes » est faite pour être copiée telle quelle, donc elle porte les
+vraies valeurs. La règle vise les fiches, pas ces conventions.
+
 ## Liens
 
 Markdown relatif standard, et rien d'autre :
@@ -147,6 +255,26 @@ Voir [la résolution DNS](../reseau/resolution-dns.md).
 Ils restent cliquables dans Forgejo, sur le miroir GitHub, dans n'importe quel
 éditeur, et `git grep` les retrouve. Les `[[wikilink]]` ne marchent que dans les
 outils qui les implémentent — c'est exactement le lock-in qu'on évite ici.
+
+**L'indexeur vérifie que chaque lien relatif pointe sur un fichier existant**, et
+un lien mort fait échouer la CI. C'est le pendant indispensable du choix
+ci-dessus : puisque tout repose sur des chemins relatifs, renommer une fiche
+casse silencieusement les liens qui la visaient — Forgejo affiche un lien mort
+sans rien signaler, et `git grep` ne sait pas qu'il devrait chercher.
+
+Le détail de ce qui est contrôlé :
+
+- les cibles relatives et celles commençant par `/` (racine du dépôt, comme dans
+  le rendu Forgejo), qu'il s'agisse d'un lien ou d'une image ;
+- les liens externes (`https:`, `mailto:`, `//…`) et les ancres seules
+  (`[voir](#pieges)`) sont ignorés : rien à vérifier sur le disque ;
+- **les blocs de code sont ignorés**, pour qu'une fiche qui montre la syntaxe
+  markdown ne casse pas la CI avec son propre exemple ;
+- un lien qui sort du dépôt (`../../../etc/passwd`) est signalé comme tel.
+
+Un lien cassé **n'exclut pas** la fiche de l'index, contrairement à un
+frontmatter invalide : elle reste listée et trouvable par tag. Elle est
+incomplète, pas illisible — la sanction doit être proportionnée.
 
 Images : `assets/<domaine>/`, mêmes domaines que `fiches/`, référencées en
 relatif — `![schéma](../../assets/reseau/handshake.png)`.
@@ -265,12 +393,37 @@ Niveaux de sortie :
 | --- | --- | --- |
 | `erreur` | fiche de `fiches/` non conforme | oui |
 | `attention` | fiche de `inbox/` non conforme | non |
-| `note` | clé inconnue, tag inutilisé, README périmé | non |
+| `note` | clé inconnue, tag inutilisé, README périmé, `updated` en retard | non |
 
 Le README périmé est signalé mais ne bloque pas : il n'y a pas de hook
 pre-commit (choix assumé, voir plus bas), donc l'oubli est probable et ne
 justifie pas un échec de build. Pour le rendre bloquant, transformer cette note
 en erreur dans `main()`.
+
+### `updated` confronté à git
+
+`updated` est saisi à la main, donc il dérive : on modifie une fiche et on
+oublie la date. L'indexeur compare cette date à ce que git sait du fichier et
+émet une `note` quand elle est en retard :
+
+```
+note      fiches/git/remotes.md: updated = 2026-08-17, modifiee le 2026-09-02
+```
+
+La date de référence est celle du dernier commit touchant le fichier, **ou la
+date du jour si le fichier est modifié dans le répertoire de travail** — ce
+second cas est le plus utile : il prévient avant le commit, au moment où la
+correction coûte une seconde.
+
+C'est une `note`, jamais une erreur : une date en retard n'invalide pas le
+contenu, elle signale un oubli. La bloquer rendrait impossible un commit qui ne
+touche qu'à la mise en forme.
+
+Si git est absent, si le dépôt n'a pas encore de commit, ou si l'on travaille
+sur une copie non versionnée, la vérification se tait — le memento doit rester
+utilisable sans git. Sur un clone superficiel (`--depth 1`), seuls les fichiers
+du dernier commit ont une date connue : la couverture est partielle, mais il n'y
+a jamais de faux positif.
 
 ## Pas de hook pre-commit
 
@@ -287,6 +440,58 @@ Rien d'autre — pas de déploiement, pas de génération de site.
 Le `runs-on:` dépend des labels déclarés par ton runner Forgejo
 (`forgejo-runner`, fichier `config.yml`, section `runner.labels`). Si le
 workflow ne démarre jamais, c'est presque toujours ça.
+
+## Portabilité (Linux, WSL, macOS)
+
+Le dépôt est prévu pour être cloné sur plusieurs machines. Rien d'exotique n'est
+requis — `node` ≥ 18 et `git`, le reste est du POSIX — mais trois règles
+existantes ne sont **pas** cosmétiques : ce sont elles qui rendent le clone
+multi-plateforme sûr.
+
+**Les noms de fichiers en ASCII minuscule ne sont pas une coquetterie.**
+
+- macOS formate ses disques en **APFS insensible à la casse** par défaut.
+  `Reseau.md` et `reseau.md` y sont le même fichier : sur Linux les deux
+  coexistent, sur macOS le second écrase le premier au `git checkout`. La règle
+  « minuscules » supprime le problème à la racine, et `node scripts/index.js`
+  refuse un nom hors kebab-case avant qu'il n'entre dans le dépôt.
+- macOS stocke les noms de fichiers en **Unicode décomposé (NFD)** : `é` y est
+  `e` + accent combinant, là où Linux écrit un seul caractère. Un nom accentué
+  apparaît alors modifié dans `git status` dès qu'on change de machine. La règle
+  « sans accent » sur les **noms** l'évite ; le **contenu** des fiches, lui,
+  peut être accentué sans réserve, git ne normalise pas le contenu.
+- `.gitattributes` fixe `eol=lf`. Le jour où le dépôt est cloné sur un Windows
+  natif, `core.autocrlf` ne transformera pas silencieusement toutes les fiches.
+
+**Ce qui a été vérifié côté outillage :**
+
+- `scripts/m` est du `/bin/sh` strict — testé sous `dash`. Aucune extension GNU :
+  pas de `sed -i`, pas de `date -d`, pas de `readlink -f`, pas de `grep -P`. Les
+  options utilisées (`grep -RIn -i -F --include`, `date +%F`, `nl -ba`) existent
+  à l'identique dans les versions BSD livrées par macOS.
+- `scripts/index.js` n'appelle que `git`, via `execFileSync` — jamais un shell,
+  donc aucun problème de quoting selon la plateforme. Les chemins passent par
+  `path.sep`, et l'index est trié par **chemin ASCII** avec un comparateur
+  `<` / `>`, pas `localeCompare` : deux machines aux locales différentes
+  produisent le même README, donc pas de diff parasite.
+- `rg` et `fzf` restent facultatifs des deux côtés.
+
+**Sur un mac, à l'arrivée :**
+
+```sh
+git clone ssh://git@git.fvienot.link/fvienot/memento.git ~/Documents/memento
+cd ~/Documents/memento && npm run check
+```
+
+Le `D` majuscule de `~/Documents` est la convention macOS — l'alias documenté
+plus haut devient :
+
+```sh
+alias m=~/Documents/memento/scripts/m
+```
+
+`node` s'installe par `brew install node` (ou `nvm`), `git` vient avec les
+Command Line Tools de Xcode. `.DS_Store` est déjà dans `.gitignore`.
 
 ## Remotes
 
@@ -330,11 +535,92 @@ alias m=~/documents/memento/scripts/m
 
 ```
 m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
+m find <mot>           cherche dans le corps des fiches, ouvre le résultat
 m new <domaine> <nom>  crée une fiche depuis le modèle, dates pré-remplies
 m inbox <nom>          crée une note brute dans inbox/, sans frontmatter
 m check                vérifie la conformité (identique à la CI)
 m index                régénère le README
 ```
+
+`m find` complète `m tag` : le tag dit *par quoi je retrouve une fiche*, `find`
+fouille ce qu'il y a **dedans** — une option, un message d'erreur, un nom de
+commande. Le motif est une **chaîne littérale**, insensible à la casse : pas de
+regex à échapper. Pour une vraie expression régulière, `git grep -i` reste là.
+
+Ce motif n'est pas limité à un mot : tous les arguments sont recollés en une
+seule phrase, donc les guillemets sont facultatifs.
+
+```sh
+m find "supprimer un fichier"     # les trois formes sont equivalentes
+m find supprimer un fichier
+m find 'supprimer un fichier'
+```
+
+La contrepartie de la recherche littérale : la phrase doit apparaître telle
+quelle, espaces compris. Un double espace dans le motif ne trouve rien, et deux
+mots séparés dans le texte par un retour à la ligne non plus — c'est le moment
+de revenir à `m tag`, ou à `git grep -i` pour une vraie expression régulière.
+
+**Chercher court, puis affiner dans `fzf`.** La tentation est d'écrire toute la
+question — `m find tuer un processus windows` — mais le grep est littéral et
+cette phrase n'existe nulle part. Le tri se fait en deux temps :
+
+```sh
+m find "tuer un processus"    # le grep ramene les deux fiches
+# puis, dans fzf : taper `windows`
+```
+
+fzf reçoit `chemin` **et** texte de la ligne (`--with-nth=1,3..`) et filtre sur
+les deux : taper un domaine suffit donc à ne garder que la bonne moitié des
+résultats. C'est ce que rappelle son en-tête, et ce que suggère le message
+d'échec quand un motif de plusieurs mots ne ramène rien.
+
+Le comportement dépend d'où va la sortie :
+
+- **dans un terminal**, les résultats passent dans `fzf`, avec le fichier en
+  aperçu positionné **et surligné** sur la ligne trouvée (vidéo inverse, produite
+  en `awk` — aucune dépendance) ; la sélection s'ouvre dans l'éditeur,
+  à la bonne ligne (`nk`, `vi`, `vim`, `nvim`, `view`, `nano`, `micro`
+  reçoivent `+ligne`, `helix` reçoit `fichier:ligne`, les autres le fichier
+  seul). **Quand il y a plusieurs résultats, on revient dans `fzf` après avoir
+  fermé l'éditeur** : ouvrir la mauvaise fiche ne force plus à relancer
+  `m find`, on rouvre la bonne, et `Échap` termine. **L'affinage tapé est
+  conservé d'un tour à l'autre** (`--print-query` le fait ressortir, `--query`
+  le réinjecte) : revenir de l'éditeur ne remet pas le filtre à zéro. Un
+  résultat unique s'ouvre directement, sans passer par `fzf` ;
+- **dans un pipe ou une redirection**, c'est une sortie `grep` classique
+  (`chemin:ligne:texte`), donc `awk`-able. Idem si `fzf` n'est pas installé :
+  il est un confort, pas une dépendance.
+
+Codes de sortie façon `grep`, comme `--tag` : `0` si au moins une ligne
+correspond, `1` sinon. `rg` est utilisé s'il est présent, `grep -R` sinon —
+même sortie dans les deux cas.
+
+### Quel éditeur
+
+`m find`, `m new` et `m inbox` ouvrent tous le même : `$VISUAL`, sinon
+`$EDITOR`, sinon le premier de `nk`, `nvim`, `vim`, `vi`, `nano`, `micro`
+trouvé dans le `PATH` (`nk` = nvim sur la configuration kickstart, via
+`NVIM_APPNAME`). Le chemin du fichier est affiché **avant** l'ouverture, ce qui laisse
+une trace exploitable dans le terminal ; si vraiment aucun éditeur n'est
+disponible, il n'y a que cette ligne et la sortie reste `0`.
+
+Le repli sur le `PATH` évite de dépendre d'une variable que le shell ne définit
+pas toujours — mais définir `EDITOR` dans `~/.zshrc` reste préférable : tout le
+reste du système en dépend aussi (`git commit`, `crontab -e`, `sudoedit`).
+
+Attention au piège : **un alias de shell n'est pas un exécutable.** Un
+`alias nk='NVIM_APPNAME=... nvim'` dans `~/.zshrc` n'existe que dans le zsh
+interactif — aucun script, aucun `$EDITOR`, aucun `command -v` ne le voit. Pour
+qu'un éditeur soit utilisable partout, il lui faut un vrai fichier exécutable
+dans le `PATH` :
+
+```sh
+# ~/.local/bin/nk
+#!/bin/sh
+exec env NVIM_APPNAME=nvim-kickstart nvim "$@"
+```
+
 
 `m new` fait les trois choses qu'on rate à la main : il remplit `created` et
 `updated` à la date du jour, il refuse un nom ou un domaine hors kebab-case

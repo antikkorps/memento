@@ -2,7 +2,7 @@
 title: Lexique de l'évaluation de sécurité
 tags: [securite]
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-03
 status: stable
 ---
 
@@ -58,3 +58,10 @@ Le niveau d'accès se déduit de l'objectif, pas de l'inverse.
 Formuler l'objectif avant de négocier le périmètre : c'est le seul ordre qui
 évite de payer une simulation qui ne simule rien, ou un audit qui rate la moitié
 du code.
+
+## Voir aussi
+
+- [Le modèle OSI en 7 couches](../reseau/modele-osi.md)
+- [TCP et UDP : quand et pourquoi](../reseau/tcp-udp.md)
+- [HTTPS et TLS : ce qui se passe avant la page](../reseau/https.md)
+- [nmap : scan de ports et découverte réseau](../reseau/nmap.md)

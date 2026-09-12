@@ -13,6 +13,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { execFileSync } = require('node:child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const FICHES_DIR = 'fiches';
@@ -175,7 +176,76 @@ function parseFrontmatter(raw) {
     }
   }
 
-  return { data, order };
+  return { data, order, body: lines.slice(end + 1).join('\n'), bodyLine: end + 2 };
+}
+
+// ------------------------------------------------------------------- liens
+
+/** [libelle](cible) et ![alt](cible), avec titre optionnel entre guillemets. */
+const LINK_RE = /!?\[[^\]]*\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g;
+
+/** http:, https:, mailto:, //cdn... : rien a verifier sur le disque. */
+function isExternal(target) {
+  return /^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('//');
+}
+
+/**
+ * Liens du corps, hors blocs de code : une fiche qui *documente* la syntaxe
+ * markdown ne doit pas faire echouer la CI a cause de son exemple.
+ */
+function extractLinks(body, bodyLine) {
+  const out = [];
+  let fence = null;
+  body.split('\n').forEach((line, i) => {
+    const delim = line.match(/^\s*(`{3,}|~{3,})/);
+    if (delim) {
+      const char = delim[1][0];
+      if (fence === null) fence = char;
+      else if (fence === char) fence = null;
+      return;
+    }
+    if (fence !== null) return;
+    for (const found of line.matchAll(LINK_RE)) {
+      out.push({ target: found[1], line: bodyLine + i });
+    }
+  });
+  return out;
+}
+
+/**
+ * Un lien relatif casse est une erreur : tout le depot repose sur eux, et rien
+ * d'autre ne les rattrape — ni git grep, ni le rendu Forgejo, qui affiche
+ * simplement un lien mort.
+ */
+function checkLinks(relPath, body, bodyLine) {
+  const errors = [];
+  const dir = path.posix.dirname(relPath);
+
+  for (const { target, line } of extractLinks(body, bodyLine)) {
+    if (isExternal(target)) continue;
+
+    let cible = target.split('#')[0];
+    if (cible === '') continue; // ancre seule (#section) : rien a verifier
+    try {
+      cible = decodeURIComponent(cible);
+    } catch {
+      // chemin non decodable : on le teste tel quel
+    }
+
+    // Sur Forgejo comme sur GitHub, un chemin absolu part de la racine du depot.
+    const rel = cible.startsWith('/')
+      ? path.posix.normalize(cible.slice(1))
+      : path.posix.normalize(`${dir}/${cible}`);
+
+    if (rel.startsWith('..')) {
+      errors.push(`ligne ${line} : lien "${target}" sort du depot`);
+      continue;
+    }
+    if (!fs.existsSync(path.join(ROOT, rel.split('/').join(path.sep)))) {
+      errors.push(`ligne ${line} : lien casse "${target}" (${rel} introuvable)`);
+    }
+  }
+  return errors;
 }
 
 // -------------------------------------------------------------- validation
@@ -277,7 +347,11 @@ function collect() {
       continue;
     }
     const { errors, warnings } = validate(rel, parsed.data, parsed.order, vocabulary.tags);
-    if (errors.length || warnings.length) problems.push({ file: rel, zone, errors, warnings });
+    const linkErrors = checkLinks(rel, parsed.body, parsed.bodyLine);
+    const all = [...errors, ...linkErrors];
+    if (all.length || warnings.length) problems.push({ file: rel, zone, errors: all, warnings });
+    // Un lien casse fait echouer la CI mais n'exclut pas la fiche de l'index :
+    // elle reste trouvable, elle est juste incomplete.
     if (errors.length === 0) {
       notes.push({
         file: rel,
@@ -295,6 +369,63 @@ function collect() {
   notes.sort((a, b) => byString(a.file, b.file));
   problems.sort((a, b) => byString(a.file, b.file));
   return { notes, problems, vocabulary };
+}
+
+// ---------------------------------------------------------------- dates git
+
+/**
+ * Date de derniere modification connue de git, par fichier (YYYY-MM-DD).
+ *
+ * Un fichier modifie dans le repertoire de travail compte comme modifie
+ * aujourd'hui : c'est le cas utile, celui ou l'on vient d'editer une fiche
+ * sans toucher a son `updated`.
+ *
+ * Renvoie une Map vide si git est absent ou si l'on n'est pas dans un depot :
+ * le memento doit rester utilisable sans git. Sur un clone superficiel
+ * (`--depth 1`), seuls les fichiers du dernier commit ont une date — c'est une
+ * couverture partielle, jamais un faux positif.
+ */
+function gitDates() {
+  const dates = new Map();
+  const git = (args) =>
+    execFileSync('git', args, {
+      cwd: ROOT,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+
+  let log;
+  try {
+    log = git(['log', '--format=%cs', '--name-only', '--', FICHES_DIR, INBOX_DIR]);
+  } catch {
+    return dates; // pas de git, pas de depot, ou depot sans commit : on se tait
+  }
+
+  // Le log va du plus recent au plus ancien : la premiere date vue gagne.
+  let commitDate = null;
+  for (const line of log.split('\n')) {
+    if (line === '') continue;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(line)) {
+      commitDate = line;
+    } else if (commitDate && !dates.has(line)) {
+      dates.set(line, commitDate);
+    }
+  }
+
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    for (const line of git(['status', '--porcelain', '--', FICHES_DIR, INBOX_DIR]).split('\n')) {
+      if (line.trim() === '') continue;
+      const chemin = line.slice(3).trim();
+      // Renommage : "R  ancien -> nouveau", seul le nouveau nous interesse.
+      const arrow = chemin.indexOf(' -> ');
+      dates.set(arrow === -1 ? chemin : chemin.slice(arrow + 4), today);
+    }
+  } catch {
+    // status indisponible : les dates du log suffisent
+  }
+
+  return dates;
 }
 
 // -------------------------------------------------------------------- rendu
@@ -425,6 +556,16 @@ function report(model, { checkMode }) {
     for (const w of p.warnings) console.error(`note      ${p.file}: ${w}`);
   }
 
+  // `updated` est saisi a la main : git sait mieux. Note, jamais erreur — une
+  // date en retard n'invalide pas la fiche, elle signale un oubli.
+  const dates = gitDates();
+  for (const n of notes) {
+    const vue = dates.get(n.file);
+    if (vue && vue > n.updated) {
+      console.error(`note      ${n.file}: updated = ${n.updated}, modifiee le ${vue}`);
+    }
+  }
+
   if (!checkMode) {
     const used = new Set(notes.flatMap((n) => n.tags));
     const unused = [...vocabulary.tags].filter((t) => !used.has(t)).sort(byString);
@@ -450,9 +591,11 @@ function queryTag(model, wanted) {
     for (const tag of n.tags) counts.set(tag, (counts.get(tag) || 0) + 1);
   }
 
-  // Les fiches en erreur ne sont pas dans notes : le dire, plutot que de
-  // renvoyer un resultat silencieusement incomplet.
-  const skipped = problems.filter((p) => p.errors.length).length;
+  // Les fiches dont le frontmatter est invalide ne sont pas dans notes : le
+  // dire, plutot que de renvoyer un resultat silencieusement incomplet. Un
+  // lien casse, lui, n'exclut pas la fiche : elle reste listee ici.
+  const indexed = new Set(notes.map((n) => n.file));
+  const skipped = problems.filter((p) => p.errors.length && !indexed.has(p.file)).length;
   if (skipped > 0) {
     console.error(`note      ${skipped} fiche(s) non conforme(s) exclue(s) — lancer \`npm run check\``);
   }

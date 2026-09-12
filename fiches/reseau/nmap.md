@@ -1,12 +1,17 @@
 ---
 title: "nmap : scan de ports et découverte réseau"
-tags: [reseau, securite]
+tags: [reseau, securite, terminal]
 created: 2026-08-17
-updated: 2026-08-17
-status: brouillon
+updated: 2026-09-03
+status: stable
 ---
 
-# Nmap
+## En bref
+
+Savoir ce qu'une machine ou un réseau expose : hôtes vivants, ports ouverts,
+services et versions derrière. C'est l'outil de la reconnaissance — pour voir
+ce qui **circule** plutôt que ce qui est **exposé**, c'est
+[tcpdump](tcpdump.md).
 
 ## À quoi ça sert
 
@@ -18,7 +23,7 @@ C'est donc l'outil de la phase de **reconnaissance** : avant de savoir comment a
 
 ## L'essentiel
 
-```bash
+```sh
 nmap 10.10.10.5                    # scan de base, 1000 ports TCP courants
 sudo nmap -sC -sV -Pn 10.10.10.5   # la commande "à tout faire" (CTF / THM)
 nmap -p- 10.10.10.5                # les 65535 ports, plus lent
@@ -26,20 +31,16 @@ nmap -p- 10.10.10.5                # les 65535 ports, plus lent
 
 `sudo` change le comportement par défaut : sans lui nmap fait un _connect scan_ (`-sT`, three-way handshake complet), avec lui un _SYN scan_ (`-sS`), plus rapide et plus discret.
 
----
-
 ## Choix des cibles
 
 | Syntaxe                 | Effet                   |
 | ----------------------- | ----------------------- |
 | `10.10.10.5`            | une IP                  |
 | `10.10.10.5 10.10.10.7` | plusieurs IP            |
-| `10.10.10.0/24`         | tout un sous-réseau     |
+| `10.10.10.0/24`         | tout un sous-réseau (*subnet*) |
 | `10.10.10.1-50`         | une plage               |
 | `-iL cibles.txt`        | liste depuis un fichier |
 | `--exclude 10.10.10.1`  | exclure une IP          |
-
----
 
 ## Découverte d'hôtes
 
@@ -51,8 +52,6 @@ nmap -p- 10.10.10.5                # les 65535 ports, plus lent
 | `-PU53`        | découverte par UDP                                                                                                                                   |
 | `-n`           | pas de résolution DNS (accélère nettement)                                                                                                           |
 
----
-
 ## Types de scan
 
 | Option            | Type              | Notes                                               |
@@ -63,19 +62,15 @@ nmap -p- 10.10.10.5                # les 65535 ports, plus lent
 | `-sA`             | ACK scan          | cartographier les règles d'un pare-feu              |
 | `-sN` `-sF` `-sX` | Null / FIN / Xmas | évasion, inefficace sur Windows                     |
 
----
-
 ## Sélection des ports
 
-```bash
+```sh
 -p 80,443,8080      # ports précis
 -p 1-1000           # plage
 -p-                 # tous (1-65535)
 -F                  # rapide : 100 ports les plus courants
 --top-ports 20      # les N plus courants
 ```
-
----
 
 ## Détection
 
@@ -86,11 +81,9 @@ nmap -p- 10.10.10.5                # les 65535 ports, plus lent
 | `-O`                        | détection de l'OS (nécessite root)                                                  |
 | `-A`                        | agressif = `-sV -O -sC --traceroute` d'un coup                                      |
 
----
-
 ## Scripts NSE
 
-```bash
+```sh
 -sC                                  # scripts par défaut (= --script=default)
 --script vuln                        # catégorie vulnérabilités
 --script=http-title,http-headers     # scripts nommés
@@ -100,8 +93,6 @@ nmap -p- 10.10.10.5                # les 65535 ports, plus lent
 
 Catégories utiles : `default`, `safe`, `vuln`, `auth`, `discovery`, `brute`, `exploit`.
 Les scripts vivent dans `/usr/share/nmap/scripts/`.
-
----
 
 ## Vitesse et discrétion
 
@@ -114,25 +105,21 @@ Les scripts vivent dans `/usr/share/nmap/scripts/`.
 | `-D RND:10`         | leurres (decoys)                                                                             |
 | `--source-port 53`  | usurpe un port source « légitime »                                                           |
 
----
-
 ## Sorties
 
-```bash
+```sh
 -oN scan.txt     # lisible (normal)
 -oG scan.gnmap   # greppable
 -oX scan.xml     # XML
 -oA scan         # les trois d'un coup → scan.nmap / .gnmap / .xml
--v  / -vv        # verbosité
+-v  # / -vv        # verbosité
 --reason         # pourquoi nmap conclut qu'un port est ouvert
 --open           # n'affiche que les ports ouverts
 ```
 
----
-
 ## Recettes
 
-```bash
+```sh
 # Reco rapide au début d'une room
 sudo nmap -sC -sV -Pn -T4 -oN nmap-initial.txt 10.10.10.5
 
@@ -152,26 +139,52 @@ sudo nmap -sU --top-ports 20 10.10.10.5
 sudo nmap --script vuln -p 80,443 10.10.10.5
 ```
 
----
-
 ## Pendant le scan
 
 - `Espace` ou n'importe quelle touche → affiche l'avancement
 - `v` / `V` → augmente / diminue la verbosité en direct
 - `Ctrl+C` → interrompt
 
----
-
 ## États des ports
 
 - **open** — un service écoute
 - **closed** — l'hôte répond mais rien n'écoute
-- **filtered** — un pare-feu bloque, nmap ne sait pas
+- **filtered** — un pare-feu (*firewall*) bloque, nmap ne sait pas
 - **open|filtered** — indécidable (typique en UDP)
 - **unfiltered** — accessible mais état inconnu (ACK scan)
 
----
+## Pièges
 
-## Rappel
+- **Sans `-Pn`, un hôte qui bloque l'ICMP est déclaré « down » et n'est jamais
+  scanné.** C'est le faux négatif numéro un, systématique sur les cibles
+  Windows et derrière un pare-feu. Dans le doute, `-Pn`.
+- **Sans `sudo`, nmap bascule silencieusement en `-sT`.** Plus lent, et surtout
+  la connexion complète est journalisée par l'application cible, là où un `-sS`
+  ne l'est pas. Vérifier avec `--reason` si les résultats surprennent.
+- **`-sV` déduit la version d'une bannière, il ne la mesure pas.** Debian et
+  RHEL rétroportent les correctifs sans changer le numéro affiché : un
+  « Apache 2.4.41 » patché n'est pas vulnérable. Ne jamais conclure d'un `-sV`
+  seul.
+- **En UDP, `open|filtered` est la réponse normale**, pas un échec : l'absence
+  de réponse est indiscernable d'un filtrage. Croiser avec `-sV` ou un script
+  NSE du service concerné.
+- **`-T5` provoque des faux négatifs** : des ports ouverts passent pour fermés
+  parce que la réponse arrive trop tard. `-T4` est le maximum raisonnable hors
+  réseau local.
+- **`--script vuln` est intrusif** : certains scripts font tomber des services
+  fragiles (imprimantes, IHM industrielles, vieux SMB). Jamais sur de la
+  production sans accord écrit.
+- `-p-` sur un `/24` prend des heures. Choisir : large en hôtes **ou** large en
+  ports, pas les deux d'un coup — d'où les recettes en deux temps ci-dessus.
+- `-oA` plutôt que `-oN` seul : le `.gnmap` et le `.xml` ne coûtent rien à
+  produire et évitent de relancer le scan pour extraire une liste de ports.
+- **Ne scanner que ce qui t'appartient ou ce pour quoi tu as une autorisation
+  explicite.** Un scan de ports est détectable, journalisé, et illégal sans
+  mandat. Les labs THM/HTB et `scanme.nmap.org` existent pour s'entraîner.
 
-Ne scanne que des machines qui t'appartiennent ou pour lesquelles tu as une autorisation explicite. Les labs THM/HTB et `scanme.nmap.org` sont prévus pour ça.
+## Voir aussi
+
+- [tcpdump : capturer et lire le trafic réseau](tcpdump.md)
+- [Windows : reconnaissance système en ligne de commande](../windows/reconnaissance.md)
+- [Lexique de l'évaluation de sécurité](../securite/lexique.md)
+- <https://nmap.org/book/man.html>
