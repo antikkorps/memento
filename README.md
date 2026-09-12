@@ -112,6 +112,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md) — _brouillon_
+- [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
@@ -251,6 +252,7 @@ _Vide._
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md)
+- [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
@@ -343,6 +345,7 @@ _Vide._
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
+- [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
@@ -408,7 +411,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 69 |
+| Fiches classées | 70 |
 | Fiches en inbox | 0 |
 | Brouillons | 13 |
 | Tags utilisés | 20 |
