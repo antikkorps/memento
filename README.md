@@ -7,16 +7,47 @@ Les conventions sont dans [CONVENTIONS.md](CONVENTIONS.md), le vocabulaire de
 tags dans [TAGS.md](TAGS.md), le modèle de fiche dans
 [templates/fiche.md](templates/fiche.md).
 
+## Mise en place
+
+Sur une machine neuve : cloner, mettre `scripts/` dans le `PATH`, vérifier.
+
+```sh
+git clone ssh://git@git.fvienot.link/fvienot/memento.git ~/Documents/memento
+echo 'export PATH="$HOME/Documents/memento/scripts:$PATH"' >> ~/.bashrc
+. ~/.bashrc
+m check
+```
+
+Prérequis : `node` ≥ 18 et `git`. **Pas de `npm install`** — le dépôt n'a aucune
+dépendance, `package.json` ne sert qu'à porter les raccourcis `npm run`. `fzf` et
+`rg` sont facultatifs : sans `fzf`, `m find` sort du texte (`chemin:ligne:texte`)
+au lieu d'ouvrir un sélecteur ; sans `rg`, il retombe sur `grep`.
+
+**Ne pas installer `m` par un lien symbolique.** Il déduit la racine du dépôt du
+chemin par lequel il a été appelé (`dirname $0/..`) et ne résout pas les liens :
+un `ln -s .../scripts/m ~/.local/bin/m` le fait chercher les fiches dans
+`~/.local`, et il répond `ni fiches/ ni inbox/ : rien a chercher`. Le `PATH`
+ci-dessus est la voie sûre ; à défaut, un alias :
+
+```sh
+echo 'alias m=~/Documents/memento/scripts/m' >> ~/.bashrc
+```
+
+L'alias suffit au quotidien, mais il n'existe que dans un shell interactif : ni
+un script ni un `xargs` ne le verront.
+
+## Usage
+
 Régénérer l'index après avoir ajouté ou modifié une fiche :
 
 ```sh
-npm run index
+m index
 ```
 
-Chercher les fiches portant un tag (`--tag` seul liste le vocabulaire) :
+Chercher les fiches portant un tag (sans nom, `m tag` liste le vocabulaire) :
 
 ```sh
-node scripts/index.js --tag reseau
+m tag reseau
 ```
 
 Chercher **dans** le corps des fiches (`fzf` si le terminal est interactif,
@@ -24,9 +55,12 @@ sortie `grep` sinon). Le motif est littéral et peut tenir en plusieurs mots, le
 guillemets étant facultatifs :
 
 ```sh
-scripts/m find definer
-scripts/m find supprimer un fichier
+m find definer
+m find supprimer un fichier
 ```
+
+Depuis la racine du dépôt, `npm run index`, `npm run check` et `make` font la
+même chose sans passer par `m`.
 
 Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la main.
 

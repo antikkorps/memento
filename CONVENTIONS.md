@@ -483,12 +483,8 @@ git clone ssh://git@git.fvienot.link/fvienot/memento.git ~/Documents/memento
 cd ~/Documents/memento && npm run check
 ```
 
-Le `D` majuscule de `~/Documents` est la convention macOS — l'alias documenté
-plus haut devient :
-
-```sh
-alias m=~/Documents/memento/scripts/m
-```
+Le chemin est le même que sous Linux (`~/Documents`, `D` majuscule), donc la
+ligne de `PATH` du README se recopie telle quelle.
 
 `node` s'installe par `brew install node` (ou `nvm`), `git` vient avec les
 Command Line Tools de Xcode. `.DS_Store` est déjà dans `.gitignore`.
@@ -530,8 +526,16 @@ Dispatcher POSIX. Il déduit la racine du dépôt de son propre chemin, donc il
 marche depuis n'importe quel répertoire.
 
 ```sh
-alias m=~/documents/memento/scripts/m
+export PATH="$HOME/Documents/memento/scripts:$PATH"
 ```
+
+C'est le `PATH` et non un lien symbolique, parce que la racine sort de
+`dirname $0/..` **sans résolution des liens** — `readlink -f` est écarté pour
+raison de portabilité (voir plus haut). Un `ln -s scripts/m ~/.local/bin/m`
+donnerait donc `~/.local` pour racine, et `m find` répondrait `ni fiches/ ni
+inbox/`. Un `alias m=~/Documents/memento/scripts/m` marche aussi, mais seulement
+dans un shell interactif. La démarche complète d'installation est dans le
+[README](README.md#mise-en-place).
 
 ```
 m tag [nom]            fiches portant ce tag ; sans nom, liste le vocabulaire
