@@ -114,6 +114,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md) — _brouillon_
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
+- [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 
 ### nvim
@@ -192,6 +193,7 @@ _Vide._
 
 - [i3 : raccourcis par défaut et configuration](fiches/linux/i3.md)
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md)
+- [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 
 ### cicd
 
@@ -207,6 +209,7 @@ _Vide._
 - [Git : bisect, trouver le commit fautif par dichotomie](fiches/git/bisect.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
+- [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md)
 - [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
@@ -250,6 +253,7 @@ _Vide._
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md)
 - [ufw : le pare-feu simple](fiches/linux/ufw.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
+- [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 
 ### php
@@ -404,7 +408,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 68 |
+| Fiches classées | 69 |
 | Fiches en inbox | 0 |
 | Brouillons | 13 |
 | Tags utilisés | 20 |
