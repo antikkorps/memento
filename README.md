@@ -118,6 +118,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### nvim
 
+- [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 
 ### reseau
@@ -211,6 +212,7 @@ _Vide._
 
 ### editeur
 
+- [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 
 ### git
@@ -226,6 +228,7 @@ _Vide._
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Ressources pour apprendre git](fiches/git/ressources.md)
 - [Git : revert, annuler un commit publié](fiches/git/revert.md)
+- [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 
 ### javascript
 
@@ -262,6 +265,7 @@ _Vide._
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Git : revert, annuler un commit publié](fiches/git/revert.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
+- [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Windows : élévation (UAC) et édition d'un fichier protégé](fiches/windows/elevation.md)
 
@@ -396,7 +400,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 66 |
+| Fiches classées | 67 |
 | Fiches en inbox | 0 |
 | Brouillons | 13 |
 | Tags utilisés | 20 |
