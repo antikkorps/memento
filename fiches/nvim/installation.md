@@ -29,9 +29,22 @@ sudo apt install ripgrep fd-find xclip     # wl-clipboard si la session est Wayl
 npm install -g tree-sitter-cli             # optionnel : compiler un parser absent
 
 # 3. La config (fork public : HTTPS suffit, pas besoin de cle SSH)
-git clone https://github.com/antikkorps/kickstart.nvim.git ~/.config/nvim
+#    -b custom : MA config. `master` est du kickstart amont, pas la mienne.
+git clone -b custom https://github.com/antikkorps/kickstart.nvim.git ~/.config/nvim
 nvim                                       # vim.pack installe tout au 1er demarrage
 ```
+
+**La branche compte plus que le dépôt.** Le fork porte trois branches :
+
+| Branche | Contenu |
+| --- | --- |
+| `master` | kickstart amont, suivi à l'identique, aucun commit perso |
+| `custom` | la vraie config : smear-cursor, autopairs, autotag, formatting, matchup, rainbow, `NOTES_PERSO.md` |
+| `custom-pre-0.12` | instantané d'avant la migration `vim.pack`, filet de sécurité |
+
+Cloner sans `-b custom` donne un kickstart nu qui démarre parfaitement — d'où le
+piège : rien ne signale l'erreur, on croit avoir installé sa config et il manque
+tous ses plugins.
 
 ## Récupérer les mises à jour de kickstart
 
@@ -46,14 +59,28 @@ Puis à chaque envie de rattraper l'amont :
 ```sh
 git -C ~/.config/nvim fetch upstream
 git -C ~/.config/nvim rev-list --left-right --count HEAD...upstream/master
-#   0   17     <- 0 commit a moi, 17 en retard : fast-forward garanti
 git -C ~/.config/nvim merge upstream/master
 nvim                                       # laisser vim.pack rattraper les plugins
 ```
 
 `rev-list --left-right --count` avant de fusionner : le premier chiffre est le
-nombre de commits **à moi**, le second le retard. Tant que le premier est `0`,
-la fusion est un fast-forward et ne peut pas conflicter.
+nombre de commits **à moi**, le second le retard.
+
+```
+0  17     sur master : rien a moi, fast-forward garanti, aucun conflit possible
+5  17     sur custom : 5 commits a moi, la fusion est une vraie fusion
+```
+
+Savoir à l'avance si ça va conflicter, **sans toucher au répertoire de
+travail** :
+
+```sh
+git merge-tree --write-tree custom master   # code 0 = propre, 1 = conflit
+```
+
+Sur ce dépôt il ne sort qu'un conflit, dans `init.lua` — les deux côtés y ont
+touché. Tout ce qui vit dans `lua/custom/` fusionne seul : c'est exactement
+pourquoi les ajouts personnels doivent y rester.
 
 ## Détails
 
@@ -113,6 +140,14 @@ nvim --headless "+checkhealth" "+w! /tmp/health.txt" "+qa" && grep "❌ ERROR" /
   vierge, rattraper l'amont est gratuit. Dès qu'on personnalise, il faut
   arbitrer — d'où l'intérêt de tout mettre dans `lua/custom/`, que l'amont ne
   touche pas.
+- **Oublier `-b custom` au clone ne provoque aucune erreur.** Le kickstart nu
+  démarre, installe ses plugins, `:checkhealth` est vert : tout va bien, sauf
+  que ce n'est pas sa config. Le seul symptôme est une absence — les plugins
+  perso manquent. Vérifier après le clone :
+
+  ```sh
+  git -C ~/.config/nvim branch --show-current    # doit repondre : custom
+  ```
 
 ## Voir aussi
 
