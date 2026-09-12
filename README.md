@@ -156,6 +156,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
 - [sed : substituer et éditer des lignes](fiches/shell/sed.md)
+- [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 
 ### windows
 
@@ -208,6 +209,7 @@ _Vide._
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md)
+- [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 
 ### editeur
@@ -267,6 +269,7 @@ _Vide._
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [Windows : élévation (UAC) et édition d'un fichier protégé](fiches/windows/elevation.md)
 
 ### reseau
@@ -352,6 +355,7 @@ _Vide._
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
 - [sed : substituer et éditer des lignes](fiches/shell/sed.md)
+- [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [cmd : historique, redirections et raccourcis](fiches/windows/cmd.md)
 - [dir : lister, trier et filtrer en cmd](fiches/windows/dir.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
@@ -400,7 +404,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 67 |
+| Fiches classées | 68 |
 | Fiches en inbox | 0 |
 | Brouillons | 13 |
 | Tags utilisés | 20 |
