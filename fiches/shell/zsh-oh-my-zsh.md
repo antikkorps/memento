@@ -17,7 +17,7 @@ une config commune à bash et zsh pour que les deux restent interchangeables.
 
 ```zsh
 # dans ~/.zshrc, APRES `source $ZSH/oh-my-zsh.sh`
-zstyle ':bracketed-paste-magic' active-widgets '\e[201~'
+zstyle ':bracketed-paste-magic' active-widgets ''
 ```
 
 Depuis la version 5.1, zsh gère le *bracketed paste* avec un widget natif écrit
@@ -43,9 +43,16 @@ la coloration syntaxique et l'autosuggestion. D'où les trois symptômes :
 - backslashes parasites — `url-quote-magic` croit reconnaître une URL et échappe
   les `?` et les `&`.
 
-Le `zstyle` dit à `bracketed-paste-magic` de n'activer aucun widget pendant le
-collage, sauf à la marque de fin `\e[201~`. Le traitement caractère par
-caractère disparaît, la sécurité du bracketed paste reste entière.
+`active-widgets` est une liste de **motifs de noms de widgets** à laisser actifs
+pendant le collage — `self-*` par défaut, ce qui laisse justement passer le
+`self-insert` détourné. La vider revient à n'en activer aucun, et `man
+zshcontrib` le dit mot pour mot :
+
+> If this style is not set (explicitly deleted) or set to an empty value, no
+> widgets are active and the pasted text is inserted literally.
+
+Le traitement caractère par caractère disparaît, la sécurité du bracketed paste
+reste entière : rien ne s'exécute avant Entrée.
 
 Si un résidu persiste, on peut rendre son widget à zsh sans détour :
 
@@ -135,6 +142,20 @@ surprend les outils lancés hors d'un shell interactif.
   enveloppe les widgets définis avant lui et ignore ceux chargés après.
 - **Le `zstyle` doit venir après `source $ZSH/oh-my-zsh.sh`**, sinon oh-my-zsh
   le recouvre en chargeant `lib/misc.zsh`.
+- **Ne pas recopier `active-widgets '\e[201~'`.** Ce snippet est partout sur le
+  web et il est faux : la valeur est lue comme un **motif**, où `[201~` ouvre
+  une classe de caractères jamais fermée. zsh répond alors, à chaque collage :
+
+  ```
+  bracketed-paste-magic:56: bad pattern: \e[201~
+  ```
+
+  La valeur vide est la forme documentée. Pour vérifier sans ouvrir de terminal,
+  dans un pseudo-terminal jetable :
+
+  ```sh
+  printf '\033[200~echo UN\necho DEUX\033[201~\rexit\r' | script -qec "zsh -i" /dev/null
+  ```
 - **`bindkey "^[[200~"` répond `bracketed-paste` dans les deux cas** : oh-my-zsh
   ne change pas le nom du widget, il change la fonction derrière. La liaison ne
   permet donc pas de diagnostiquer ; c'est le `zstyle` qui tranche.
