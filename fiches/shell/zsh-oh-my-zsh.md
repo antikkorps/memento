@@ -132,9 +132,48 @@ Ordres de grandeur relevés sur une machine de bureau :
 | `brew shellenv` | ~ 15 ms par appel |
 
 La lenteur au démarrage vient presque toujours de `nvm.sh`, jamais du shell.
-Le charger paresseusement est possible, au prix d'une subtilité : `node`
-n'existe alors plus dans le `PATH` tant qu'on ne l'a pas appelé une fois, ce qui
-surprend les outils lancés hors d'un shell interactif.
+
+## Charger nvm paresseusement
+
+Le piège des recettes courantes est de ne définir que des fonctions-relais pour
+`node`, `npm` et `npx` : `node` n'existe alors plus dans le `PATH` tant qu'on ne
+l'a pas appelé, ce qui casse tout ce qui est lancé hors d'un shell interactif —
+un serveur de langage démarré par un éditeur, lui-même lancé depuis i3.
+
+La version sans cet inconvénient met le `bin` de la version par défaut dans le
+`PATH` — `node`, `npm`, `npx` et les binaires installés en global restent donc
+immédiats — et ne charge `nvm.sh` qu'au premier appel à `nvm` :
+
+```sh
+export NVM_DIR="$HOME/.nvm"
+
+# `alias/default` contient souvent un prefixe ("24"), pas une version complete.
+__nvm_bin=''
+if [ -s "$NVM_DIR/alias/default" ]; then
+	__nvm_want=$(cat "$NVM_DIR/alias/default")
+	case "$__nvm_want" in v*) ;; *) __nvm_want="v$__nvm_want" ;; esac
+	if [ -d "$NVM_DIR/versions/node/$__nvm_want/bin" ]; then
+		__nvm_bin="$NVM_DIR/versions/node/$__nvm_want/bin"
+	else
+		__nvm_bin=$(ls -d "$NVM_DIR/versions/node/$__nvm_want"*/bin 2>/dev/null | sort -V | tail -1)
+	fi
+fi
+[ -z "$__nvm_bin" ] && __nvm_bin=$(ls -d "$NVM_DIR"/versions/node/v*/bin 2>/dev/null | sort -V | tail -1)
+[ -n "$__nvm_bin" ] && path_prepend "$__nvm_bin"
+unset __nvm_want __nvm_bin
+
+# Au premier appel : se supprime, charge le vrai nvm.sh (qui redefinit `nvm`),
+# puis relaie la commande. Les appels suivants vont droit au but.
+nvm() {
+	unset -f nvm
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+	nvm "$@"
+}
+```
+
+Mesuré sur la même machine : **480 ms → 90 ms** à l'ouverture d'un shell, sans
+rien perdre. `nvm ls` et `nvm use` fonctionnent normalement, avec 280 ms de
+latence la première fois seulement.
 
 ## Pièges
 
