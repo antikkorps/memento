@@ -36,6 +36,20 @@ echo 'alias m=~/Documents/memento/scripts/m' >> ~/.bashrc
 L'alias suffit au quotidien, mais il n'existe que dans un shell interactif : ni
 un script ni un `xargs` ne le verront.
 
+### Windows (Git Bash)
+
+Même procédure, dans un terminal **Git Bash** (livré avec Git for Windows) :
+
+- prérequis identiques — `git` (fourni par Git for Windows) et `node` ≥ 18 ;
+- rien à régler pour les fins de ligne : `.gitattributes` force le LF même si
+  `core.autocrlf` vaut `true`, les fiches restent propres ;
+- si le `PATH` ajouté à `~/.bashrc` ne tient pas d'une session à l'autre,
+  reporter la même ligne dans `~/.bash_profile` — certaines installations ne
+  sourcent pas `~/.bashrc` seul ;
+- `fzf` et `rg` s'installent par
+  `winget install junegunn.fzf BurntSushi.ripgrep.MSVC` ; sans eux, `m find`
+  reste utilisable (sortie texte).
+
 ## Usage
 
 Régénérer l'index après avoir ajouté ou modifié une fiche :

@@ -2,7 +2,7 @@
 title: "PostgreSQL : commandes courantes"
 tags: [base-de-donnees, terminal, procedure]
 created: 2026-09-02
-updated: 2026-09-03
+updated: 2026-09-14
 status: stable
 ---
 
@@ -40,15 +40,15 @@ prennent pas de point-virgule.
 
 | Commande | Effet |
 | --- | --- |
-| `\l` | liste les bases |
+| `\l` | lister les bases (*list databases*) |
 | `\c ma_base` | se connecte à une autre base |
-| `\dt` | tables du schéma courant (`\dt *.*` pour tous les schémas) |
+| `\dt` | lister les tables (*list tables*) du schéma courant (`\dt *.*` pour tous les schémas) |
 | `\d ma_table` | colonnes, index, contraintes, séquences |
 | `\d+ ma_table` | idem, plus la taille et les commentaires |
-| `\du` | rôles et leurs attributs |
-| `\dn` | schémas |
-| `\df` | fonctions |
-| `\dv` | vues |
+| `\du` | lister les rôles et leurs attributs |
+| `\dn` | lister les schémas |
+| `\df` | lister les fonctions |
+| `\dv` | lister les vues |
 | `\x` | bascule l'affichage étendu (une ligne par champ) |
 | `\timing` | affiche la durée de chaque requête |
 | `\e` | ouvre la requête courante dans `$EDITOR` |
