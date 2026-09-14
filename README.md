@@ -118,6 +118,10 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 
+### markdown
+
+- [Markdown : syntaxe et pièges de formatage](fiches/markdown/syntaxe.md) — _brouillon_
+
 ### nvim
 
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
@@ -142,15 +146,20 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 ### securite
 
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Burp Suite : intercepter et manipuler le trafic web](fiches/securite/burp.md) — _brouillon_
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md) — _brouillon_
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [hydra : bruteforce d'authentification en ligne](fiches/securite/hydra.md) — _brouillon_
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md) — _brouillon_
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [Quel outil pour quel objectif](fiches/securite/quel-outil.md) — _brouillon_
 
 ### shell
 
@@ -257,6 +266,11 @@ _Vide._
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
+
+### markdown
+
+- [Markdown : syntaxe et pièges de formatage](fiches/markdown/syntaxe.md)
 
 ### php
 
@@ -275,8 +289,13 @@ _Vide._
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [Windows : élévation (UAC) et édition d'un fichier protégé](fiches/windows/elevation.md)
+
+### redaction
+
+- [Markdown : syntaxe et pièges de formatage](fiches/markdown/syntaxe.md)
 
 ### reseau
 
@@ -292,6 +311,7 @@ _Vide._
 - [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
+- [hydra : bruteforce d'authentification en ligne](fiches/securite/hydra.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 
 ### ressource
@@ -324,15 +344,20 @@ _Vide._
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Burp Suite : intercepter et manipuler le trafic web](fiches/securite/burp.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [hydra : bruteforce d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
@@ -355,8 +380,11 @@ _Vide._
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [hydra : bruteforce d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
@@ -391,6 +419,8 @@ _Vide._
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Burp Suite : intercepter et manipuler le trafic web](fiches/securite/burp.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
 ### windows
@@ -411,10 +441,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 70 |
+| Fiches classées | 76 |
 | Fiches en inbox | 0 |
-| Brouillons | 13 |
-| Tags utilisés | 20 |
-| Tags déclarés | 21 |
+| Brouillons | 19 |
+| Tags utilisés | 22 |
+| Tags déclarés | 23 |
 
 <!-- INDEX:END -->

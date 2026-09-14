@@ -46,6 +46,8 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 - `terminal` — shell, utilitaires en ligne de commande, one-liners
 - `texte` — recherche, filtrage et transformation de texte (grep, sed, awk, jq)
 - `editeur` — Vim, configuration d'éditeurs
+- `markdown` — balisage léger, GFM, syntaxe des fiches
+- `redaction` — écriture de documents, prise de notes, documentation
 
 ## Développement
 
