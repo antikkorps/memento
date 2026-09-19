@@ -186,7 +186,7 @@ Les paires déjà posées, à réutiliser telles quelles plutôt que d'en invent
 des variantes : joker / *wildcard*, corbeille / *recycle bin*, pare-feu /
 *firewall*, lien symbolique / *symlink*, droits / *permissions*, sous-réseau /
 *subnet*, tâche planifiée / *scheduled task*, chaîne littérale / *literal*,
-fichier ouvert / *buffer*, copier / *yank*.
+fichier ouvert / *buffer*, copier / *yank*, lister / *list*.
 
 Le test se vérifie surtout **après coup** : quand une recherche échoue alors que
 la fiche contenait la réponse, c'est presque toujours un terme anglais manquant.

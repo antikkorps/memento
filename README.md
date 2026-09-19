@@ -36,6 +36,20 @@ echo 'alias m=~/Documents/memento/scripts/m' >> ~/.bashrc
 L'alias suffit au quotidien, mais il n'existe que dans un shell interactif : ni
 un script ni un `xargs` ne le verront.
 
+### Windows (Git Bash)
+
+Même procédure, dans un terminal **Git Bash** (livré avec Git for Windows) :
+
+- prérequis identiques — `git` (fourni par Git for Windows) et `node` ≥ 18 ;
+- rien à régler pour les fins de ligne : `.gitattributes` force le LF même si
+  `core.autocrlf` vaut `true`, les fiches restent propres ;
+- si le `PATH` ajouté à `~/.bashrc` ne tient pas d'une session à l'autre,
+  reporter la même ligne dans `~/.bash_profile` — certaines installations ne
+  sourcent pas `~/.bashrc` seul ;
+- `fzf` et `rg` s'installent par
+  `winget install junegunn.fzf BurntSushi.ripgrep.MSVC` ; sans eux, `m find`
+  reste utilisable (sortie texte).
+
 ## Usage
 
 Régénérer l'index après avoir ajouté ou modifié une fiche :
@@ -126,6 +140,10 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
 
+### markdown
+
+- [Markdown : syntaxe et pièges de formatage](fiches/markdown/syntaxe.md) — _brouillon_
+
 ### nvim
 
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
@@ -150,20 +168,22 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 ### securite
 
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
-- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp-suite.md)
+- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
-- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
+- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md) — _brouillon_
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [Quel outil pour quel objectif](fiches/securite/quel-outil.md) — _brouillon_
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 
 ### shell
@@ -279,6 +299,11 @@ _Vide._
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
+
+### markdown
+
+- [Markdown : syntaxe et pièges de formatage](fiches/markdown/syntaxe.md)
 
 ### php
 
@@ -300,6 +325,7 @@ _Vide._
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
+- [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [Windows : élévation (UAC) et édition d'un fichier protégé](fiches/windows/elevation.md)
 
@@ -309,6 +335,10 @@ _Vide._
 - [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
 - [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
 - [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
+
+### redaction
+
+- [Markdown : syntaxe et pièges de formatage](fiches/markdown/syntaxe.md)
 
 ### reseau
 
@@ -357,20 +387,22 @@ _Vide._
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
-- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp-suite.md)
+- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
-- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
+- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
@@ -395,10 +427,11 @@ _Vide._
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
-- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
+- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
@@ -435,8 +468,8 @@ _Vide._
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
-- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp-suite.md)
-- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
+- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp.md)
+- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
@@ -460,10 +493,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 81 |
+| Fiches classées | 84 |
 | Fiches en inbox | 0 |
-| Brouillons | 13 |
-| Tags utilisés | 22 |
-| Tags déclarés | 23 |
+| Brouillons | 16 |
+| Tags utilisés | 24 |
+| Tags déclarés | 25 |
 
 <!-- INDEX:END -->

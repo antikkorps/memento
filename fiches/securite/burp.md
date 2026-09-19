@@ -1,7 +1,7 @@
 ---
 title: "Burp Suite Community : le proxy d'interception web"
 tags: [securite, web]
-created: 2026-09-19
+created: 2026-09-14
 updated: 2026-09-19
 status: stable
 ---
@@ -43,7 +43,8 @@ http://burp        # dans le navigateur proxifie : telecharger le certificat CA
 
 Le flux de base : dans **HTTP history**, clic droit sur une requête → **Send to
 Repeater** (`Ctrl+R`) → passer sur l'onglet Repeater → bricoler un paramètre →
-**Send** → lire la réponse. On boucle sans jamais retoucher au navigateur.
+**Send** → lire la réponse. On boucle sans jamais retoucher au navigateur ; c'est
+là qu'on teste une IDOR, un paramètre caché, une injection.
 
 ## Community vs Pro vs Enterprise
 
@@ -97,9 +98,11 @@ des champs pour monter la commande [Hydra](hydra.md) `http-post-form`.
 
 ## Voir aussi
 
+- [Quel outil pour quel objectif](quel-outil.md)
 - [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
 - [sqlmap : automatiser l'injection SQL](sqlmap.md)
 - [Nikto : scanner de serveur web](nikto.md)
 - [Hydra : brute-force d'authentification en ligne](hydra.md)
 - [Les attaques web courantes](attaques-web.md)
+- [Codes de réponse HTTP](../reseau/codes-http.md)
 - <https://portswigger.net/burp/documentation/desktop>

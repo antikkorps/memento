@@ -97,7 +97,7 @@ de commandes sur le serveur, à faire évoluer ensuite en vrai shell.
 
 - [Les attaques web courantes](attaques-web.md)
 - [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
-- [Burp Suite Community : le proxy d'interception web](burp-suite.md)
+- [Burp Suite Community : le proxy d'interception web](burp.md)
 - [Nikto : scanner de serveur web](nikto.md)
 - [Metasploit : le framework d'exploitation](metasploit.md)
 - [Lexique de l'évaluation de sécurité](lexique.md)
