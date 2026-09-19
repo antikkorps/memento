@@ -172,18 +172,18 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
-- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
-- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md) — _brouillon_
+- [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
-- [Quel outil pour quel objectif](fiches/securite/quel-outil.md) — _brouillon_
+- [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 
 ### shell
@@ -340,6 +340,11 @@ _Vide._
 
 - [Markdown : syntaxe et pièges de formatage](fiches/markdown/syntaxe.md)
 
+### reference
+
+- [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
+- [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
+
 ### reseau
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
@@ -391,7 +396,7 @@ _Vide._
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
-- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
@@ -427,7 +432,7 @@ _Vide._
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
-- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
@@ -469,7 +474,7 @@ _Vide._
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
 - [Burp Suite Community : le proxy d'interception web](fiches/securite/burp.md)
-- [gobuster : découverte de contenu web (chemins, DNS, vhosts)](fiches/securite/gobuster.md)
+- [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
@@ -495,8 +500,8 @@ _Vide._
 | --- | --: |
 | Fiches classées | 84 |
 | Fiches en inbox | 0 |
-| Brouillons | 16 |
-| Tags utilisés | 24 |
-| Tags déclarés | 25 |
+| Brouillons | 14 |
+| Tags utilisés | 25 |
+| Tags déclarés | 26 |
 
 <!-- INDEX:END -->

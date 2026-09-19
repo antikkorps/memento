@@ -3,7 +3,7 @@ title: "Quel outil pour quel objectif"
 tags: [securite, procedure]
 created: 2026-09-14
 updated: 2026-09-19
-status: brouillon
+status: stable
 ---
 
 ## En bref
@@ -146,11 +146,11 @@ se ressemblent — c'est ici qu'on hésite.
 - [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
 - [nmap : scan de ports et découverte réseau](../reseau/nmap.md)
 - [Metasploit : le framework d'exploitation](metasploit.md)
-- [hydra : bruteforce d'authentification en ligne](hydra.md)
+- [Hydra : brute-force d'authentification en ligne](hydra.md)
 - [hashcat : casser des hachages sur GPU](hashcat.md)
 - [John the Ripper : casser des hachages hors ligne](john-the-ripper.md)
 - [gobuster : découverte de contenu web](gobuster.md)
-- [Burp Suite : intercepter et manipuler le trafic web](burp.md)
+- [Burp Suite Community : le proxy d'interception web](burp.md)
 - [linpeas : énumération de privesc Linux](linpeas.md)
 - [Les attaques web courantes](attaques-web.md)
 - [Maliciels, attaques et vocabulaire des menaces](menaces.md)

@@ -64,6 +64,8 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 - `depannage` — symptôme observé et sa résolution
 - `ressource` — fiche qui pointe vers des lectures externes plutôt que de
   contenir la réponse
+- `reference` — fiche de vocabulaire ou de définitions qui contient la réponse
+  (glossaire, lexique)
 
 ## Gestion de projet
 

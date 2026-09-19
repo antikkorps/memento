@@ -1,8 +1,8 @@
 ---
 title: "Maliciels, attaques et vocabulaire des menaces"
-tags: [securite]
+tags: [securite, reference]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-19
 status: stable
 ---
 

@@ -64,7 +64,7 @@ chose.
 
 ## Voir aussi
 
-- [gobuster : brute-force de chemins, DNS et vhosts](gobuster.md)
+- [gobuster : découverte de contenu web](gobuster.md)
 - [Burp Suite Community : le proxy d'interception web](burp.md)
 - [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
 - [nmap : scan de ports et découverte réseau](../reseau/nmap.md)

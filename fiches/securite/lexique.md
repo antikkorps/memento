@@ -1,6 +1,6 @@
 ---
 title: Lexique de l'évaluation de sécurité
-tags: [securite]
+tags: [securite, reference]
 created: 2026-08-17
 updated: 2026-09-19
 status: stable

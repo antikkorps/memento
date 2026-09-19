@@ -178,7 +178,7 @@ services           les services, port par port
 
 - [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
 - [nmap : scan de ports et découverte réseau](../reseau/nmap.md)
-- [gobuster : brute-force de chemins, DNS et vhosts](gobuster.md)
+- [gobuster : découverte de contenu web](gobuster.md)
 - [John the Ripper : casser des hachages hors ligne](john-the-ripper.md)
 - [Maliciels, attaques et vocabulaire des menaces](menaces.md)
 - [Lexique de l'évaluation de sécurité](lexique.md)

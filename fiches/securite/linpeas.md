@@ -2,8 +2,8 @@
 title: "linpeas : énumération de privesc Linux"
 tags: [securite, linux, terminal]
 created: 2026-09-14
-updated: 2026-09-14
-status: brouillon
+updated: 2026-09-19
+status: stable
 ---
 
 ## En bref
