@@ -88,6 +88,8 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
+- [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
+- [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
 
 ### git
 
@@ -237,6 +239,8 @@ _Vide._
 
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
+- [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
+- [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
 
 ### git
 
@@ -303,6 +307,8 @@ _Vide._
 
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
+- [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
+- [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
 
 ### reseau
 
@@ -454,7 +460,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 79 |
+| Fiches classées | 81 |
 | Fiches en inbox | 0 |
 | Brouillons | 13 |
 | Tags utilisés | 22 |

@@ -76,4 +76,6 @@ participants. Sans restitution, le besoin recueilli n'engage personne.
 ## Voir aussi
 
 - [Cartographier les parties prenantes d'un projet SI](parties-prenantes.md)
+- [User stories : exprimer le besoin côté utilisateur](user-stories.md)
+- [Personas : incarner les utilisateurs cibles](personas.md)
 - <https://www.volkerdon.com/pages/moscow-prioritisation>
