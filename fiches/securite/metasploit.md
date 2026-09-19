@@ -2,7 +2,7 @@
 title: "Metasploit : le framework d'exploitation"
 tags: [securite, reseau, terminal]
 created: 2026-09-07
-updated: 2026-09-09
+updated: 2026-09-19
 status: stable
 ---
 
@@ -176,7 +176,9 @@ services           les services, port par port
 
 ## Voir aussi
 
+- [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
 - [nmap : scan de ports et découverte réseau](../reseau/nmap.md)
+- [gobuster : brute-force de chemins, DNS et vhosts](gobuster.md)
 - [John the Ripper : casser des hachages hors ligne](john-the-ripper.md)
 - [Maliciels, attaques et vocabulaire des menaces](menaces.md)
 - [Lexique de l'évaluation de sécurité](lexique.md)

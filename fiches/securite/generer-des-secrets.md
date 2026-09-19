@@ -2,7 +2,7 @@
 title: Générer des secrets, clés et mots de passe
 tags: [securite, procedure]
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-19
 status: stable
 ---
 
@@ -76,6 +76,8 @@ prédictibles à des degrés divers.
 
 ## Voir aussi
 
+- [Chiffrement, hachage et signature](chiffrement.md)
+- [Cryptographie : les algorithmes et leurs calculs](cryptographie-calculs.md)
 - [Docker : commandes courantes](../docker/commandes-courantes.md)
 - [Generating random bytes with the OpenSSL CLI](https://www.jvt.me/posts/2020/06/27/generating-random-bytes-openssl-cli/)
   — pourquoi les méthodes approximatives ne valent rien

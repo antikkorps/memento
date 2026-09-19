@@ -2,7 +2,7 @@
 title: "nmap : scan de ports et découverte réseau"
 tags: [reseau, securite, terminal]
 created: 2026-08-17
-updated: 2026-09-03
+updated: 2026-09-19
 status: stable
 ---
 
@@ -19,7 +19,7 @@ Nmap (_Network Mapper_) envoie des paquets à une machine ou à un réseau et d�
 
 C'est donc l'outil de la phase de **reconnaissance** : avant de savoir comment attaquer ou défendre une machine, il faut savoir ce qu'elle expose. Un port 445 ouvert avec une vieille version de Samba, un port 8080 oublié sur une application de test — c'est ce genre de trouvaille qui oriente toute la suite. Côté défense, on l'utilise exactement pareil : inventorier son propre réseau, vérifier qu'un pare-feu fait bien son travail, repérer un service qui n'aurait jamais dû être exposé.
 
-À noter : nmap ne fait que du réseau. Il te dit qu'un serveur web tourne sur le port 80, mais pas ce qu'il y a dans ses répertoires — pour ça il faut passer à des outils de _content discovery_ comme gobuster ou ffuf.
+À noter : nmap ne fait que du réseau. Il te dit qu'un serveur web tourne sur le port 80, mais pas ce qu'il y a dans ses répertoires — pour ça il faut passer à des outils de _content discovery_ comme [gobuster](../securite/gobuster.md) ou ffuf.
 
 ## L'essentiel
 
@@ -184,6 +184,7 @@ sudo nmap --script vuln -p 80,443 10.10.10.5
 
 ## Voir aussi
 
+- [Méthodologie : de la reconnaissance au shell (web)](../securite/methodologie-pentest-web.md)
 - [tcpdump : capturer et lire le trafic réseau](tcpdump.md)
 - [Windows : reconnaissance système en ligne de commande](../windows/reconnaissance.md)
 - [Lexique de l'évaluation de sécurité](../securite/lexique.md)

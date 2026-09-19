@@ -2,7 +2,7 @@
 title: "Les attaques web courantes"
 tags: [securite, web]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-19
 status: stable
 ---
 
@@ -106,6 +106,8 @@ la requête est parfaitement valide.
 
 ## Voir aussi
 
+- [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
+- [sqlmap : automatiser l'injection SQL](sqlmap.md)
 - [Lexique de l'évaluation de sécurité](lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](menaces.md)
 - [Codes de réponse HTTP](../reseau/codes-http.md)

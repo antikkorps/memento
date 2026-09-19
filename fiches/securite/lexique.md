@@ -2,7 +2,7 @@
 title: Lexique de l'évaluation de sécurité
 tags: [securite]
 created: 2026-08-17
-updated: 2026-09-03
+updated: 2026-09-19
 status: stable
 ---
 
@@ -61,6 +61,8 @@ du code.
 
 ## Voir aussi
 
+- [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
+- [Les attaques web courantes](attaques-web.md)
 - [Le modèle OSI en 7 couches](../reseau/modele-osi.md)
 - [TCP et UDP : quand et pourquoi](../reseau/tcp-udp.md)
 - [HTTPS et TLS : ce qui se passe avant la page](../reseau/https.md)

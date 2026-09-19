@@ -84,6 +84,11 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 - [Docker : commandes courantes](fiches/docker/commandes-courantes.md)
 
+### gestion-de-projet
+
+- [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
+
 ### git
 
 - [Git : bisect, trouver le commit fautif par dichotomie](fiches/git/bisect.md) — _brouillon_
@@ -108,6 +113,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [i3 : raccourcis par défaut et configuration](fiches/linux/i3.md) — _brouillon_
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md) — _brouillon_
+- [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
@@ -142,15 +148,21 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 ### securite
 
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp-suite.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
+- [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
+- [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 
 ### shell
 
@@ -221,6 +233,11 @@ _Vide._
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 
+### gestion-de-projet
+
+- [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
+
 ### git
 
 - [Plusieurs jobs dans un seul workflow](fiches/ci/jobs.md)
@@ -248,6 +265,7 @@ _Vide._
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [i3 : raccourcis par défaut et configuration](fiches/linux/i3.md)
 - [lsof : trouver ce qui occupe un port, un volume ou un fichier](fiches/linux/lsof.md)
+- [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
@@ -268,15 +286,23 @@ _Vide._
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Git : nettoyer les branches et lire git branch -vv](fiches/git/branches.md)
 - [Git : cherry-pick, rejouer un commit précis](fiches/git/cherry-pick.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Git : revert, annuler un commit publié](fiches/git/revert.md)
+- [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
 - [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [Windows : élévation (UAC) et édition d'un fichier protégé](fiches/windows/elevation.md)
+
+### recueil-du-besoin
+
+- [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
 
 ### reseau
 
@@ -292,6 +318,7 @@ _Vide._
 - [SSH : clés, configuration et tunnels](fiches/reseau/ssh.md)
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
+- [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 
 ### ressource
@@ -324,15 +351,21 @@ _Vide._
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp-suite.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
+- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
+- [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
+- [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
@@ -343,6 +376,7 @@ _Vide._
 - [Git : voir l'historique et l'arbre des commits](fiches/git/historique.md)
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
+- [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
@@ -355,9 +389,13 @@ _Vide._
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
+- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
+- [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
+- [Nikto : scanner de serveur web](fiches/securite/nikto.md)
+- [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
@@ -391,6 +429,11 @@ _Vide._
 - [Codes de réponse HTTP](fiches/reseau/codes-http.md)
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
+- [Burp Suite Community : le proxy d'interception web](fiches/securite/burp-suite.md)
+- [gobuster : brute-force de chemins, DNS et vhosts](fiches/securite/gobuster.md)
+- [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
+- [Nikto : scanner de serveur web](fiches/securite/nikto.md)
+- [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 - [WordPress : custom post types et requêtes](fiches/wordpress/post-types-et-requetes.md)
 
 ### windows
@@ -411,10 +454,10 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 70 |
+| Fiches classées | 79 |
 | Fiches en inbox | 0 |
 | Brouillons | 13 |
-| Tags utilisés | 20 |
-| Tags déclarés | 21 |
+| Tags utilisés | 22 |
+| Tags déclarés | 23 |
 
 <!-- INDEX:END -->
