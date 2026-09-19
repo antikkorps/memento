@@ -62,3 +62,10 @@ Un tag utilisé mais absent d'ici **est** une erreur : la CI échoue.
 - `depannage` — symptôme observé et sa résolution
 - `ressource` — fiche qui pointe vers des lectures externes plutôt que de
   contenir la réponse
+
+## Gestion de projet
+
+- `gestion-de-projet` — conduite de projet SI : cadrage, parties prenantes,
+  planning, gouvernance, pilotage
+- `recueil-du-besoin` — collecte et analyse du besoin : ateliers, entretiens,
+  expression et priorisation des exigences
