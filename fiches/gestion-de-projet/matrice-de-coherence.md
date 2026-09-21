@@ -80,6 +80,7 @@ projet.
 
 ## Voir aussi
 
+- [La matrice de conformité croisée](matrice-conformite.md)
 - [RTM : tracer une exigence de l'origine au test](matrice-de-tracabilite.md)
 - [Normes IEEE : le plan type d'une spécification d'exigences](normes-ieee.md)
 - [La grille SMART : rendre un objectif vérifiable](objectifs-smart.md)

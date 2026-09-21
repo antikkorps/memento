@@ -100,11 +100,13 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### gestion-de-projet
 
+- [Norme AFNOR NF X50-151 : le cahier des charges fonctionnel](fiches/gestion-de-projet/afnor-nf-x50-151.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
 - [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
 - [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
 - [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
+- [La matrice de conformité croisée](fiches/gestion-de-projet/matrice-conformite.md)
 - [Matrice de cohérence : relier objectifs, besoins et solutions](fiches/gestion-de-projet/matrice-de-coherence.md)
 - [RTM : tracer une exigence de l'origine au test](fiches/gestion-de-projet/matrice-de-tracabilite.md)
 - [Matrice RACI : qui fait quoi sur chaque tâche](fiches/gestion-de-projet/matrice-raci.md)
@@ -195,6 +197,8 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
 - [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
+- [RGPD : privacy by design et AIPD](fiches/securite/rgpd-privacy-by-design.md)
+- [Security by design : principes de conception sécurisée](fiches/securite/security-by-design.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 
 ### shell
@@ -268,11 +272,13 @@ _Vide._
 
 ### gestion-de-projet
 
+- [Norme AFNOR NF X50-151 : le cahier des charges fonctionnel](fiches/gestion-de-projet/afnor-nf-x50-151.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
 - [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
 - [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
 - [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
+- [La matrice de conformité croisée](fiches/gestion-de-projet/matrice-conformite.md)
 - [Matrice de cohérence : relier objectifs, besoins et solutions](fiches/gestion-de-projet/matrice-de-coherence.md)
 - [RTM : tracer une exigence de l'origine au test](fiches/gestion-de-projet/matrice-de-tracabilite.md)
 - [Matrice RACI : qui fait quoi sur chaque tâche](fiches/gestion-de-projet/matrice-raci.md)
@@ -283,6 +289,8 @@ _Vide._
 - [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
 - [Spécification progressive : préciser au fil de l'eau](fiches/gestion-de-projet/specification-progressive.md)
 - [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
+- [RGPD : privacy by design et AIPD](fiches/securite/rgpd-privacy-by-design.md)
+- [Security by design : principes de conception sécurisée](fiches/securite/security-by-design.md)
 
 ### git
 
@@ -339,6 +347,7 @@ _Vide._
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
+- [La matrice de conformité croisée](fiches/gestion-de-projet/matrice-conformite.md)
 - [Git : nettoyer les branches et lire git branch -vv](fiches/git/branches.md)
 - [Git : cherry-pick, rejouer un commit précis](fiches/git/cherry-pick.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
@@ -354,6 +363,7 @@ _Vide._
 
 ### recueil-du-besoin
 
+- [Norme AFNOR NF X50-151 : le cahier des charges fonctionnel](fiches/gestion-de-projet/afnor-nf-x50-151.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
 - [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
@@ -442,6 +452,8 @@ _Vide._
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
 - [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
+- [RGPD : privacy by design et AIPD](fiches/securite/rgpd-privacy-by-design.md)
+- [Security by design : principes de conception sécurisée](fiches/securite/security-by-design.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
@@ -532,7 +544,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 95 |
+| Fiches classées | 99 |
 | Fiches en inbox | 0 |
 | Brouillons | 14 |
 | Tags utilisés | 25 |

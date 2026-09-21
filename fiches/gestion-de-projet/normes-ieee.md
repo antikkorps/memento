@@ -104,6 +104,7 @@ Deux verbes dans la même exigence, c'est deux exigences.
 
 ## Voir aussi
 
+- [Norme AFNOR NF X50-151 : le cahier des charges fonctionnel](afnor-nf-x50-151.md)
 - [RTM : tracer une exigence de l'origine au test](matrice-de-tracabilite.md)
 - [Matrice de cohérence : relier objectifs, besoins et solutions](matrice-de-coherence.md)
 - [Exigences implicites : ce que le client ne dit pas](exigences-implicites.md)

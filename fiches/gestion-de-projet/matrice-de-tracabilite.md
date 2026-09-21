@@ -103,6 +103,7 @@ fait foi.**
 
 ## Voir aussi
 
+- [La matrice de conformité croisée](matrice-conformite.md)
 - [Normes IEEE : le plan type d'une spécification d'exigences](normes-ieee.md)
 - [Matrice de cohérence : relier objectifs, besoins et solutions](matrice-de-coherence.md)
 - [MoSCoW : prioriser ce qui sera livré](moscow.md)
