@@ -34,7 +34,7 @@ le reformule et le fait valider. Qui inviter se lit sur la
 | Comprendre l'usage réel | **personas**, **user stories** (« en tant que… je veux… afin de… ») |
 | Ordonner le parcours | **story mapping** (les étapes de l'utilisateur en ligne) |
 | Prioriser | **MoSCoW** : *Must / Should / Could / Won't* |
-| Creuser une cause | **5 pourquoi**, diagramme d'Ishikawa (arêtes de poisson) |
+| Creuser une cause | [**5 pourquoi**](cinq-pourquoi.md), diagramme d'Ishikawa (arêtes de poisson) |
 | Faire réagir sur du concret | **maquette / prototype** (*wireframe*) |
 | Compléter hors atelier | entretiens individuels, observation terrain, questionnaire |
 
@@ -80,4 +80,5 @@ participants. Sans restitution, le besoin recueilli n'engage personne.
 - [Personas : incarner les utilisateurs cibles](personas.md)
 - [MoSCoW : prioriser ce qui sera livré](moscow.md)
 - [Exigences implicites : ce que le client ne dit pas](exigences-implicites.md)
+- [Les 5 pourquoi : remonter à la cause racine](cinq-pourquoi.md)
 - <https://www.volkerdon.com/pages/moscow-prioritisation>

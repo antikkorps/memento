@@ -103,6 +103,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Norme AFNOR NF X50-151 : le cahier des charges fonctionnel](fiches/gestion-de-projet/afnor-nf-x50-151.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
+- [Les 5 pourquoi : remonter à la cause racine](fiches/gestion-de-projet/cinq-pourquoi.md)
 - [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
 - [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
 - [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
@@ -275,6 +276,7 @@ _Vide._
 - [Norme AFNOR NF X50-151 : le cahier des charges fonctionnel](fiches/gestion-de-projet/afnor-nf-x50-151.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
 - [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
+- [Les 5 pourquoi : remonter à la cause racine](fiches/gestion-de-projet/cinq-pourquoi.md)
 - [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
 - [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
 - [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
@@ -346,6 +348,7 @@ _Vide._
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Les 5 pourquoi : remonter à la cause racine](fiches/gestion-de-projet/cinq-pourquoi.md)
 - [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
 - [La matrice de conformité croisée](fiches/gestion-de-projet/matrice-conformite.md)
 - [Git : nettoyer les branches et lire git branch -vv](fiches/git/branches.md)
@@ -365,6 +368,7 @@ _Vide._
 
 - [Norme AFNOR NF X50-151 : le cahier des charges fonctionnel](fiches/gestion-de-projet/afnor-nf-x50-151.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Les 5 pourquoi : remonter à la cause racine](fiches/gestion-de-projet/cinq-pourquoi.md)
 - [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
 - [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
 - [Matrice de cohérence : relier objectifs, besoins et solutions](fiches/gestion-de-projet/matrice-de-coherence.md)
@@ -544,7 +548,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 99 |
+| Fiches classées | 100 |
 | Fiches en inbox | 0 |
 | Brouillons | 14 |
 | Tags utilisés | 25 |
