@@ -2,7 +2,7 @@
 title: "User stories : exprimer le besoin côté utilisateur"
 tags: [gestion-de-projet, recueil-du-besoin]
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-09-21
 status: stable
 ---
 
@@ -83,4 +83,6 @@ n'a pas la forme d'une story et ne s'exprime pas côté utilisateur.
 - [Personas : incarner les utilisateurs cibles](personas.md)
 - [Animer un atelier de recueil du besoin](ateliers-recueil-besoin.md)
 - [Cartographier les parties prenantes d'un projet SI](parties-prenantes.md)
+- [MoSCoW : prioriser ce qui sera livré](moscow.md)
+- [RTM : tracer une exigence de l'origine au test](matrice-de-tracabilite.md)
 - <https://www.mountaingoatsoftware.com/agile/user-stories>

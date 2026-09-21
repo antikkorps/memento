@@ -2,7 +2,7 @@
 title: "Cartographier les parties prenantes d'un projet SI"
 tags: [gestion-de-projet, recueil-du-besoin]
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-09-21
 status: stable
 ---
 
@@ -99,4 +99,6 @@ Il se construit **du milieu vers les bords** : nommer le **processus** (3 à 7
 ## Voir aussi
 
 - [Animer un atelier de recueil du besoin](ateliers-recueil-besoin.md)
+- [Matrice RACI : qui fait quoi sur chaque tâche](matrice-raci.md)
+- [Journal des décisions : tracer les arbitrages](journal-des-decisions.md)
 - <https://www.mindtools.com/aol0rms/stakeholder-analysis>

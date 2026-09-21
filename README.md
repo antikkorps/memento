@@ -101,8 +101,19 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 ### gestion-de-projet
 
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
+- [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
+- [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
+- [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
+- [Matrice de cohérence : relier objectifs, besoins et solutions](fiches/gestion-de-projet/matrice-de-coherence.md)
+- [RTM : tracer une exigence de l'origine au test](fiches/gestion-de-projet/matrice-de-tracabilite.md)
+- [Matrice RACI : qui fait quoi sur chaque tâche](fiches/gestion-de-projet/matrice-raci.md)
+- [MoSCoW : prioriser ce qui sera livré](fiches/gestion-de-projet/moscow.md)
+- [Normes IEEE : le plan type d'une spécification d'exigences](fiches/gestion-de-projet/normes-ieee.md)
+- [La grille SMART : rendre un objectif vérifiable](fiches/gestion-de-projet/objectifs-smart.md)
 - [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
 - [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
+- [Spécification progressive : préciser au fil de l'eau](fiches/gestion-de-projet/specification-progressive.md)
 - [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
 
 ### git
@@ -258,8 +269,19 @@ _Vide._
 ### gestion-de-projet
 
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
+- [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
+- [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
+- [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
+- [Matrice de cohérence : relier objectifs, besoins et solutions](fiches/gestion-de-projet/matrice-de-coherence.md)
+- [RTM : tracer une exigence de l'origine au test](fiches/gestion-de-projet/matrice-de-tracabilite.md)
+- [Matrice RACI : qui fait quoi sur chaque tâche](fiches/gestion-de-projet/matrice-raci.md)
+- [MoSCoW : prioriser ce qui sera livré](fiches/gestion-de-projet/moscow.md)
+- [Normes IEEE : le plan type d'une spécification d'exigences](fiches/gestion-de-projet/normes-ieee.md)
+- [La grille SMART : rendre un objectif vérifiable](fiches/gestion-de-projet/objectifs-smart.md)
 - [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
 - [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
+- [Spécification progressive : préciser au fil de l'eau](fiches/gestion-de-projet/specification-progressive.md)
 - [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
 
 ### git
@@ -316,6 +338,7 @@ _Vide._
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Journal des décisions : tracer les arbitrages](fiches/gestion-de-projet/journal-des-decisions.md)
 - [Git : nettoyer les branches et lire git branch -vv](fiches/git/branches.md)
 - [Git : cherry-pick, rejouer un commit précis](fiches/git/cherry-pick.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
@@ -332,8 +355,16 @@ _Vide._
 ### recueil-du-besoin
 
 - [Animer un atelier de recueil du besoin](fiches/gestion-de-projet/ateliers-recueil-besoin.md)
+- [Scope creep et gold plating : les dérives de périmètre](fiches/gestion-de-projet/derives-de-perimetre.md)
+- [Exigences implicites : ce que le client ne dit pas](fiches/gestion-de-projet/exigences-implicites.md)
+- [Matrice de cohérence : relier objectifs, besoins et solutions](fiches/gestion-de-projet/matrice-de-coherence.md)
+- [RTM : tracer une exigence de l'origine au test](fiches/gestion-de-projet/matrice-de-tracabilite.md)
+- [MoSCoW : prioriser ce qui sera livré](fiches/gestion-de-projet/moscow.md)
+- [Normes IEEE : le plan type d'une spécification d'exigences](fiches/gestion-de-projet/normes-ieee.md)
+- [La grille SMART : rendre un objectif vérifiable](fiches/gestion-de-projet/objectifs-smart.md)
 - [Cartographier les parties prenantes d'un projet SI](fiches/gestion-de-projet/parties-prenantes.md)
 - [Personas : incarner les utilisateurs cibles](fiches/gestion-de-projet/personas.md)
+- [Spécification progressive : préciser au fil de l'eau](fiches/gestion-de-projet/specification-progressive.md)
 - [User stories : exprimer le besoin côté utilisateur](fiches/gestion-de-projet/user-stories.md)
 
 ### redaction
@@ -342,6 +373,9 @@ _Vide._
 
 ### reference
 
+- [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
+- [Matrice RACI : qui fait quoi sur chaque tâche](fiches/gestion-de-projet/matrice-raci.md)
+- [Normes IEEE : le plan type d'une spécification d'exigences](fiches/gestion-de-projet/normes-ieee.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 
@@ -498,7 +532,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 84 |
+| Fiches classées | 95 |
 | Fiches en inbox | 0 |
 | Brouillons | 14 |
 | Tags utilisés | 25 |

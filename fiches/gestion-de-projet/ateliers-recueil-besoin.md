@@ -2,7 +2,7 @@
 title: "Animer un atelier de recueil du besoin"
 tags: [gestion-de-projet, recueil-du-besoin, procedure]
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-09-21
 status: stable
 ---
 
@@ -78,4 +78,6 @@ participants. Sans restitution, le besoin recueilli n'engage personne.
 - [Cartographier les parties prenantes d'un projet SI](parties-prenantes.md)
 - [User stories : exprimer le besoin côté utilisateur](user-stories.md)
 - [Personas : incarner les utilisateurs cibles](personas.md)
+- [MoSCoW : prioriser ce qui sera livré](moscow.md)
+- [Exigences implicites : ce que le client ne dit pas](exigences-implicites.md)
 - <https://www.volkerdon.com/pages/moscow-prioritisation>
