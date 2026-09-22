@@ -186,7 +186,9 @@ Les paires déjà posées, à réutiliser telles quelles plutôt que d'en invent
 des variantes : joker / *wildcard*, corbeille / *recycle bin*, pare-feu /
 *firewall*, lien symbolique / *symlink*, droits / *permissions*, sous-réseau /
 *subnet*, tâche planifiée / *scheduled task*, chaîne littérale / *literal*,
-fichier ouvert / *buffer*, copier / *yank*, lister / *list*.
+fichier ouvert / *buffer*, copier / *yank*, lister / *list*, valeur nulle /
+*null*, jointure / *join*, vue / *view*, procédure stockée /
+*stored procedure*.
 
 Le test se vérifie surtout **après coup** : quand une recherche échoue alors que
 la fiche contenait la réponse, c'est presque toujours un terme anglais manquant.
@@ -195,6 +197,35 @@ qui a marché — sinon la recherche suivante échouera pareil.
 
 Le test, au moment d'écrire : **quel mot taperais-je à 8 h du matin en cherchant
 cette fiche ?** S'il y a deux réponses, les deux doivent être dans le fichier.
+
+`m find` ignore la casse **mais pas les accents** : on cherche sans accent
+(`m find procedure stockee`). Ce qui rend une fiche trouvable ainsi, c'est que
+**les commentaires de code sont sans accent** et servent d'ancre. Un terme-clé
+qui n'apparaît qu'en prose accentuée (« procédure stockée », « matérialisée »)
+est donc invisible : lui donner une occurrence non accentuée dans un commentaire
+de code. Le test se fait, lui aussi, **sans accent**.
+
+## Longueur : libre, tant que le réflexe reste en tête
+
+Une fiche n'a pas à être courte — elle doit être **rapide à exploiter**. Ce sont
+deux choses différentes. Le `En bref` / `L'essentiel` répond au cas courant dans
+le premier écran ; en dessous, la profondeur peut s'accumuler sans limite. Le
+lecteur pressé s'arrête en haut, le lecteur qui creuse fait défiler.
+
+Deux conditions pour qu'une fiche longue reste exploitable :
+
+- **le réflexe en tête** — la réponse à 8 h du matin est dans le `En bref`, pas
+  page trois ;
+- **des titres de section qui nomment l'intention** (« Trier », « Filtrer par
+  date »), pas des intitulés vagues : c'est ce qui rend le corps navigable et ce
+  sur quoi `fzf` affine après `m find`.
+
+Le coût réel d'une fiche exhaustive n'est pas sa longueur, c'est la
+**maintenance** (plus de contenu à revérifier) et l'**effet aimant** (elle
+ressort dans les recherches de ses voisines). D'où : être exhaustif sur les
+quelques sujets qu'on possède à fond, pas sur tous. Quand une fiche déborde au
+point de noyer son réflexe malgré ces règles, sortir le fond dans une fiche
+compagnon taguée `reference` et pointer dessus depuis l'antisèche.
 
 ## Blocs de code : chaque ligne doit être collable
 
