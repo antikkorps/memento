@@ -84,10 +84,15 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### base-de-donnees
 
+- [SQL : jointures (JOIN, LEFT, anti-jointure)](fiches/base-de-donnees/jointures.md) — _brouillon_
 - [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md)
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [SQL : procédures stockées et fonctions](fiches/base-de-donnees/procedures-stockees.md) — _brouillon_
+- [SQL : upsert (insérer ou mettre à jour)](fiches/base-de-donnees/upsert.md) — _brouillon_
+- [SQL : valeurs nulles (COALESCE, IFNULL, NULLIF)](fiches/base-de-donnees/valeurs-nulles.md) — _brouillon_
+- [SQL : vues (VIEW, vue matérialisée)](fiches/base-de-donnees/vues.md) — _brouillon_
 
 ### ci
 
@@ -177,6 +182,9 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### rust
 
+- [Rust : cargo et gestion des dépendances](fiches/rust/cargo-et-dependances.md)
+- [Rust : gestion des erreurs (Result, Option, ?)](fiches/rust/gestion-des-erreurs.md)
+- [Rust : match et enums (filtrage par motif)](fiches/rust/match-et-enums.md)
 - [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md) — _brouillon_
 
 ### securite
@@ -235,10 +243,15 @@ _Vide._
 
 ### base-de-donnees
 
+- [SQL : jointures (JOIN, LEFT, anti-jointure)](fiches/base-de-donnees/jointures.md)
 - [MySQL : dumps et imports](fiches/base-de-donnees/mysql-dumps.md)
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : dumps et restaurations](fiches/base-de-donnees/postgres-dumps.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
+- [SQL : procédures stockées et fonctions](fiches/base-de-donnees/procedures-stockees.md)
+- [SQL : upsert (insérer ou mettre à jour)](fiches/base-de-donnees/upsert.md)
+- [SQL : valeurs nulles (COALESCE, IFNULL, NULLIF)](fiches/base-de-donnees/valeurs-nulles.md)
+- [SQL : vues (VIEW, vue matérialisée)](fiches/base-de-donnees/vues.md)
 
 ### bureau
 
@@ -418,6 +431,9 @@ _Vide._
 
 ### rust
 
+- [Rust : cargo et gestion des dépendances](fiches/rust/cargo-et-dependances.md)
+- [Rust : gestion des erreurs (Result, Option, ?)](fiches/rust/gestion-des-erreurs.md)
+- [Rust : match et enums (filtrage par motif)](fiches/rust/match-et-enums.md)
 - [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md)
 
 ### sauvegarde
@@ -548,9 +564,9 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 100 |
+| Fiches classées | 108 |
 | Fiches en inbox | 0 |
-| Brouillons | 14 |
+| Brouillons | 19 |
 | Tags utilisés | 25 |
 | Tags déclarés | 26 |
 

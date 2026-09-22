@@ -2,7 +2,7 @@
 title: "awk : colonnes, filtres et calculs"
 tags: [terminal, texte]
 created: 2026-09-02
-updated: 2026-09-03
+updated: 2026-09-22
 status: stable
 ---
 
@@ -37,6 +37,7 @@ awk -F: '{print $1}' /etc/passwd          # choisir le separateur d'entree
 awk -F'\t' -v OFS=, '{print $1,$2}' f     # TSV vers CSV
 awk '{printf "%-20s %6.2f\n", $1, $2}' f  # mise en forme en colonnes
 awk '{print NF}' f                        # nombre de champs par ligne
+awk -F';' '{print substr($2,1,3)}' f      # colonne 2, ses 3 premiers caracteres
 ```
 
 La virgule dans `print $1, $3` insère `OFS` ; sans elle, les champs sont collés.
