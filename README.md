@@ -165,8 +165,10 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### nvim
 
+- [Neovim : annuler, couper, coller, déplacer](fiches/nvim/annuler-couper-deplacer.md)
 - [Neovim : ouvrir, recharger, circuler entre les fichiers](fiches/nvim/fichiers-et-tampons.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
+- [Neovim : naviguer, renommer et lire les erreurs avec le LSP](fiches/nvim/lsp.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 
 ### reseau
@@ -184,6 +186,8 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 ### rust
 
 - [Rust : cargo et gestion des dépendances](fiches/rust/cargo-et-dependances.md)
+- [Rust : str, &str et String](fiches/rust/chaines.md)
+- [Rust : conditions et valeurs absentes (Option)](fiches/rust/conditions-et-valeurs-absentes.md)
 - [Rust : gestion des erreurs (Result, Option, ?)](fiches/rust/gestion-des-erreurs.md)
 - [Rust : match et enums (filtrage par motif)](fiches/rust/match-et-enums.md)
 - [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md) — _brouillon_
@@ -276,14 +280,17 @@ _Vide._
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
+- [Rust : str, &str et String](fiches/rust/chaines.md)
 - [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md)
 - [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [Windows : lister et arrêter un processus](fiches/windows/processus.md)
 
 ### editeur
 
+- [Neovim : annuler, couper, coller, déplacer](fiches/nvim/annuler-couper-deplacer.md)
 - [Neovim : ouvrir, recharger, circuler entre les fichiers](fiches/nvim/fichiers-et-tampons.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
+- [Neovim : naviguer, renommer et lire les erreurs avec le LSP](fiches/nvim/lsp.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 
 ### gestion-de-projet
@@ -433,7 +440,10 @@ _Vide._
 
 ### rust
 
+- [Neovim : naviguer, renommer et lire les erreurs avec le LSP](fiches/nvim/lsp.md)
 - [Rust : cargo et gestion des dépendances](fiches/rust/cargo-et-dependances.md)
+- [Rust : str, &str et String](fiches/rust/chaines.md)
+- [Rust : conditions et valeurs absentes (Option)](fiches/rust/conditions-et-valeurs-absentes.md)
 - [Rust : gestion des erreurs (Result, Option, ?)](fiches/rust/gestion-des-erreurs.md)
 - [Rust : match et enums (filtrage par motif)](fiches/rust/match-et-enums.md)
 - [Rust : propriété (*ownership*) et emprunts (*borrowing*)](fiches/rust/ownership-et-emprunts.md)
@@ -493,6 +503,7 @@ _Vide._
 - [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
+- [Neovim : annuler, couper, coller, déplacer](fiches/nvim/annuler-couper-deplacer.md)
 - [Neovim : ouvrir, recharger, circuler entre les fichiers](fiches/nvim/fichiers-et-tampons.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
@@ -567,7 +578,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 109 |
+| Fiches classées | 113 |
 | Fiches en inbox | 0 |
 | Brouillons | 19 |
 | Tags utilisés | 25 |
