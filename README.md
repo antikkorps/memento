@@ -165,6 +165,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### nvim
 
+- [Neovim : ouvrir, recharger, circuler entre les fichiers](fiches/nvim/fichiers-et-tampons.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 
@@ -281,6 +282,7 @@ _Vide._
 
 ### editeur
 
+- [Neovim : ouvrir, recharger, circuler entre les fichiers](fiches/nvim/fichiers-et-tampons.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 
@@ -491,6 +493,7 @@ _Vide._
 - [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
 - [Linux : utilisateurs, groupes et mots de passe](fiches/linux/utilisateurs.md)
 - [WSL : ouvrir un fichier, franchir la frontière Windows](fiches/linux/wsl.md)
+- [Neovim : ouvrir, recharger, circuler entre les fichiers](fiches/nvim/fichiers-et-tampons.md)
 - [Neovim : copier une commande vers le presse-papiers](fiches/nvim/presse-papiers.md)
 - [DNS : résolution et enregistrements](fiches/reseau/dns.md)
 - [nmap : scan de ports et découverte réseau](fiches/reseau/nmap.md)
@@ -564,7 +567,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 108 |
+| Fiches classées | 109 |
 | Fiches en inbox | 0 |
 | Brouillons | 19 |
 | Tags utilisés | 25 |
