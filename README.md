@@ -151,6 +151,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
+- [qtile : raccourcis, configuration Python et pièges AZERTY](fiches/linux/qtile.md) — _brouillon_
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md) — _brouillon_
 - [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
@@ -261,6 +262,7 @@ _Vide._
 ### bureau
 
 - [i3 : raccourcis par défaut et configuration](fiches/linux/i3.md)
+- [qtile : raccourcis, configuration Python et pièges AZERTY](fiches/linux/qtile.md)
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md)
 - [i3 : l'écran gris de i3lock, et sortir d'un verrouillage](fiches/linux/verrouillage-ecran.md)
 
@@ -346,6 +348,7 @@ _Vide._
 - [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Linux : lister, inspecter et tuer un processus](fiches/linux/processus.md)
+- [qtile : raccourcis, configuration Python et pièges AZERTY](fiches/linux/qtile.md)
 - [Ressources sur le shell et la ligne de commande](fiches/linux/ressources.md)
 - [rofi : lanceur, sélecteur de fenêtres et menus](fiches/linux/rofi.md)
 - [systemctl : éteindre, redémarrer, piloter les services](fiches/linux/systemctl.md)
@@ -578,9 +581,9 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 113 |
+| Fiches classées | 114 |
 | Fiches en inbox | 0 |
-| Brouillons | 19 |
+| Brouillons | 20 |
 | Tags utilisés | 25 |
 | Tags déclarés | 26 |
 
