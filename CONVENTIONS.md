@@ -271,6 +271,30 @@ Les valeurs à utiliser, toutes réservées ou manifestement fictives :
 | une adresse publique | `203.0.113.x` (RFC 5737, plage de documentation) |
 | une adresse privée | `192.168.1.x`, `10.0.0.x` |
 
+### Ou un paramètre à remplir : `<IP>`
+
+Quand une commande n'a de sens qu'avec **la** valeur du moment (l'adresse de la
+cible, le disque branché, le dump analysé), on écrit un paramètre plutôt
+qu'une valeur d'exemple :
+
+```sh
+nmap -sV <IP>                                   # le parametre est remplace avant execution
+sudo dd if=<ISO> of=/dev/<DISQUE> bs=4M status=progress conv=fsync
+```
+
+Format strict, parce qu'un utilitaire (sélection `fzf`, puis saisie des
+valeurs) les repère dans les lignes : **`<` + MAJUSCULES ASCII, chiffres ou `_`
++ `>`** — motif `<[A-Z][A-Z0-9_]*>`. Sans accent (`<NUMERO_FLUX>`, pas
+`<NUMÉRO>`), même nom pour la même chose d'une fiche à l'autre : `<IP>`,
+`<PORT>`, `<PID>`, `<FICHIER>`, `<DOSSIER>`, `<SORTIE>`, `<MOTIF>`.
+
+Le même paramètre répété dans une ligne prend la même valeur. Une ligne qui en
+contient reste collable une fois remplie — c'est le but : pas de `\` de
+continuation, une commande par ligne.
+
+`Vec<T>` ou `<script>` ne matchent pas le motif (minuscules) : pas de
+conflit avec la syntaxe des langages.
+
 L'exception est la documentation d'installation de ce dépôt : l'URL du remote
 dans « Remotes » est faite pour être copiée telle quelle, donc elle porte les
 vraies valeurs. La règle vise les fiches, pas ces conventions.
