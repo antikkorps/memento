@@ -143,6 +143,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 
 ### linux
 
+- [Créer une clé USB bootable en ligne de commande](fiches/linux/cle-bootable.md) — _brouillon_
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
@@ -210,12 +211,15 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
+- [MITRE ATT&CK : tactiques et techniques des attaquants](fiches/securite/mitre-attack.md) — _brouillon_
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
+- [oletools et oledump : analyser un document Office suspect](fiches/securite/oletools.md) — _brouillon_
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
 - [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [RGPD : privacy by design et AIPD](fiches/securite/rgpd-privacy-by-design.md)
 - [Security by design : principes de conception sécurisée](fiches/securite/security-by-design.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
+- [Volatility 3 : analyser un dump mémoire](fiches/securite/volatility.md) — _brouillon_
 
 ### shell
 
@@ -341,6 +345,7 @@ _Vide._
 
 ### linux
 
+- [Créer une clé USB bootable en ligne de commande](fiches/linux/cle-bootable.md)
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [fail2ban : bannir les tentatives répétées](fiches/linux/fail2ban.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
@@ -381,6 +386,7 @@ _Vide._
 - [Git : cherry-pick, rejouer un commit précis](fiches/git/cherry-pick.md)
 - [Remotes git et miroirs](fiches/git/remotes.md)
 - [Git : revert, annuler un commit publié](fiches/git/revert.md)
+- [Créer une clé USB bootable en ligne de commande](fiches/linux/cle-bootable.md)
 - [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
 - [Lister les paquets installés manuellement](fiches/linux/paquets-installes.md)
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
@@ -419,6 +425,9 @@ _Vide._
 - [IDS / IPS : détection et prévention d'intrusion](fiches/securite/ids.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
+- [MITRE ATT&CK : tactiques et techniques des attaquants](fiches/securite/mitre-attack.md)
+- [oletools et oledump : analyser un document Office suspect](fiches/securite/oletools.md)
+- [Volatility 3 : analyser un dump mémoire](fiches/securite/volatility.md)
 
 ### reseau
 
@@ -488,12 +497,15 @@ _Vide._
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
+- [MITRE ATT&CK : tactiques et techniques des attaquants](fiches/securite/mitre-attack.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
+- [oletools et oledump : analyser un document Office suspect](fiches/securite/oletools.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
 - [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [RGPD : privacy by design et AIPD](fiches/securite/rgpd-privacy-by-design.md)
 - [Security by design : principes de conception sécurisée](fiches/securite/security-by-design.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
+- [Volatility 3 : analyser un dump mémoire](fiches/securite/volatility.md)
 - [Windows : droits NTFS et icacls](fiches/windows/droits.md)
 - [Windows : reconnaissance système en ligne de commande](fiches/windows/reconnaissance.md)
 
@@ -502,6 +514,7 @@ _Vide._
 - [MySQL / MariaDB : commandes courantes](fiches/base-de-donnees/mysql.md)
 - [PostgreSQL : commandes courantes](fiches/base-de-donnees/postgres.md)
 - [Git : voir l'historique et l'arbre des commits](fiches/git/historique.md)
+- [Créer une clé USB bootable en ligne de commande](fiches/linux/cle-bootable.md)
 - [Linux : droits, propriétaire et umask](fiches/linux/droits.md)
 - [Linux : créer, copier, renommer, supprimer](fiches/linux/fichiers.md)
 - [Lire man et --help : trouver une option vite](fiches/linux/man-et-aide.md)
@@ -526,7 +539,9 @@ _Vide._
 - [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
+- [oletools et oledump : analyser un document Office suspect](fiches/securite/oletools.md)
 - [sqlmap : automatiser l'injection SQL](fiches/securite/sqlmap.md)
+- [Volatility 3 : analyser un dump mémoire](fiches/securite/volatility.md)
 - [awk : colonnes, filtres et calculs](fiches/shell/awk.md)
 - [grep : chercher dans les fichiers](fiches/shell/grep.md)
 - [sed ou awk : lequel choisir](fiches/shell/sed-ou-awk.md)
@@ -585,9 +600,9 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 115 |
+| Fiches classées | 119 |
 | Fiches en inbox | 0 |
-| Brouillons | 21 |
+| Brouillons | 25 |
 | Tags utilisés | 25 |
 | Tags déclarés | 26 |
 
