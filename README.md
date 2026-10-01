@@ -203,6 +203,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
+- [IDS / IPS : détection et prévention d'intrusion](fiches/securite/ids.md) — _brouillon_
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
@@ -415,6 +416,7 @@ _Vide._
 - [Chaos Report : pourquoi les projets SI échouent](fiches/gestion-de-projet/chaos-report.md)
 - [Matrice RACI : qui fait quoi sur chaque tâche](fiches/gestion-de-projet/matrice-raci.md)
 - [Normes IEEE : le plan type d'une spécification d'exigences](fiches/gestion-de-projet/normes-ieee.md)
+- [IDS / IPS : détection et prévention d'intrusion](fiches/securite/ids.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [Maliciels, attaques et vocabulaire des menaces](fiches/securite/menaces.md)
 
@@ -433,6 +435,7 @@ _Vide._
 - [TCP et UDP : quand et pourquoi](fiches/reseau/tcp-udp.md)
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
+- [IDS / IPS : détection et prévention d'intrusion](fiches/securite/ids.md)
 - [Metasploit : le framework d'exploitation](fiches/securite/metasploit.md)
 
 ### ressource
@@ -478,6 +481,7 @@ _Vide._
 - [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
+- [IDS / IPS : détection et prévention d'intrusion](fiches/securite/ids.md)
 - [John the Ripper : casser des hachages hors ligne](fiches/securite/john-the-ripper.md)
 - [Lexique de l'évaluation de sécurité](fiches/securite/lexique.md)
 - [linpeas : énumération de privesc Linux](fiches/securite/linpeas.md)
@@ -581,9 +585,9 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 114 |
+| Fiches classées | 115 |
 | Fiches en inbox | 0 |
-| Brouillons | 20 |
+| Brouillons | 21 |
 | Tags utilisés | 25 |
 | Tags déclarés | 26 |
 
