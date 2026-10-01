@@ -2,7 +2,7 @@
 title: "Linux : créer, copier, renommer, supprimer"
 tags: [linux, terminal]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-10-01
 status: stable
 ---
 
@@ -11,7 +11,8 @@ status: stable
 Les commandes de base sur les fichiers et les dossiers. Le pendant Unix de
 [Windows : créer, copier, renommer, supprimer](../windows/fichiers.md) — avec la
 même règle d'or : **pas de corbeille, la suppression est définitive**, et le
-filet de sécurité s'appelle `-n` / `--dry-run`.
+filet de sécurité s'appelle `-n` / `--dry-run`. Pour passer par la corbeille
+du bureau, c'est `trash-put` au lieu de `rm` (voir [Corbeille](#corbeille-trash)).
 
 ## Créer
 
@@ -84,6 +85,42 @@ truncate -s 0 fichier.log     # idem, plus explicite
 l'habitude de marteler `y`, ce qui annule l'intérêt — alors que `-I` ne demande
 qu'une fois, et seulement quand c'est massif ou récursif.
 
+## Corbeille (*trash*)
+
+`rm` ne connaît pas la corbeille. Celle du bureau appartient au gestionnaire de
+fichiers (Thunar, Nautilus…), **pas** au gestionnaire de fenêtres : qtile ou i3
+n'ont rien pour la vider. Elle suit la norme freedesktop et vit dans
+`~/.local/share/Trash` (et `.Trash-1000/` à la racine des disques externes).
+
+Paquet `trash-cli`, qui partage la même corbeille que le gestionnaire de
+fichiers :
+
+```sh
+trash-put <FICHIER>           # mettre a la corbeille au lieu de rm
+trash-list                    # lister, avec date de suppression et chemin d'origine
+trash-restore                 # restaurer : liste numerotee des fichiers supprimes SOUS le dossier courant
+trash-restore /               # idem, pour toute la corbeille
+trash-rm '*.log'              # supprimer definitivement de la corbeille ce qui correspond au motif
+trash-empty --dry-run         # simuler : ce qui serait supprime
+trash-empty                   # vider la corbeille
+trash-empty 30                # vider seulement ce qui a plus de 30 jours
+trash-empty -f                # vider sans demander confirmation (script, raccourci)
+```
+
+Sans `trash-cli`, `gio` (livré avec GLib, souvent déjà là) fait l'essentiel :
+
+```sh
+gio trash <FICHIER>           # mettre a la corbeille
+gio list trash://             # lister
+gio trash --empty             # vider la corbeille
+```
+
+Raccourci qtile, dans `~/.config/qtile/config.py` :
+
+```python
+Key([mod, "shift"], "Delete", lazy.spawn("trash-empty -f")),  # vider la corbeille
+```
+
 ## Liens
 
 ```sh
@@ -98,7 +135,14 @@ rm lien                       # supprime le LIEN, jamais la cible
 
 - **Il n'y a pas de corbeille** (*recycle bin*)**.** `rm` ne demande rien et ne garde rien. Le
   réflexe qui sauve : lancer d'abord la même sélection avec `ls` ou `find` sans
-  `-delete`, et n'ajouter la suppression qu'une fois la liste vérifiée.
+  `-delete`, et n'ajouter la suppression qu'une fois la liste vérifiée. Ou
+  `trash-put` à la place de `rm` quand on veut pouvoir revenir en arrière.
+- **`trash-restore` ne propose que ce qui venait du dossier courant.** Lancé
+  depuis `~/Documents`, il ne voit pas un fichier supprimé dans `~/Images` :
+  « No files trashed from current dir ». Lui passer le chemin d'origine, ou `/`.
+- **Ne pas faire `alias rm=trash-put`.** Les options diffèrent, et l'habitude
+  prise suit sur un serveur où l'alias n'existe pas : là, `rm` supprime pour de
+  bon. Taper `trash-put` explicitement.
 - **La variable vide qui efface tout.** `rm -rf "$DIR"/*` avec `DIR` non défini
   devient `rm -rf /*`. GNU `rm` protège `/` lui-même, pas `/*`. Dans un script,
   écrire `rm -rf "${DIR:?DIR non defini}"/*` : le `:?` fait échouer la commande
