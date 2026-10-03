@@ -17,8 +17,8 @@ perd le plus de temps le jour de l'examen.
 Deux moitiés : **attaquer** (sections 1 à 4, l'ordre d'un pentest) et
 **analyser** (sections 5 à 9 : reverse, forensique, réseau, fichiers — le côté
 défense et analyse de maliciel). Le réflexe côté analyse : `file` + `strings`
-d'abord, Ghidra pour lire un binaire, x64dbg pour le voir tourner, Volatility
-pour un dump mémoire, Wireshark pour une capture.
+d'abord, Ghidra pour lire un binaire, Procmon puis x64dbg pour le voir
+tourner, Volatility pour un dump mémoire, Wireshark pour une capture.
 
 Recherche : grep le mot métier (`m find ssh`, `m find "mot de passe"`,
 `m find hash`) puis affine avec **`secu`** dans fzf — toutes les fiches
@@ -121,6 +121,7 @@ Deux postures à ne pas confondre :
 | --- | --- | --- |
 | Savoir ce qu'est un fichier (ELF, PE, script, archive) | **`file`** | se fier à l'extension |
 | Repérer URL, IP, chemins, messages en clair | **`strings`** (`strings -el` pour l'UTF-16 Windows) | ouvrir un désassembleur pour ça |
+| Retrouver les chaînes **obscurcies** : encodées, construites sur la pile (*stack strings*) | **FLOSS** (Mandiant, FLARE) | `strings`, qui ne voit que le texte en clair |
 | Savoir si un `.exe` est compressé (*packer*) et avec quel compilateur | **Detect It Easy** (DiE) | **PEiD** (abandonné, base de signatures figée) |
 | Lire la structure d'un PE : en-têtes, imports, sections, ressources | **CFF Explorer** | un désassembleur, qui noie la structure dans le code |
 
@@ -148,13 +149,17 @@ r2 -A ./binaire          # puis afl (fonctions), pdf @ main (desassembler main)
 retdec-decompiler ./binaire    # produit binaire.c
 ```
 
-## 7. Voir le binaire tourner — débogueurs
+## 7. Voir le binaire tourner — moniteurs et débogueurs
 
-Un débogueur (*debugger*) exécute pas à pas, pose des points d'arrêt
-(*breakpoints*) et montre registres et mémoire : c'est l'analyse dynamique.
+Deux niveaux d'analyse dynamique : **observer de l'extérieur** ce que le
+programme touche (fichiers, registre, processus), ou **entrer dedans** avec un
+débogueur (*debugger*), qui exécute pas à pas, pose des points d'arrêt
+(*breakpoints*) et montre registres et mémoire. On observe d'abord, on débogue
+ensuite ce qui intrigue.
 
 | Je veux… | Outil | Plutôt que |
 | --- | --- | --- |
+| Voir en temps réel les fichiers, clés de registre et processus touchés (Windows) | **Procmon** (Process Monitor, Sysinternals) | un débogueur, trop bas niveau pour avoir la vue d'ensemble |
 | Déboguer un exécutable **Windows** 32 ou 64 bits | **x64dbg** (x32dbg pour le 32 bits) | **OllyDbg** (32 bits seulement, plus maintenu) |
 | Déboguer sous **Linux** | **gdb** (+ GEF ou pwndbg) | — |
 | Déboguer depuis un framework qui désassemble aussi | **radare2** (`r2 -d`) | changer d'outil à chaque étape |
@@ -242,6 +247,12 @@ se ressemblent — c'est ici qu'on hésite.
 - **Ghidra vs radare2 vs Binary Ninja** — Ghidra par défaut (gratuit,
   décompileur solide). radare2 si on vit dans le terminal ou qu'on scripte en
   shell. Binary Ninja si on paie et qu'on veut automatiser en Python.
+- **strings vs FLOSS** — `strings` d'abord, c'est instantané. Peu de chaînes
+  utiles sur un maliciel ? Elles sont sans doute obscurcies (*obfuscated*) :
+  FLOSS les reconstruit en émulant le code de décodage.
+- **Procmon vs x64dbg** — Procmon dit *ce que* fait le programme (il crée tel
+  fichier, écrit telle clé de persistance) ; x64dbg montre *comment*, instruction
+  par instruction. Procmon d'abord, filtré sur le nom du processus.
 - **désassembleur vs débogueur** — Ghidra *lit* le code sans l'exécuter
   (statique) ; x64dbg l'*exécute* pas à pas (dynamique). On lit d'abord pour
   savoir où poser les points d'arrêt.
