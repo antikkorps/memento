@@ -2,7 +2,7 @@
 title: "Quel outil pour quel objectif"
 tags: [securite, procedure]
 created: 2026-09-14
-updated: 2026-09-19
+updated: 2026-10-03
 status: stable
 ---
 
@@ -13,6 +13,12 @@ valides »), jamais d'un nom d'outil. Cette fiche traduit *je veux faire ça →
 l'outil*, dans l'ordre où se déroule un engagement. La colonne **« plutôt que »**
 dit pourquoi celui-là et pas le voisin qui fait presque pareil : c'est là qu'on
 perd le plus de temps le jour de l'examen.
+
+Deux moitiés : **attaquer** (sections 1 à 4, l'ordre d'un pentest) et
+**analyser** (sections 5 à 9 : reverse, forensique, réseau, fichiers — le côté
+défense et analyse de maliciel). Le réflexe côté analyse : `file` + `strings`
+d'abord, Ghidra pour lire un binaire, x64dbg pour le voir tourner, Volatility
+pour un dump mémoire, Wireshark pour une capture.
 
 Recherche : grep le mot métier (`m find ssh`, `m find "mot de passe"`,
 `m find hash`) puis affine avec **`secu`** dans fzf — toutes les fiches
@@ -93,6 +99,118 @@ Le partage se fait sur **en ligne vs hors ligne**, et c'est le piège classique.
 | Extraire les hashs de comptes une fois admin | `hashdump` (meterpreter), **mimikatz** | — |
 | Reconnaître le terrain sur une cible Windows | commandes natives | uploader un outil (voir [reconnaissance Windows](../windows/reconnaissance.md)) |
 
+## Côté analyse : comprendre ce qui s'est passé
+
+Ici on ne part plus d'une cible à attaquer mais d'un **artefact** à comprendre :
+un binaire suspect, un dump mémoire, une capture réseau, un fichier corrompu.
+La question n'est plus « quelle phase ? » mais **« qu'est-ce que j'ai entre les
+mains ? »** — le type d'artefact désigne la famille d'outils.
+
+Deux postures à ne pas confondre :
+
+- **analyse statique** (*static analysis*) : on lit sans exécuter —
+  désassembleur, décompileur, éditeur hexa. Sans risque, mais le code obscurci
+  (*obfuscated*) ou compressé (*packed*) résiste.
+- **analyse dynamique** (*dynamic analysis*) : on exécute, sous contrôle —
+  débogueur, bac à sable (*sandbox*), capture réseau. On voit le vrai
+  comportement, mais **uniquement dans une VM isolée**, snapshot pris avant.
+
+## 5. Identifier un binaire avant de l'ouvrir — triage
+
+| Je veux… | Outil | Plutôt que |
+| --- | --- | --- |
+| Savoir ce qu'est un fichier (ELF, PE, script, archive) | **`file`** | se fier à l'extension |
+| Repérer URL, IP, chemins, messages en clair | **`strings`** (`strings -el` pour l'UTF-16 Windows) | ouvrir un désassembleur pour ça |
+| Savoir si un `.exe` est compressé (*packer*) et avec quel compilateur | **Detect It Easy** (DiE) | **PEiD** (abandonné, base de signatures figée) |
+| Lire la structure d'un PE : en-têtes, imports, sections, ressources | **CFF Explorer** | un désassembleur, qui noie la structure dans le code |
+
+Un binaire *packé* (UPX…) montre peu d'imports et peu de chaînes : le
+désassembler tel quel ne montre que le décompresseur. Le dépacker d'abord
+(`upx -d`), ou passer en dynamique.
+
+## 6. Lire le code d'un binaire — désassembleurs et décompileurs
+
+Désassembleur (*disassembler*) : binaire → assembleur. Décompileur
+(*decompiler*) : binaire → pseudo-C, bien plus lisible, jamais exact.
+
+| Je veux… | Outil | Plutôt que |
+| --- | --- | --- |
+| Le point de départ gratuit, toutes plateformes, avec décompileur | **Ghidra** (NSA, libre) | IDA (référence historique, mais payant) |
+| Un framework en ligne de commande, scriptable, sous Linux | **radare2** (`r2`), GUI **Cutter** | Ghidra si on veut rester dans le terminal |
+| Une API Python propre et une représentation intermédiaire (IL) lisible | **Binary Ninja** (payant, version *free* limitée) | Ghidra, plus lourd à scripter |
+| Désassembler/décompiler sur **macOS**, binaires Mach-O | **Hopper Disassembler** (payant, macOS et Linux) | Ghidra, moins à l'aise sur l'écosystème Apple |
+| Décompiler en ligne de commande, en lot, sans interface | **RetDec** (libre, Avast) | ouvrir Ghidra pour chaque fichier |
+
+```sh
+# reverse : ouvrir un binaire en analyse complete avec radare2
+r2 -A ./binaire          # puis afl (fonctions), pdf @ main (desassembler main)
+# decompileur en ligne de commande
+retdec-decompiler ./binaire    # produit binaire.c
+```
+
+## 7. Voir le binaire tourner — débogueurs
+
+Un débogueur (*debugger*) exécute pas à pas, pose des points d'arrêt
+(*breakpoints*) et montre registres et mémoire : c'est l'analyse dynamique.
+
+| Je veux… | Outil | Plutôt que |
+| --- | --- | --- |
+| Déboguer un exécutable **Windows** 32 ou 64 bits | **x64dbg** (x32dbg pour le 32 bits) | **OllyDbg** (32 bits seulement, plus maintenu) |
+| Déboguer sous **Linux** | **gdb** (+ GEF ou pwndbg) | — |
+| Déboguer depuis un framework qui désassemble aussi | **radare2** (`r2 -d`) | changer d'outil à chaque étape |
+
+OllyDbg reste cité dans les cours et les vieux tutos : ce qu'il montre se fait
+à l'identique dans x64dbg, qui a repris son interface.
+
+## 8. Forensique — figer et fouiller une machine
+
+Forensique (*forensics*, *DFIR*) : **acquérir** d'abord une copie fidèle, puis
+**analyser la copie**, jamais l'original. Ce sont deux outils différents.
+
+| Je veux… | Outil | Plutôt que |
+| --- | --- | --- |
+| Copier un disque bit à bit (E01, dd) avec hash de vérification | **FTK Imager** (Windows, gratuit) | `dd` sans hash, sans traçabilité |
+| Capturer la RAM d'une machine allumée | **FTK Imager**, DumpIt, **LiME** (Linux) | éteindre la machine : la RAM est perdue |
+| Analyser un dump mémoire : processus, connexions, injections | **Volatility 3** | **Rekall** (fork Google, abandonné) |
+| Fouiller une image disque : fichiers supprimés, chronologie | **Autopsy** (sur The Sleuth Kit) | monter l'image et parcourir à la main |
+
+FTK Imager **acquiert** (et permet un coup d'œil), il n'analyse pas. Volatility
+ne lit que la mémoire, Autopsy que le disque : une enquête complète enchaîne
+les trois.
+
+## 9. Analyser le réseau et les fichiers bruts
+
+### a. Le réseau
+
+Les mêmes outils qu'en section 1, mais pour **comprendre** un trafic plutôt que
+trouver une cible.
+
+| Je veux… | Outil | Plutôt que |
+| --- | --- | --- |
+| Disséquer une capture (`.pcap`), suivre un flux, extraire des fichiers | **Wireshark** (`tshark` en CLI) | tcpdump, qui capture bien mais lit mal |
+| Capturer sur un serveur sans interface graphique | **tcpdump** | Wireshark, à installer côté serveur |
+| Savoir quels ports/services une machine expose | **nmap** | Wireshark, qui écoute mais ne sonde pas |
+| Parler brut à un port, tester une connexion, transférer un fichier | **netcat** (`nc`) | telnet, moins souple |
+
+### b. Les fichiers — éditeurs hexadécimaux
+
+Éditeur hexa (*hex editor*) : voir et modifier les octets d'un fichier —
+signatures (*magic bytes*), en-têtes corrompus, données cachées.
+
+| Je veux… | Outil | Plutôt que |
+| --- | --- | --- |
+| Lire les octets vite fait, en terminal | **`xxd`** / **`hexdump -C`** | ouvrir une GUI pour 20 octets |
+| Un éditeur hexa graphique sous **Linux** | **ImHex** | — |
+| Éditeur hexa sous **Windows**, gratuit, ouvre aussi disques et RAM | **HxD** | Notepad++ et son plugin hexa |
+| Éditeur hexa sous **macOS**, très gros fichiers | **Hex Fiend** | — |
+| Décoder un maliciel dans l'éditeur (XOR, base64, scripts Python) | **FileInsight** (Trellix, Windows) | CyberChef en aller-retour copier-coller |
+
+```sh
+# hexa : lire les premiers octets (signature / magic bytes)
+xxd fichier | head
+hexdump -C fichier | head
+```
+
 ## Outil vs outil : les vrais dilemmes
 
 Le classement par phase ci-dessus tranche 90 % des cas. Restent les paires qui
@@ -121,6 +239,19 @@ se ressemblent — c'est ici qu'on hésite.
   installer côté cible. meterpreter quand tu veux rester : commandes riches,
   hashdump, pivot, tout en mémoire.
 
+- **Ghidra vs radare2 vs Binary Ninja** — Ghidra par défaut (gratuit,
+  décompileur solide). radare2 si on vit dans le terminal ou qu'on scripte en
+  shell. Binary Ninja si on paie et qu'on veut automatiser en Python.
+- **désassembleur vs débogueur** — Ghidra *lit* le code sans l'exécuter
+  (statique) ; x64dbg l'*exécute* pas à pas (dynamique). On lit d'abord pour
+  savoir où poser les points d'arrêt.
+- **PEiD/DiE vs CFF Explorer** — DiE dit *ce que c'est* (packer, compilateur) ;
+  CFF Explorer montre *comment c'est fait* (en-têtes, imports, sections).
+- **FTK Imager vs Volatility** — FTK Imager *acquiert* (copie disque, capture
+  RAM) ; Volatility *analyse* la capture mémoire. Acquérir puis analyser.
+- **Wireshark vs tcpdump vs nmap** — tcpdump capture, Wireshark comprend ce qui
+  a été capturé, nmap ne capture rien : il interroge.
+
 ## Pièges
 
 - **Partir de l'outil, pas de l'objectif.** « je lance metasploit » n'est pas un
@@ -138,6 +269,10 @@ se ressemblent — c'est ici qu'on hésite.
   rockyou, c'est pour le hors ligne.
 - **Un outil qui « ne trouve rien » a souvent la mauvaise cible ou le mauvais
   wordlist**, pas un service invulnérable. Vérifier la commande avant de conclure.
+- **Exécuter un échantillon hors VM.** L'analyse dynamique se fait dans une VM
+  isolée du réseau, snapshot pris avant — jamais sur la machine de travail.
+- **Analyser l'original.** En forensique on travaille sur une copie dont le hash
+  correspond à l'original ; toucher la source détruit la preuve.
 - **Cadre légal.** Tout ce qui précède ne se pointe que sur une cible autorisée
   (labo, THM, engagement signé).
 
@@ -152,6 +287,9 @@ se ressemblent — c'est ici qu'on hésite.
 - [gobuster : découverte de contenu web](gobuster.md)
 - [Burp Suite Community : le proxy d'interception web](burp.md)
 - [linpeas : énumération de privesc Linux](linpeas.md)
+- [Volatility 3 : analyser un dump mémoire](volatility.md)
+- [oletools et oledump : analyser un document Office suspect](oletools.md)
+- [tcpdump : capturer et lire le trafic réseau](../reseau/tcpdump.md)
 - [Les attaques web courantes](attaques-web.md)
 - [Maliciels, attaques et vocabulaire des menaces](menaces.md)
 - [Lexique de l'évaluation de sécurité](lexique.md)
