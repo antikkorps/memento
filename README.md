@@ -200,6 +200,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Burp Suite Community : le proxy d'interception web](fiches/securite/burp.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
+- [curl et httpie : pentest web et API](fiches/securite/curl-httpie.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
@@ -486,6 +487,7 @@ _Vide._
 - [Burp Suite Community : le proxy d'interception web](fiches/securite/burp.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
+- [curl et httpie : pentest web et API](fiches/securite/curl-httpie.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
@@ -532,6 +534,7 @@ _Vide._
 - [tcpdump : capturer et lire le trafic réseau](fiches/reseau/tcpdump.md)
 - [Chiffrement, hachage et signature](fiches/securite/chiffrement.md)
 - [Cryptographie : les algorithmes et leurs calculs](fiches/securite/cryptographie-calculs.md)
+- [curl et httpie : pentest web et API](fiches/securite/curl-httpie.md)
 - [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [hashcat : casser des hachages sur GPU](fiches/securite/hashcat.md)
 - [Hydra : brute-force d'authentification en ligne](fiches/securite/hydra.md)
@@ -576,6 +579,7 @@ _Vide._
 - [HTTPS et TLS : ce qui se passe avant la page](fiches/reseau/https.md)
 - [Les attaques web courantes](fiches/securite/attaques-web.md)
 - [Burp Suite Community : le proxy d'interception web](fiches/securite/burp.md)
+- [curl et httpie : pentest web et API](fiches/securite/curl-httpie.md)
 - [gobuster : découverte de contenu web](fiches/securite/gobuster.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
@@ -600,7 +604,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 119 |
+| Fiches classées | 120 |
 | Fiches en inbox | 0 |
 | Brouillons | 25 |
 | Tags utilisés | 25 |
