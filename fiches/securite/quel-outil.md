@@ -2,7 +2,7 @@
 title: "Quel outil pour quel objectif"
 tags: [securite, procedure]
 created: 2026-09-14
-updated: 2026-10-03
+updated: 2026-10-09
 status: stable
 ---
 
@@ -289,6 +289,7 @@ se ressemblent — c'est ici qu'on hésite.
 
 ## Voir aussi
 
+- [Par où commencer une room : les premières minutes](par-ou-commencer.md)
 - [Méthodologie : de la reconnaissance au shell (web)](methodologie-pentest-web.md)
 - [nmap : scan de ports et découverte réseau](../reseau/nmap.md)
 - [Metasploit : le framework d'exploitation](metasploit.md)

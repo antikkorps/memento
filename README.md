@@ -216,6 +216,7 @@ Tout ce qui suit est généré par `scripts/index.js` : ne pas l'éditer à la m
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [oletools et oledump : analyser un document Office suspect](fiches/securite/oletools.md) — _brouillon_
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [Par où commencer une room : les premières minutes](fiches/securite/par-ou-commencer.md)
 - [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [RGPD : privacy by design et AIPD](fiches/securite/rgpd-privacy-by-design.md)
 - [Security by design : principes de conception sécurisée](fiches/securite/security-by-design.md)
@@ -393,6 +394,7 @@ _Vide._
 - [Neovim : installer une config kickstart sur une machine neuve](fiches/nvim/installation.md)
 - [Générer des secrets, clés et mots de passe](fiches/securite/generer-des-secrets.md)
 - [Méthodologie : de la reconnaissance au shell (web)](fiches/securite/methodologie-pentest-web.md)
+- [Par où commencer une room : les premières minutes](fiches/securite/par-ou-commencer.md)
 - [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [zsh et oh-my-zsh : collage multi-lignes, config partagée avec bash](fiches/shell/zsh-oh-my-zsh.md)
 - [Windows : élévation (UAC) et édition d'un fichier protégé](fiches/windows/elevation.md)
@@ -503,6 +505,7 @@ _Vide._
 - [Nikto : scanner de serveur web](fiches/securite/nikto.md)
 - [oletools et oledump : analyser un document Office suspect](fiches/securite/oletools.md)
 - [Outils crypto en ligne : identifier, décoder, casser](fiches/securite/outils-crypto.md)
+- [Par où commencer une room : les premières minutes](fiches/securite/par-ou-commencer.md)
 - [Quel outil pour quel objectif](fiches/securite/quel-outil.md)
 - [RGPD : privacy by design et AIPD](fiches/securite/rgpd-privacy-by-design.md)
 - [Security by design : principes de conception sécurisée](fiches/securite/security-by-design.md)
@@ -604,7 +607,7 @@ _Vide._
 
 | | |
 | --- | --: |
-| Fiches classées | 120 |
+| Fiches classées | 121 |
 | Fiches en inbox | 0 |
 | Brouillons | 25 |
 | Tags utilisés | 25 |
